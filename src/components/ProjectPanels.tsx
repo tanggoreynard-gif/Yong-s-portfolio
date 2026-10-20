@@ -336,7 +336,7 @@ export function LuminaPanel() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>Lumina Dental Studio</h2>
             <a
-              href="/samples/lumina-dental.html"
+              href="/lumina-dental"
               target="_blank"
               rel="noopener noreferrer"
               className="home__cta home__cta--primary"
@@ -386,7 +386,7 @@ const FITCO_PROOFS: ProofItem[] = [
     title: 'FitCo Athletics — High-Performance Fitness Coaching Funnel',
     badge: 'Live Website & Funnel',
     src: '/samples/thumbs/fitco-coaching.jpeg',
-    href: '/samples/fitco-coaching.html',
+    href: '/fitco-coaching',
     alt: 'FitCo High-Performance Coaching live website',
     desc: 'High-converting personal training and fitness athletics funnel featuring coach credentials, transformation gallery, program tiers, FAQ, and automated consultation booking flow.',
     tags: ['Fitness Funnel', 'High-Ticket Coaching', 'Lead Capture Form', 'Mobile Responsive'],
@@ -408,7 +408,7 @@ export function FitCoPanel() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>FitCo High-Performance Coaching</h2>
             <a
-              href="/samples/fitco-coaching.html"
+              href="/fitco-coaching"
               target="_blank"
               rel="noopener noreferrer"
               className="home__cta home__cta--primary"
@@ -458,7 +458,7 @@ const HAVEN_PROOFS: ProofItem[] = [
     title: 'Serene Haven — Senior Living & Assisted Care Community',
     badge: 'Live Website & Funnel',
     src: '/samples/thumbs/haven-senior-care.jpeg',
-    href: '/samples/haven-senior-care.html',
+    href: '/haven-senior-care',
     alt: 'Serene Haven Senior Care live website',
     desc: 'Compassionate senior living and assisted living community website featuring care level breakdowns, family testimonials, memory care details, and a tour scheduling booking flow.',
     tags: ['Senior Living', 'Healthcare Website', 'Tour Booking', 'Family Roadmap'],
@@ -480,7 +480,7 @@ export function HavenPanel() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>Serene Haven Senior Living</h2>
             <a
-              href="/samples/haven-senior-care.html"
+              href="/haven-senior-care"
               target="_blank"
               rel="noopener noreferrer"
               className="home__cta home__cta--primary"
@@ -552,7 +552,7 @@ export function MeridianPanel() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>Meridian Executive Staffing</h2>
             <a
-              href="/samples/meridian-staffing.html"
+              href="/meridian-staffing"
               target="_blank"
               rel="noopener noreferrer"
               className="home__cta home__cta--primary"

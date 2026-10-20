@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumina Dental Studio — Luxury Private Dentistry in Austin, TX</title>
+<meta name="description" content="Lumina Dental Studio offers bespoke dental care with Dr. Olivia Bennett, DDS, FAGD in Austin, Texas. Cosmetic dentistry, Invisalign, implants, and gentle general care — all in an unhurried, private sanctuary.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── Reset & tokens ────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;
+  --cream-dark:#EDE8DC;
+  --off-white:#FAFAF7;
+  --charcoal:#1C1C1A;
+  --charcoal-light:#2E2E2B;
+  --dark:#141412;
+  --gold:#B8955A;
+  --gold-light:#C9A96E;
+  --sage:#C5CFC0;
+  --sage-bg:#D8E2D6;
+  --muted:#6B6860;
+  --muted-light:#9B9890;
+  --border:#E0DAD0;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --nav-h:68px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--off-white);color:var(--charcoal);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none}
+
+/* ─── Utilities ─────────────────────────────────────────────────────── */
+.container{max-width:1160px;margin:0 auto;padding:0 40px}
+.tag-label{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.serif-italic{font-family:var(--serif);font-style:italic;color:var(--gold)}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--charcoal-light);line-height:1.5}
+.check-list li::before{content:'✓';color:var(--gold);font-weight:700;font-size:13px;margin-top:2px;flex-shrink:0}
+
+/* ─── Buttons ───────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:15px 28px;border-radius:3px;transition:all .25s ease;cursor:pointer}
+.btn-dark{background:var(--charcoal);color:#fff}
+.btn-dark:hover{background:var(--charcoal-light);transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--charcoal);border:1.5px solid var(--charcoal)}
+.btn-outline:hover{background:var(--charcoal);color:#fff}
+.btn-outline-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-outline-light:hover{background:rgba(255,255,255,.1)}
+
+/* ─── Top Portfolio Navigation Bar ─────────────────────────────────────────── */
+.portfolio-banner{
+  position:sticky;top:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 24px;
+  background:#141412;color:#fff;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  font-size:12.5px;
+}
+.portfolio-banner a.back-link{
+  display:inline-flex;align-items:center;gap:7px;
+  color:var(--gold-light);font-weight:700;
+  padding:5px 14px;border-radius:9999px;
+  background:rgba(184,149,90,0.12);
+  border:1px solid rgba(184,149,90,0.35);
+  transition:all .2s ease;
+}
+.portfolio-banner a.back-link:hover{
+  background:var(--gold);color:#fff;
+  transform:translateY(-1px);
+}
+.portfolio-badge{
+  color:#a3a19b;font-size:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.portfolio-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold);display:inline-block;
+  box-shadow:0 0 8px var(--gold);
+}
+
+/* ─── NAV ───────────────────────────────────────────────────────────── */
+nav{position:sticky;top:43px;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(250,250,247,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:100%}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.04em;color:var(--charcoal)}
+.nav-logo svg{width:20px;height:20px;color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--charcoal)}
+.nav-cta{margin-left:24px}
+
+/* ─── HERO ──────────────────────────────────────────────────────────── */
+#hero{padding-top:0;min-height:calc(90vh - 43px);background:var(--cream);position:relative;overflow:hidden}
+.hero-content{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(90vh - 43px - var(--nav-h));align-items:center}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:70px 50px 70px 0;padding-left:max(40px,calc((100vw - 1160px)/2 + 40px));z-index:2}
+.hero-eyebrow{margin-bottom:20px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.hero-h1{font-family:var(--serif);font-size:clamp(42px,4.8vw,68px);font-weight:700;line-height:1.08;letter-spacing:-.01em;color:var(--charcoal);margin-bottom:24px}
+.hero-underline{text-decoration:underline;text-decoration-color:rgba(184,149,90,0.55);text-underline-offset:6px;text-decoration-thickness:2px}
+.hero-lede{font-size:16px;color:var(--muted);line-height:1.7;max-width:46ch;margin-bottom:34px}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.hero-micro{font-size:12.5px;color:var(--muted-light);letter-spacing:.04em}
+.hero-image-wrap{position:relative;height:100%;min-height:540px;overflow:hidden}
+.hero-image-wrap img{width:100%;height:100%;object-fit:cover;object-position:center right;display:block}
+.hero-image-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--cream) 0%,rgba(245,240,232,0.85) 12%,rgba(245,240,232,0) 35%);pointer-events:none}
+
+/* ─── STATS ─────────────────────────────────────────────────────────── */
+#stats{background:var(--cream);padding:80px 0}
+.stats-header{text-align:center;margin-bottom:56px}
+.stats-eyebrow{margin-bottom:16px}
+.stats-h2{font-family:var(--serif);font-size:clamp(36px,4vw,54px);font-weight:600;line-height:1.1}
+.stats-h2 .serif-italic{font-size:inherit}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border:1px solid var(--border)}
+.stat-card{background:var(--off-white);padding:48px 32px;text-align:center}
+.stat-num{font-family:var(--serif);font-size:clamp(40px,4vw,60px);font-weight:700;color:var(--charcoal);line-height:1}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+
+/* ─── COMPASSIONATE ─────────────────────────────────────────────────── */
+#compassionate{background:var(--sage-bg);padding:100px 0}
+.compassionate-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.compassionate-text{order:1}
+.compassionate-eyebrow{margin-bottom:18px;color:#4F5E56;letter-spacing:.2em}
+.compassionate-h2{font-family:var(--serif);font-size:clamp(38px,3.8vw,56px);font-weight:700;line-height:1.06;margin-bottom:24px;color:var(--charcoal);letter-spacing:-.01em}
+.compassionate-h2 .serif-italic{color:var(--gold);display:block;font-style:italic;font-weight:600}
+.compassionate-body{font-size:15px;color:var(--charcoal-light);line-height:1.68;margin-bottom:24px}
+.compassionate-checklist{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.compassionate-checklist li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--charcoal-light);line-height:1.55}
+.compassionate-checklist .chk-icon{color:var(--gold);font-weight:700;font-size:15px;line-height:1.4;flex-shrink:0}
+.compassionate-closing{font-size:14px;color:#4A564F;line-height:1.68}
+.compassionate-img{border-radius:14px;overflow:hidden;order:2;box-shadow:0 24px 50px -12px rgba(25,38,30,.18),0 6px 18px rgba(25,38,30,.06)}
+.compassionate-img img{width:100%;height:auto;display:block}
+
+/* ─── CTA BAND ──────────────────────────────────────────────────────── */
+#cta-band{background:var(--dark);padding:100px 40px}
+.cta-band-inner{max-width:680px;margin:0 auto;text-align:center;border:1px solid rgba(184,149,90,.35);border-radius:4px;padding:72px 64px}
+.cta-eyebrow{color:var(--muted-light);margin-bottom:24px}
+.cta-h2{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:20px}
+.cta-h2 .serif-italic{color:var(--gold)}
+.cta-body{font-size:16px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:40px}
+.cta-micro{margin-top:20px;font-size:13px;font-style:italic;color:rgba(255,255,255,.4)}
+
+/* ─── SERVICES ──────────────────────────────────────────────────────── */
+#services{background:var(--off-white);padding:100px 0}
+.services-header{text-align:center;margin-bottom:64px}
+.services-eyebrow{margin-bottom:20px}
+.services-h2{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:600;line-height:1.1;margin-bottom:20px}
+.services-h2 .serif-italic{font-size:inherit}
+.services-sub{font-size:16px;color:var(--muted);max-width:56ch;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--border);margin-bottom:3px}
+.services-grid-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--border)}
+.service-card{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--charcoal)}
+.service-card.large{aspect-ratio:unset}
+.service-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;filter:brightness(.75)}
+.service-card:hover img{transform:scale(1.04)}
+.service-card-content{position:absolute;bottom:0;left:0;right:0;padding:28px;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 100%)}
+.service-cat{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.service-name{font-family:var(--serif);font-size:24px;font-weight:600;color:#fff;margin-bottom:6px}
+.service-desc{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5}
+.services-cta{text-align:center;margin-top:48px}
+
+/* ─── LUMINA DIFFERENCE ─────────────────────────────────────────────── */
+#difference{background:var(--cream);padding:100px 0}
+.difference-header{text-align:center;margin-bottom:80px}
+.difference-eyebrow{margin-bottom:20px}
+.difference-h2{font-family:var(--serif);font-size:clamp(36px,4vw,54px);font-weight:600;line-height:1.1;margin-bottom:16px}
+.difference-sub{font-size:16px;color:var(--muted);max-width:60ch;margin:0 auto}
+.difference-item{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:80px}
+.difference-item:nth-child(even) .difference-item-img{order:-1}
+.difference-item-text{}
+.difference-item-num{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.difference-item-cat{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.difference-item-h3{font-family:var(--serif);font-size:clamp(26px,2.5vw,36px);font-weight:600;line-height:1.2;color:var(--charcoal);margin-bottom:16px}
+.difference-item-body{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:24px}
+.difference-callout{background:var(--cream-dark);border-left:3px solid var(--gold);padding:16px 20px;border-radius:0 4px 4px 0}
+.difference-callout-name{font-size:12px;font-weight:600;color:var(--charcoal);margin-bottom:4px}
+.difference-callout-body{font-size:13px;color:var(--muted);line-height:1.6}
+.difference-item-img{border-radius:4px;overflow:hidden;aspect-ratio:4/3}
+.difference-item-img img{width:100%;height:100%;object-fit:cover}
+
+/* ─── JOURNEY ───────────────────────────────────────────────────────── */
+#journey{background:var(--off-white);padding:100px 0}
+.journey-header{text-align:center;margin-bottom:64px}
+.journey-eyebrow{margin-bottom:20px}
+.journey-h2{font-family:var(--serif);font-size:clamp(36px,4vw,54px);font-weight:600;line-height:1.1;margin-bottom:16px}
+.journey-sub{font-size:16px;color:var(--muted);max-width:56ch;margin:0 auto}
+.journey-steps{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:0;position:relative}
+.journey-steps::before{content:'';position:absolute;left:36px;top:24px;bottom:24px;width:1px;background:repeating-linear-gradient(to bottom,var(--border) 0,var(--border) 6px,transparent 6px,transparent 12px)}
+.journey-step{display:grid;grid-template-columns:72px 1fr;align-items:start;gap:0;position:relative}
+.journey-step-num{width:72px;display:flex;align-items:center;justify-content:center;padding-top:28px;flex-shrink:0}
+.step-circle{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);background:var(--off-white);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:13px;font-weight:600;color:var(--muted);position:relative;z-index:1}
+.journey-step-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:24px 28px;margin:16px 0;display:grid;grid-template-columns:1fr auto;align-items:start;gap:16px}
+.journey-step-h3{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--charcoal);margin-bottom:6px}
+.journey-step-body{font-size:14px;color:var(--muted);line-height:1.6}
+.journey-step-tag{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-light);background:var(--cream);padding:4px 10px;border-radius:20px;white-space:nowrap}
+
+/* ─── DOCTOR ────────────────────────────────────────────────────────── */
+#doctor{background:#EBF0EA;padding:100px 0}
+.doctor-header{text-align:center;margin-bottom:56px}
+.doctor-eyebrow{margin-bottom:18px}
+.doctor-h2{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-weight:600;line-height:1.15;color:var(--charcoal)}
+.doctor-h2 .serif-italic{font-style:italic;color:var(--gold);font-weight:500}
+.doctor-inner{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:stretch;max-width:1080px;margin:0 auto}
+.doctor-photo{border-radius:8px;overflow:hidden;box-shadow:0 18px 40px -12px rgba(20,20,18,.12)}
+.doctor-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.doctor-bio{background:#fff;border-radius:8px;padding:44px 46px;box-shadow:0 18px 40px -12px rgba(20,20,18,.06);display:flex;flex-direction:column;justify-content:center}
+.doctor-role{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.doctor-quote{font-family:var(--serif);font-size:clamp(19px,1.7vw,23px);font-style:italic;line-height:1.55;color:var(--charcoal);margin-bottom:22px;font-weight:500}
+.doctor-body{font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.doctor-creds{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.doctor-creds li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--charcoal-light);line-height:1.5}
+.doctor-creds li::before{content:'✓';color:var(--gold);flex-shrink:0;font-weight:700}
+.doctor-sig{font-size:12px;color:var(--muted);margin-bottom:4px}
+.doctor-sig-name{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--charcoal);margin-bottom:24px}
+.doctor-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--charcoal);color:#fff;font-family:var(--sans);font-size:13.5px;font-weight:600;padding:13px 26px;border-radius:6px;transition:all .25s ease;cursor:pointer;width:fit-content}
+.doctor-btn:hover{background:var(--charcoal-light);transform:translateY(-1px)}
+
+/* ─── TESTIMONIALS ──────────────────────────────────────────────────── */
+#testimonials{background:var(--off-white);padding:100px 0}
+.test-header{text-align:center;margin-bottom:64px}
+.test-eyebrow{margin-bottom:20px}
+.test-h2{font-family:var(--serif);font-size:clamp(36px,4vw,54px);font-weight:600;line-height:1.1;margin-bottom:16px}
+.test-h2 .serif-italic{font-size:inherit}
+.test-sub{font-size:16px;color:var(--muted);max-width:56ch;margin:0 auto}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.test-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:36px 28px;display:flex;flex-direction:column}
+.test-stars{display:flex;gap:4px;margin-bottom:24px}
+.test-stars span{color:var(--gold);font-size:15px}
+.test-quote{font-family:var(--serif);font-size:17px;font-style:italic;line-height:1.65;color:var(--charcoal);flex:1;margin-bottom:28px}
+.test-meta{display:flex;align-items:center;gap:14px}
+.test-avatar{width:44px;height:44px;border-radius:50%;background:var(--cream-dark);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:16px;font-weight:600;color:var(--gold)}
+.test-name{font-weight:600;font-size:14px;color:var(--charcoal);margin-bottom:2px}
+.test-service{font-size:12px;color:var(--muted)}
+
+/* ─── FAQ ───────────────────────────────────────────────────────────── */
+#faq{background:var(--cream);padding:100px 0}
+.faq-inner{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:start}
+.faq-left{}
+.faq-eyebrow{margin-bottom:20px}
+.faq-h2{font-family:var(--serif);font-size:clamp(36px,3.5vw,52px);font-weight:600;line-height:1.1;margin-bottom:40px}
+.faq-h2 .serif-italic{font-size:inherit}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;font-family:var(--sans);font-size:15px;font-weight:500;color:var(--charcoal);text-align:left;transition:color .2s;background:none;border:none;cursor:pointer}
+.faq-q:hover{color:var(--gold)}
+.faq-icon{width:22px;height:22px;border:1.5px solid var(--border);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:14px;color:var(--muted)}
+.faq-item.open .faq-icon{background:var(--gold);border-color:var(--gold);color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-a-inner{padding:0 0 20px;font-size:15px;color:var(--muted);line-height:1.75}
+.faq-item.open .faq-a{max-height:200px}
+.faq-aside{width:280px;flex-shrink:0}
+.faq-aside-card{background:#fff;border:1px solid var(--border);border-radius:4px;padding:36px;text-align:center}
+.faq-aside-icon{width:52px;height:52px;border-radius:50%;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:22px}
+.faq-aside-h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--charcoal);margin-bottom:14px}
+.faq-aside-body{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:28px}
+
+/* ─── STUDIO / LOCATION ─────────────────────────────────────────────── */
+#studio{background:var(--cream);padding:100px 0}
+.studio-inner{display:grid;grid-template-columns:1.05fr 0.95fr;gap:70px;align-items:center}
+.studio-text{}
+.studio-eyebrow{margin-bottom:18px}
+.studio-h2{font-family:var(--serif);font-size:clamp(38px,3.8vw,54px);font-weight:600;line-height:1.15;margin-bottom:24px;color:var(--charcoal)}
+.studio-h2 .serif-italic{display:block;font-style:italic;color:var(--gold);font-weight:500;margin-top:2px}
+.studio-body{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:34px;max-width:48ch}
+.studio-details{display:flex;flex-direction:column;gap:20px;margin-bottom:36px}
+.detail-group-label{font-size:15px;font-weight:700;color:var(--charcoal);margin-bottom:6px;letter-spacing:normal;text-transform:none}
+.detail-group-body{font-size:14.5px;color:var(--muted);line-height:1.6}
+.detail-group-body a{color:inherit;transition:color .2s}
+.detail-group-body a:hover{color:var(--gold)}
+.studio-btn{display:inline-flex;align-items:center;gap:10px;background:var(--charcoal);color:#fff;font-family:var(--sans);font-size:14px;font-weight:600;padding:14px 26px;border-radius:6px;transition:all .25s ease;cursor:pointer}
+.studio-btn:hover{background:var(--charcoal-light);transform:translateY(-1px)}
+.studio-micro{margin-top:14px;font-size:12px;color:var(--muted-light);letter-spacing:.02em}
+.studio-img{border-radius:14px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 24px 50px -12px rgba(20,20,18,.16),0 6px 18px rgba(20,20,18,.06)}
+.studio-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ─── FOOTER ────────────────────────────────────────────────────────── */
+footer{background:var(--dark);padding:72px 0 32px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:40px;margin-bottom:64px}
+.footer-brand{}
+.footer-logo{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#fff;margin-bottom:16px}
+.footer-logo svg{width:18px;height:18px;color:var(--gold)}
+.footer-tagline{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--gold);margin-bottom:12px}
+.footer-brand-body{font-size:13px;color:rgba(255,255,255,.45);line-height:1.7}
+.footer-col-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.footer-col-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-col-links li a{font-size:14px;color:rgba(255,255,255,.6);transition:color .2s}
+.footer-col-links li a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;align-items:center;justify-content:space-between}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-social{display:flex;gap:12px}
+.social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:13px;transition:all .2s}
+.social-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ─── BOOKING MODAL ─────────────────────────────────────────────────── */
+.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(20,20,18,.7);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:#fff;border-radius:6px;padding:56px;max-width:520px;width:90%;position:relative;transform:translateY(20px);transition:transform .3s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted);cursor:pointer;border:none;transition:background .2s}
+.modal-close:hover{background:var(--cream-dark)}
+.modal-eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.modal-h2{font-family:var(--serif);font-size:32px;font-weight:700;color:var(--charcoal);margin-bottom:8px}
+.modal-sub{font-size:14px;color:var(--muted);margin-bottom:32px}
+.form-grid{display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:12px;font-weight:600;color:var(--charcoal);letter-spacing:.04em}
+.form-field input,.form-field select,.form-field textarea{width:100%;border:1.5px solid var(--border);border-radius:3px;padding:12px 14px;font-family:var(--sans);font-size:14px;color:var(--charcoal);background:#fff;outline:none;transition:border-color .2s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--gold)}
+.form-field textarea{resize:vertical;min-height:80px}
+.form-submit{margin-top:8px}
+.form-micro{margin-top:12px;font-size:12px;color:var(--muted-light);text-align:center;font-style:italic}
+
+/* ─── Scroll-reveal ─────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────────── */
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-text{padding:80px 40px}
+  .hero-image-wrap{min-height:480px}
+  .hero-image-wrap::after{background:linear-gradient(to bottom,var(--cream) 0%,transparent 20%)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .compassionate-inner,.doctor-inner,.studio-inner,.difference-item{grid-template-columns:1fr;gap:40px}
+  .compassionate-img{order:unset}
+  .difference-item:nth-child(even) .difference-item-img{order:unset}
+  .test-grid{grid-template-columns:1fr 1fr}
+  .faq-inner{grid-template-columns:1fr}
+  .faq-aside{width:100%}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .container{padding:0 24px}
+  .services-grid{grid-template-columns:1fr}
+  .services-grid-bottom{grid-template-columns:1fr}
+  .test-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .cta-band-inner{padding:48px 28px}
+  .modal{padding:36px 28px}
+  .hero-text{padding:56px 24px}
+  .portfolio-banner{justify-content:center;padding:8px 14px}
+  .portfolio-badge{display:none}
+  .portfolio-banner a.back-link{font-size:11.5px;padding:4px 12px;white-space:nowrap}
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP PORTFOLIO BANNER ─────────────────────────────────────────── -->
+<aside class="portfolio-banner">
+  <a href="/" class="back-link">
+    ← Return to Reynard's Portfolio
+  </a>
+  <div class="portfolio-badge">
+    <span class="portfolio-dot"></span>
+    Live Website Demo • Lumina Dental Studio
+  </div>
+</aside>
+
+<!-- ── NAV ─────────────────────────────────────────────────────────── -->
+<nav id="main-nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#hero">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C8.5 2 6 4.5 6 8c0 2 .5 3.5 1 5l1 3c.5 1.5 1.5 4 2.5 4h3c1 0 2-2.5 2.5-4l1-3c.5-1.5 1-3 1-5 0-3.5-2.5-6-6-6z"/>
+      </svg>
+      Lumina Dental Studio
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#journey">Patient Journey</a>
+      <a href="#doctor">Dr. Bennett</a>
+      <a href="#studio">Concierge</a>
+    </div>
+    <button class="btn btn-dark nav-cta" onclick="openModal()">Book Visit</button>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-text reveal">
+      <div class="hero-eyebrow tag-label">Lumina Dental Studio</div>
+      <h1 class="hero-h1">A Healthier Smile Starts With <span class="hero-underline">Exceptional</span> Care.</h1>
+      <p class="hero-lede">Experience a harmonious blend of refined hospitality and advanced clinical excellence. We craft bespoke treatment journeys designed for enduring oral health and absolute peace of mind.</p>
+      <div class="hero-actions">
+        <button class="btn btn-dark" onclick="openModal()">Book Your Visit</button>
+        <a class="btn btn-outline" href="#services">Explore Services</a>
+      </div>
+      <p class="hero-micro">Modern dentistry. Personalized care. · Unhurried consultations</p>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="/samples/lumina/hero-dentist-patient.jpg" alt="Dr. Bennett reviewing dental treatment with a smiling patient at Lumina Dental Studio" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ── PROVEN EXCELLENCE ────────────────────────────────────────────── -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-header reveal">
+      <p class="tag-label stats-eyebrow">Quantifiable Standards</p>
+      <h2 class="stats-h2">Proven <span class="serif-italic">Excellence</span></h2>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat-card">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5,000+</div>
+        <div class="stat-label">Patients Served</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4.9/5</div>
+        <div class="stat-label">Patient Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Personalized Care</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPASSIONATE ────────────────────────────────────────────────── -->
+<section id="compassionate">
+  <div class="container">
+    <div class="compassionate-inner">
+      <div class="compassionate-text reveal">
+        <p class="tag-label compassionate-eyebrow">A Compassionate Approach</p>
+        <h2 class="compassionate-h2">You Deserve to Feel <span class="serif-italic">Confident</span></h2>
+        <p class="compassionate-body">Nervous about visiting the dentist? You are not alone. Whether it has been six months or sixteen years since your last appointment, our doors are open with zero lectures, zero rush, and absolute empathy for your personal story.</p>
+        <ul class="compassionate-checklist">
+          <li>
+            <span class="chk-icon">✓</span>
+            <span>Fear of pain or discomfort: Gentle pacing, numbing options, and unhurried breaks whenever you need.</span>
+          </li>
+          <li>
+            <span class="chk-icon">✓</span>
+            <span>Judgment or embarrassment: A discreet, private consultation space focused only on where you want to go.</span>
+          </li>
+          <li>
+            <span class="chk-icon">✓</span>
+            <span>Financial unpredictability: Clear, itemized transparency and dedicated guidance before any care begins.</span>
+          </li>
+        </ul>
+        <p class="compassionate-closing">We believe modern dentistry begins by listening. Take your time, share your concerns openly, and discover a soothing clinical experience built entirely around your comfort.</p>
+      </div>
+      <div class="compassionate-img reveal">
+        <img src="/samples/lumina/compassionate-consultation.jpg" alt="Patient consultation at Lumina Dental Studio" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ──────────────────────────────────────────────────────── -->
+<section id="cta-band">
+  <div class="cta-band-inner reveal">
+    <p class="tag-label cta-eyebrow">New Patient Experience</p>
+    <h2 class="cta-h2">Not Sure What Your Smile Needs? Let's Take a <span class="serif-italic">Look.</span></h2>
+    <p class="cta-body">Experience our signature New Patient Smile & Wellness Consultation. A relaxed, comprehensive conversation about your oral health, aesthetic desires, and complete peace of mind.</p>
+    <button class="btn btn-gold" onclick="openModal()">Book My Consultation</button>
+    <p class="cta-micro">No pressure. No judgment.</p>
+  </div>
+</section>
+
+<!-- ── SERVICES ──────────────────────────────────────────────────────── -->
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="tag-label services-eyebrow">Treatment Disciplines</p>
+      <h2 class="services-h2">Modern Dentistry.<br><span class="serif-italic">Personalized</span> Care.</h2>
+      <p class="services-sub">From subtle restorative enhancements to complete smile transformations, our disciplines unite clinical precision with unhurried luxury.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card large" style="aspect-ratio:4/3">
+        <img src="/samples/lumina/cosmetic.jpg" alt="Cosmetic Dentistry at Lumina" loading="lazy">
+        <div class="service-card-content">
+          <div class="service-cat">Aesthetics &amp; Design</div>
+          <div class="service-name">Cosmetic Dentistry</div>
+          <div class="service-desc">Hand-crafted porcelain veneers, digital smile architecture, and bespoke symmetry enhancements.</div>
+        </div>
+      </div>
+      <div class="service-card large" style="aspect-ratio:4/3">
+        <img src="/samples/lumina/general.jpg" alt="General Dentistry at Lumina" loading="lazy">
+        <div class="service-card-content">
+          <div class="service-cat">Foundation Care</div>
+          <div class="service-name">General Dentistry</div>
+          <div class="service-desc">Comprehensive diagnostics, gentle cleanings, and proactive long-term wellness therapy.</div>
+        </div>
+      </div>
+    </div>
+    <div class="services-grid-bottom reveal">
+      <div class="service-card">
+        <img src="/samples/lumina/invisalign.jpg" alt="Invisalign Clear Aligners at Lumina" loading="lazy">
+        <div class="service-card-content">
+          <div class="service-cat">Orthodontics</div>
+          <div class="service-name">Invisalign</div>
+          <div class="service-desc">Discreet, custom aligners designed with 3D digital precision.</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="/samples/lumina/implants.jpg" alt="Dental Implants at Lumina" loading="lazy">
+        <div class="service-card-content">
+          <div class="service-cat">Restoration</div>
+          <div class="service-name">Dental Implants</div>
+          <div class="service-desc">Permanent, biocompatible restorations engineered to feel entirely natural.</div>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="/samples/lumina/whitening.jpg" alt="Teeth Whitening at Lumina" loading="lazy">
+        <div class="service-card-content">
+          <div class="service-cat">Illumination</div>
+          <div class="service-name">Teeth Whitening</div>
+          <div class="service-desc">Enamel-safe, zero-sensitivity laser whitening for radiant brilliance.</div>
+        </div>
+      </div>
+    </div>
+    <div class="services-cta reveal">
+      <button class="btn btn-dark" onclick="openModal()">Explore All Services</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── LUMINA DIFFERENCE ─────────────────────────────────────────────── -->
+<section id="difference">
+  <div class="container">
+    <div class="difference-header reveal">
+      <p class="tag-label difference-eyebrow">The Lumina Difference</p>
+      <h2 class="difference-h2">Dentistry Designed Around <span class="serif-italic">You.</span></h2>
+      <p class="difference-sub">We have discarded rushed appointments and clinical coldness in favor of an unhurried, bespoke standard of private oral healthcare.</p>
+    </div>
+
+    <div class="difference-item reveal">
+      <div class="difference-item-text">
+        <div class="difference-item-num">01 / <span style="color:var(--muted)">Tailored Mastery</span></div>
+        <h3 class="difference-item-h3">Personalized Treatment Focused on Your Goals</h3>
+        <p class="difference-item-body">No two smiles share the same geometry or personal story. We take the time to deeply understand your lifestyle, aesthetic aspirations, and comfort thresholds before proposing a single step forward.</p>
+        <div class="difference-callout">
+          <div class="difference-callout-name">Bespoke Consultation Blueprint</div>
+          <div class="difference-callout-body">Every patient receives a co-designed diagnostic overview tailored to long-term harmony and personal confidence.</div>
+        </div>
+      </div>
+      <div class="difference-item-img">
+        <img src="/samples/lumina/consultation.jpg" alt="Personalized patient consultation at Lumina Dental Studio" loading="lazy">
+      </div>
+    </div>
+
+    <div class="difference-item reveal">
+      <div class="difference-item-text">
+        <div class="difference-item-num">02 / <span style="color:var(--muted)">Clinical Precision</span></div>
+        <h3 class="difference-item-h3">Modern Technology for Gentle, Flawless Accuracy</h3>
+        <p class="difference-item-body">We pair high-definition 3D digital imaging and low-noise acoustic instruments to eliminate uncomfortable impressions and guesswork. The result is rapid, whisper-quiet care with microscopic predictability.</p>
+        <div class="difference-callout">
+          <div class="difference-callout-name">Next-Generation Diagnostics</div>
+          <div class="difference-callout-body">Zero messy trays, up to 80% lower radiation exposure, and same-day virtual treatment previews.</div>
+        </div>
+      </div>
+      <div class="difference-item-img">
+        <img src="/samples/lumina/technology.jpg" alt="Modern 3D digital dental scanner technology at Lumina Studio" loading="lazy">
+      </div>
+    </div>
+
+    <div class="difference-item reveal">
+      <div class="difference-item-text">
+        <div class="difference-item-num">03 / <span style="color:var(--muted)">Hospitality Sanctuary</span></div>
+        <h3 class="difference-item-h3">A Relaxing, Anxiety-Free Environment</h3>
+        <p class="difference-item-body">From warm linen service and noise-canceling headphones to natural daylight and botanical aromatics, our boutique studio feels more like a wellness retreat than a clinical office.</p>
+        <div class="difference-callout">
+          <div class="difference-callout-name">Sensory Comfort Protocol</div>
+          <div class="difference-callout-body">Each operatory is acoustically designed for calm, with temperature controls and curated ambient soundscapes.</div>
+        </div>
+      </div>
+      <div class="difference-item-img">
+        <img src="/samples/lumina/lounge.jpg" alt="Luxury dental studio sanctuary lounge at Lumina" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PATIENT JOURNEY ───────────────────────────────────────────────── -->
+<section id="journey">
+  <div class="container">
+    <div class="journey-header reveal">
+      <p class="tag-label journey-eyebrow">The Patient Journey</p>
+      <h2 class="journey-h2">Your Path to a <span class="serif-italic">Brighter</span> Smile</h2>
+      <p class="journey-sub">Every visit is thoughtfully crafted around your comfort. Here is exactly how we guide you through each stage of your care.</p>
+    </div>
+    <div class="journey-steps reveal">
+      <div class="journey-step">
+        <div class="journey-step-num"><div class="step-circle">01</div></div>
+        <div class="journey-step-card">
+          <div>
+            <div class="journey-step-h3">Book Your Visit</div>
+            <div class="journey-step-body">Effortless online scheduling or a quick conversation with our dedicated care concierge, chosen around your calendar.</div>
+          </div>
+          <div class="journey-step-tag">Step One</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-step-num"><div class="step-circle">02</div></div>
+        <div class="journey-step-card">
+          <div>
+            <div class="journey-step-h3">Meet Your Team</div>
+            <div class="journey-step-body">Step into our calm, serene studio for a warm greeting, botanical refreshment, and an unhurried personal introduction.</div>
+          </div>
+          <div class="journey-step-tag">Step Two</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-step-num"><div class="step-circle">03</div></div>
+        <div class="journey-step-card">
+          <div>
+            <div class="journey-step-h3">Comprehensive Assessment</div>
+            <div class="journey-step-body">Gentle high-resolution 3D digital imaging and complete oral wellness review conducted in absolute comfort with zero pressure.</div>
+          </div>
+          <div class="journey-step-tag">Step Three</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-step-num"><div class="step-circle">04</div></div>
+        <div class="journey-step-card">
+          <div>
+            <div class="journey-step-h3">Explore Your Options</div>
+            <div class="journey-step-body">Together, we review clear visual insights and co-design a tailored pathway that aligns precisely with your personal aesthetic goals.</div>
+          </div>
+          <div class="journey-step-tag">Step Four</div>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-step-num"><div class="step-circle">05</div></div>
+        <div class="journey-step-card">
+          <div>
+            <div class="journey-step-h3">Your Next Step</div>
+            <div class="journey-step-body">Leave with full transparency on treatment timelines, transparent upfront investment details, and ongoing dedicated support.</div>
+          </div>
+          <div class="journey-step-tag">Step Five</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DR. BENNETT ───────────────────────────────────────────────────── -->
+<section id="doctor">
+  <div class="container">
+    <div class="doctor-header reveal">
+      <p class="tag-label doctor-eyebrow">CLINICAL LEADERSHIP &amp; CARE PHILOSOPHY</p>
+      <h2 class="doctor-h2">Meet Dr. Olivia <span class="serif-italic">Bennett</span></h2>
+    </div>
+    <div class="doctor-inner reveal">
+      <div class="doctor-photo">
+        <img src="/samples/lumina/dr-bennett-portrait.jpg" alt="Dr. Olivia Bennett, DDS, FAGD — Founder of Lumina Dental Studio" loading="lazy">
+      </div>
+      <div class="doctor-bio">
+        <p class="doctor-role">FOUNDER &amp; PRINCIPAL DENTIST</p>
+        <blockquote class="doctor-quote">"True dentistry begins with listening. Before examining a single tooth, we seek to understand the person, their comfort, and their vision for lifelong oral harmony."</blockquote>
+        <p class="doctor-body">With over 14 years of clinical artistry and advanced postgraduate training in biomimetic restorative care, Dr. Olivia Bennett founded Lumina Dental Studio on a single premise: clinical excellence should feel calming, personal, and uncompromisingly thorough.</p>
+        <ul class="doctor-creds">
+          <li>Doctor of Dental Surgery (DDS) — Columbia University College of Dental Medicine</li>
+          <li>Fellow, Academy of General Dentistry (FAGD)</li>
+          <li>Advanced Certification in Biomimetic Restorative Dentistry &amp; Occlusion</li>
+        </ul>
+        <p class="doctor-sig">Warm regards,</p>
+        <p class="doctor-sig-name">Dr. Olivia Bennett, DDS, FAGD</p>
+        <button class="doctor-btn" onclick="openModal()">Schedule A Conversation</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────────────────────── -->
+<section id="testimonials">
+  <div class="container">
+    <div class="test-header reveal">
+      <p class="tag-label test-eyebrow">Patient Experiences</p>
+      <h2 class="test-h2">Patients Who Feel Good About Their <span class="serif-italic">Smile</span></h2>
+      <p class="test-sub">Overcoming years of anxiety and discovering how calm, personalized aesthetic dentistry can feel.</p>
+    </div>
+    <div class="test-grid reveal">
+      <div class="test-card">
+        <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="test-quote">"I avoided the dentist for nearly nine years due to severe panic. The calm, unhurried atmosphere made me feel heard from the first minute. My smile transformation looks completely natural, and I never felt an ounce of pain."</p>
+        <div class="test-meta">
+          <div class="test-avatar">C</div>
+          <div>
+            <div class="test-name">Clara Vance</div>
+            <div class="test-service">Porcelain Veneers · Anxiety-Free Care</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="test-quote">"I was self-conscious about chipped front teeth but terrified of invasive procedures. The gentle diagnostic process put me at complete ease. Walking out with a refined, symmetrical smile gave me back my everyday confidence."</p>
+        <div class="test-meta">
+          <div class="test-avatar">M</div>
+          <div>
+            <div class="test-name">Marcus Sterling</div>
+            <div class="test-service">Composite Bonding · Gentle Restoration</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="test-quote">"The sensory-sensitive environment completely changed my perception of clinical appointments. No harsh sounds, no rushing. The whitening and alignment results exceeded what I imagined possible for my wedding day."</p>
+        <div class="test-meta">
+          <div class="test-avatar">E</div>
+          <div>
+            <div class="test-name">Elena Rostova</div>
+            <div class="test-service">Boutique Whitening · Clear Alignment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────────────── -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <p class="tag-label faq-eyebrow">Patient Education &amp; Clarity</p>
+        <h2 class="faq-h2">Your Questions, <span class="serif-italic">Answered</span></h2>
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How do you handle dental anxiety and nervous patients?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">We offer a complete comfort menu: topical numbing before any injection, noise-canceling headphones, weighted blankets, and the ability to signal a pause at any moment. Your autonomy and emotional safety come before any clinical procedure, full stop.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How does dental insurance and reimbursement work at Lumina?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Our dedicated Patient Concierge handles all insurance pre-determinations and out-of-network benefit verification before your visit. We accept most PPO plans and offer third-party financing through CareCredit and Proceed Finance for complete flexibility.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What should I expect during my first comprehensive consultation?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Your first visit is entirely focused on listening and discovery — no treatment is performed. You will receive a full digital imaging set, a detailed oral wellness review, and a written blueprint of our findings with zero obligation to proceed with anything until you are fully ready.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Do you offer transparent pricing and flexible payment arrangements?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">Absolutely. We provide itemized, written fee estimates before any treatment begins and offer multi-month interest-free financing plans. You will never encounter surprise charges — our philosophy is complete financial transparency at every step.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What modern technologies do you use instead of traditional impressions?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">We use iTero digital intraoral scanning for impressionless, mess-free captures with same-day 3D previews. Our imaging suite includes CBCT low-dose cone-beam CT scanning for complete diagnostic accuracy with up to 80% less radiation than traditional X-ray systems.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-aside reveal">
+        <div class="faq-aside-card">
+          <div class="faq-aside-icon">💬</div>
+          <h3 class="faq-aside-h3">Still Have Questions?</h3>
+          <p class="faq-aside-body">Our dedicated patient concierge team is here to walk you through customized treatment options, insurance pre-determinations, and scheduling preferences with total discretion.</p>
+          <a class="btn btn-dark" href="mailto:hello@luminadentalstudio.com">Contact Our Office</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STUDIO / LOCATION ─────────────────────────────────────────────── -->
+<section id="studio">
+  <div class="container">
+    <div class="studio-inner">
+      <div class="studio-text reveal">
+        <p class="tag-label studio-eyebrow">CONCIERGE &amp; LOCATION</p>
+        <h2 class="studio-h2">Visit Our Austin <span class="serif-italic">Studio</span></h2>
+        <p class="studio-body">Located in Westlake Hills, our dedicated studio was designed from the foundation up to provide an unhurried, serene clinical sanctuary with dedicated patient parking.</p>
+        <div class="studio-details">
+          <div>
+            <div class="detail-group-label">Studio Address</div>
+            <div class="detail-group-body">1801 Westlake Boulevard, Suite 200<br>Austin, Texas 78746</div>
+          </div>
+          <div>
+            <div class="detail-group-label">Direct Inquiries</div>
+            <div class="detail-group-body">
+              Phone: <a href="tel:+15128903400">(512) 890-3400</a><br>
+              Concierge: <a href="mailto:hello@luminadentalstudio.com">hello@luminadentalstudio.com</a>
+            </div>
+          </div>
+          <div>
+            <div class="detail-group-label">Studio Hours</div>
+            <div class="detail-group-body">
+              Monday – Thursday: 8:00 AM – 5:00 PM<br>
+              Friday: 8:00 AM – 2:00 PM<br>
+              Saturday – Sunday: Private Appointments by Request
+            </div>
+          </div>
+        </div>
+        <button class="studio-btn" onclick="openModal()">Book Your Visit &rarr;</button>
+        <p class="studio-micro">Private on-site parking available · Concierge reception upon arrival</p>
+      </div>
+      <div class="studio-img reveal">
+        <img src="/samples/lumina/studio-exterior-hd.jpg" alt="Lumina Dental Studio luxury entrance in Austin, Texas — Westlake Hills" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8.5 2 6 4.5 6 8c0 2 .5 3.5 1 5l1 3c.5 1.5 1.5 4 2.5 4h3c1 0 2-2.5 2.5-4l1-3c.5-1.5 1-3 1-5 0-3.5-2.5-6-6-6z"/>
+          </svg>
+          Lumina Dental Studio
+        </div>
+        <p class="footer-tagline">Confident Smiles. Exceptional Care.</p>
+        <p class="footer-brand-body">Elevating modern clinical dentistry through an unhurried, luxury patient sanctuary in Austin, Texas.</p>
+      </div>
+      <div>
+        <div class="footer-col-label">Clinical Services</div>
+        <ul class="footer-col-links">
+          <li><a href="#services">Comprehensive Smile Design</a></li>
+          <li><a href="#services">Biological Restorative Care</a></li>
+          <li><a href="#services">Porcelain Veneers &amp; Bonding</a></li>
+          <li><a href="#services">Laser Periodontal Wellness</a></li>
+          <li><a href="#services">Private Consultation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Concierge &amp; Hours</div>
+        <ul class="footer-col-links">
+          <li><a href="#studio">Studio Location</a></li>
+          <li><a href="#studio">1801 Westlake Blvd, Suite 200</a></li>
+          <li><a href="#studio">Austin, TX 78746</a></li>
+          <li><a href="tel:+15128903400">(512) 890-3400</a></li>
+          <li><a href="mailto:hello@luminadentalstudio.com">hello@luminadentalstudio.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-label">Practice &amp; Legal</div>
+        <ul class="footer-col-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">HIPAA Patient Notice</a></li>
+          <li style="margin-top:16px"><a href="#" style="font-size:12px;line-height:1.6;color:rgba(255,255,255,.3)">Information presented is intended for educational purposes and does not replace personalized clinical diagnosis.</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Lumina Dental Studio. All Rights Reserved. Dedicated to unhurried, evidence-based restorative care.</p>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a href="/" style="font-size:12.5px;color:var(--gold-light);font-weight:600;display:inline-flex;align-items:center;gap:6px">
+          &larr; Return to Reynard's Portfolio
+        </a>
+      </div>
+      <div class="footer-social">
+        <a class="social-btn" href="#" aria-label="Instagram">&#9670;</a>
+        <a class="social-btn" href="#" aria-label="Facebook">f</a>
+        <a class="social-btn" href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── BOOKING MODAL ─────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <div id="modal-body-content">
+      <p class="modal-eyebrow">New Patient Concierge</p>
+      <h2 class="modal-h2" id="modal-title">Book Your Visit</h2>
+      <p class="modal-sub">Our care concierge will reach out within one business day to confirm your preferred time.</p>
+      <form class="form-grid" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="modal-first">First Name</label>
+            <input type="text" id="modal-first" placeholder="Jane" required>
+          </div>
+          <div class="form-field">
+            <label for="modal-last">Last Name</label>
+            <input type="text" id="modal-last" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="modal-email">Email Address</label>
+          <input type="email" id="modal-email" placeholder="jane@example.com" required>
+        </div>
+        <div class="form-field">
+          <label for="modal-phone">Phone Number</label>
+          <input type="tel" id="modal-phone" placeholder="(512) 000-0000" required>
+        </div>
+        <div class="form-field">
+          <label for="modal-service">Service of Interest</label>
+          <select id="modal-service">
+            <option value="">Select a discipline…</option>
+            <option>New Patient Smile &amp; Wellness Consultation</option>
+            <option>Cosmetic Dentistry / Veneers</option>
+            <option>Invisalign &amp; Clear Alignment</option>
+            <option>Dental Implants</option>
+            <option>Teeth Whitening</option>
+            <option>General &amp; Preventive Care</option>
+            <option>Emergency Care</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="modal-msg">Additional Notes (optional)</label>
+          <textarea id="modal-msg" placeholder="Any concerns, previous dental history, or scheduling preferences…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark form-submit" style="width:100%;justify-content:center">Request My Appointment &rarr;</button>
+        <p class="form-micro">No pressure. No judgment. Your information is strictly confidential.</p>
+      </form>
+    </div>
+
+    <!-- Success View -->
+    <div id="modal-success" style="display:none;text-align:center;padding:24px 8px">
+      <div style="width:58px;height:58px;border-radius:50%;background:rgba(184,149,90,0.15);color:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:26px;font-weight:700">&check;</div>
+      <h3 style="font-family:var(--serif);font-size:28px;color:var(--charcoal);margin-bottom:8px">Consultation Requested</h3>
+      <p style="font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:28px;max-width:380px;margin-left:auto;margin-right:auto">
+        Thank you, <strong id="modal-client-name" style="color:var(--charcoal)">Jane</strong>. Our dedicated care concierge has received your request and will contact you within 2 business hours to confirm your reservation.
+      </p>
+      <button type="button" class="btn btn-dark" onclick="closeModal()" style="width:100%;justify-content:center">Return to Studio</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Nav scroll shadow ──────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10)
+})
+
+// ── FAQ accordion ──────────────────────────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item')
+  const isOpen = item.classList.contains('open')
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'))
+  if (!isOpen) item.classList.add('open')
+}
+
+// ── Modal ──────────────────────────────────────────────────────────────
+function openModal() {
+  document.getElementById('modal-body-content').style.display = 'block'
+  document.getElementById('modal-success').style.display = 'none'
+  document.getElementById('modal').classList.add('open')
+  document.body.style.overflow = 'hidden'
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open')
+  document.body.style.overflow = ''
+}
+document.getElementById('modal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal()
+})
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal() })
+
+// ── Form submit ────────────────────────────────────────────────────────
+function submitForm(e) {
+  e.preventDefault()
+  const name = document.getElementById('modal-first').value || 'Guest'
+  document.getElementById('modal-client-name').textContent = name
+  document.getElementById('modal-body-content').style.display = 'none'
+  document.getElementById('modal-success').style.display = 'block'
+  e.target.reset()
+}
+
+// ── Scroll-reveal ──────────────────────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); observer.unobserve(el.target) } })
+}, { threshold: 0.12 })
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+</script>
+</body>
+</html>

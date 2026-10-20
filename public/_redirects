@@ -1,2 +1,10 @@
-/samples/*  /samples/:splat  200!
-/*          /index.html      200
+/haven-senior-care        /haven-senior-care.html       200!
+/haven-senior-care.html   /haven-senior-care.html       200!
+/lumina-dental            /lumina-dental.html           200!
+/lumina-dental.html       /lumina-dental.html           200!
+/fitco-coaching           /fitco-coaching.html          200!
+/fitco-coaching.html      /fitco-coaching.html          200!
+/meridian-staffing        /meridian-staffing.html       200!
+/meridian-staffing.html   /meridian-staffing.html       200!
+/samples/*                /samples/:splat               200!
+/*                        /index.html                   200

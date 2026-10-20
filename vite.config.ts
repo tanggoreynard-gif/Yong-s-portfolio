@@ -1,9 +1,23 @@
+
+const cleanSampleUrlsPlugin = () => ({
+  name: 'clean-sample-urls',
+  configureServer(server: any) {
+    server.middlewares.use((req: any, _res: any, next: any) => {
+      const clean = ['/haven-senior-care', '/lumina-dental', '/fitco-coaching', '/meridian-staffing'];
+      if (req.url && clean.includes(req.url)) {
+        req.url = req.url + '.html';
+      }
+      next();
+    });
+  },
+});
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'node:path'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), cleanSampleUrlsPlugin()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

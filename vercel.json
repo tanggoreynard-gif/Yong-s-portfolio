@@ -1,8 +1,41 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/haven-senior-care",
+      "destination": "/haven-senior-care.html"
+    },
+    {
+      "source": "/haven-senior-care.html",
+      "destination": "/haven-senior-care.html"
+    },
+    {
+      "source": "/lumina-dental",
+      "destination": "/lumina-dental.html"
+    },
+    {
+      "source": "/lumina-dental.html",
+      "destination": "/lumina-dental.html"
+    },
+    {
+      "source": "/fitco-coaching",
+      "destination": "/fitco-coaching.html"
+    },
+    {
+      "source": "/fitco-coaching.html",
+      "destination": "/fitco-coaching.html"
+    },
+    {
+      "source": "/meridian-staffing",
+      "destination": "/meridian-staffing.html"
+    },
+    {
+      "source": "/meridian-staffing.html",
+      "destination": "/meridian-staffing.html"
+    },
+    {
       "source": "/samples/(.*)",
-      "destination": "/samples/"
+      "destination": "/samples/$1"
     },
     {
       "source": "/(.*)",

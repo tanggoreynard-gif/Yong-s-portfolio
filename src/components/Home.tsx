@@ -100,7 +100,7 @@ export default function Home() {
           {/* Site 1: Lumina */}
           <article className="home__site-card">
             <a
-              href="/samples/lumina-dental.html"
+              href="/lumina-dental"
               target="_blank"
               rel="noopener noreferrer"
               className="home__site-visual"
@@ -126,7 +126,7 @@ export default function Home() {
               </div>
               <div className="home__site-actions">
                 <a
-                  href="/samples/lumina-dental.html"
+                  href="/lumina-dental"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="home__site-btn home__site-btn--live"
@@ -144,7 +144,7 @@ export default function Home() {
           {/* Site 2: FitCo */}
           <article className="home__site-card">
             <a
-              href="/samples/fitco-coaching.html"
+              href="/fitco-coaching"
               target="_blank"
               rel="noopener noreferrer"
               className="home__site-visual"
@@ -170,7 +170,7 @@ export default function Home() {
               </div>
               <div className="home__site-actions">
                 <a
-                  href="/samples/fitco-coaching.html"
+                  href="/fitco-coaching"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="home__site-btn home__site-btn--live"
@@ -188,7 +188,7 @@ export default function Home() {
           {/* Site 3: Serene Haven */}
           <article className="home__site-card">
             <a
-              href="/samples/haven-senior-care.html"
+              href="/haven-senior-care"
               target="_blank"
               rel="noopener noreferrer"
               className="home__site-visual"
@@ -214,7 +214,7 @@ export default function Home() {
               </div>
               <div className="home__site-actions">
                 <a
-                  href="/samples/haven-senior-care.html"
+                  href="/haven-senior-care"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="home__site-btn home__site-btn--live"
@@ -232,7 +232,7 @@ export default function Home() {
           {/* Site 4: Meridian */}
           <article className="home__site-card">
             <a
-              href="/samples/meridian-staffing.html"
+              href="/meridian-staffing"
               target="_blank"
               rel="noopener noreferrer"
               className="home__site-visual"
@@ -258,7 +258,7 @@ export default function Home() {
               </div>
               <div className="home__site-actions">
                 <a
-                  href="/samples/meridian-staffing.html"
+                  href="/meridian-staffing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="home__site-btn home__site-btn--live"
