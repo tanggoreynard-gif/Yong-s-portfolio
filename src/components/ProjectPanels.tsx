@@ -190,7 +190,7 @@ export function TicketingPanel() {
 /** 04. Missed Call Text-Back, Client Messaging & Invoicing */
 const MESSAGING_PROOFS: ProofItem[] = [
   {
-    title: 'Sample Contact Thread & Attribution Audit',
+    title: 'Client Contact Thread & Attribution Audit',
     badge: 'Sandbox Activity Log',
     src: '/proof/live-client-conversation.png',
     alt: 'GoHighLevel Contact Conversation and Activity Audit',
@@ -326,12 +326,12 @@ export function LuminaPanel() {
   const [active, setActive] = useState<ProofItem | null>(null)
 
   return (
-    <SectionWindow label="web.samples · Lumina Dental Studio">
+    <SectionWindow label="web · Lumina Dental Studio">
       <div className="proof-deck">
         <header className="proof-deck__head">
           <span className="proof-deck__eyebrow">
             <ShieldCheck size={14} weight="bold" />
-            Live Client Sample &amp; Website
+            Live Client Website
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>Lumina Dental Studio</h2>
@@ -398,12 +398,12 @@ export function FitCoPanel() {
   const [active, setActive] = useState<ProofItem | null>(null)
 
   return (
-    <SectionWindow label="web.samples · FitCo Athletics">
+    <SectionWindow label="web · FitCo Athletics">
       <div className="proof-deck">
         <header className="proof-deck__head">
           <span className="proof-deck__eyebrow">
             <ShieldCheck size={14} weight="bold" />
-            Live Client Sample &amp; Website
+            Live Client Website
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>FitCo High-Performance Coaching</h2>
@@ -470,12 +470,12 @@ export function HavenPanel() {
   const [active, setActive] = useState<ProofItem | null>(null)
 
   return (
-    <SectionWindow label="web.samples · Serene Haven Care">
+    <SectionWindow label="web · Serene Haven Care">
       <div className="proof-deck">
         <header className="proof-deck__head">
           <span className="proof-deck__eyebrow">
             <ShieldCheck size={14} weight="bold" />
-            Live Client Sample &amp; Funnel
+            Live Client Funnel
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>Serene Haven Senior Living</h2>
@@ -542,12 +542,12 @@ export function MeridianPanel() {
   const [active, setActive] = useState<ProofItem | null>(null)
 
   return (
-    <SectionWindow label="web.samples · Meridian Staffing">
+    <SectionWindow label="web · Meridian Staffing">
       <div className="proof-deck">
         <header className="proof-deck__head">
           <span className="proof-deck__eyebrow">
             <ShieldCheck size={14} weight="bold" />
-            Live Client Sample &amp; Funnel
+            Live Client Funnel
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
             <h2 className="proof-deck__title" style={{ margin: 0 }}>Meridian Executive Staffing</h2>

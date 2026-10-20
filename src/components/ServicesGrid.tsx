@@ -215,7 +215,7 @@ export default function ServicesGrid() {
         <div className="sgrid__flow">
           <header className="sgrid__flow-head">
             <div className="sgrid__flow-copy">
-              <span className="sgrid__flow-eyebrow">Sample Automation</span>
+              <span className="sgrid__flow-eyebrow">Live Automation</span>
               <h2 className="sgrid__flow-title">Inbound Lead to Confirmed Appointment</h2>
               <p className="sgrid__flow-sub">
                 An automated conversion sequence configured in GoHighLevel with immediate notification, wait delays, staged SMS reminders, and conditional show-rate routing.

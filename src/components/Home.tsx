@@ -84,7 +84,7 @@ export default function Home() {
       <section className="home__glass home__glass--section" aria-labelledby="client-websites-title" data-reveal>
         <div className="home__sec-head">
           <div className="home__sec-titleblock">
-            <span className="home__sec-eyebrow">Client Samples &amp; Conversion Funnels</span>
+            <span className="home__sec-eyebrow">Client Websites &amp; Conversion Funnels</span>
             <h2 className="home__sec-title" id="client-websites-title">Websites &amp; Landing Pages</h2>
             <p className="home__sec-desc">
               Custom GoHighLevel landing pages, multi-section brand websites, and conversion-focused funnels engineered for lead capture, consultation booking, and automated CRM intake.
@@ -281,7 +281,7 @@ export default function Home() {
       <section className="home__glass home__glass--section" aria-labelledby="featured-projects-title" data-reveal>
         <div className="home__sec-head">
           <div className="home__sec-titleblock">
-            <span className="home__sec-eyebrow">Sample Builds & Templates</span>
+            <span className="home__sec-eyebrow">Production Builds & Templates</span>
             <h2 className="home__sec-title" id="featured-projects-title">Featured Projects</h2>
             <p className="home__sec-desc">
               Practical GoHighLevel systems pre-configured with real pipeline stages, automated triggers, and lead tracking — ready for client demonstration and onboarding.

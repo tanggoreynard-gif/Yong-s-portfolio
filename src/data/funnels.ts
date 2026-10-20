@@ -27,28 +27,24 @@ export const websiteFunnel: Funnel[] = [
     label: 'Lumina Dental Studio',
     tag: 'Website',
     desc: 'Luxury private practice dental studio website with patient journey, online booking concierge, provider credentials, and full treatment discipline showcase.',
-    dir: 'samples',
   },
   {
     file: 'fitco-coaching.html',
     label: 'FitCo High-Performance Coaching',
     tag: 'Booking',
     desc: 'Full-funnel fitness and athletics coaching platform with client transformation proof, training packages, coach credentials, and consultation booking.',
-    dir: 'samples',
   },
   {
     file: 'haven-senior-care.html',
     label: 'Serene Haven Senior Care',
     tag: 'Lead Capture',
     desc: 'Warm, compassionate senior living and assisted living community website featuring care level breakdowns, family testimonials, and tour scheduling.',
-    dir: 'samples',
   },
   {
     file: 'meridian-staffing.html',
     label: 'Meridian Executive Staffing',
     tag: 'Website',
     desc: 'Corporate staffing and recruitment agency platform featuring candidate pipelines, employer talent request order forms, and automated CRM intake.',
-    dir: 'samples',
   },
 ]
 

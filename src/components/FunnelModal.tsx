@@ -12,7 +12,7 @@ import type { Funnel } from '@/data/funnels'
  * contract, one scroll lock.
  */
 export function fullSrc(funnel: Funnel) {
-  return `/${funnel.dir ?? 'funnels'}/${funnel.file}`
+  return `/${funnel.file.replace(/\.html$/, '')}`
 }
 
 export function useFunnelModal() {
@@ -68,7 +68,7 @@ export function useFunnelModal() {
               <span className="funnels__modal-light funnels__modal-light--green" />
             </div>
             <div className="funnels__modal-url" aria-hidden="true">
-              <span className="funnels__modal-url-scheme">yoursite.com</span>
+              <span className="funnels__modal-url-scheme">{typeof window !== 'undefined' && window.location.host ? window.location.host : 'rdtops.online'}</span>
               <span className="funnels__modal-url-path">{fullSrc(funnel)}</span>
             </div>
             <div className="funnels__modal-actions">
