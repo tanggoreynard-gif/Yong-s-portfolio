@@ -1,0 +1,985 @@
+/* ============================================
+   HOME - the fixed viewport
+   Three bands in a grid of `auto auto 1fr`: the head, the tools marquee, and
+   the workflow. The workflow row is the elastic one, so a shorter viewport
+   shrinks the diagram instead of producing a scrollbar. Nothing here may add
+   height the panel cannot hold.
+   ============================================ */
+.home {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(28px, 5vh, 64px) var(--panel-x) clamp(16px, 3vh, 32px);
+  gap: clamp(16px, 2.4vh, 34px);
+}
+
+@media (min-width: 1100px) {
+  .home {
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: clamp(24px, 3.5vh, 48px);
+    padding-bottom: clamp(60px, 8vh, 100px);
+  }
+  .home__head { min-width: 0; }
+}
+
+/* ---------- Head ---------- */
+.home__headline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(20px, 4vw, 56px);
+}
+
+/* One line, never two. The size is bounded by what fits beside the CTA in the
+   panel at the 1100px breakpoint, not by what looks biggest at 1440. Below the
+   breakpoint the headline gets the full width and is allowed to wrap - a
+   29-character sentence cannot be one legible line on a 390px phone. */
+.home__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(22px, 2.1vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--navy);
+}
+.home__line {
+  display: block;
+  text-wrap: balance;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 1100px) {
+  .home__line {
+    white-space: normal;
+  }
+}
+
+.home__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow-btn);
+  transition: transform var(--dur-med) var(--ease-spring),
+              background var(--dur-fast) var(--ease-out);
+}
+.home__cta svg { color: var(--orange); }
+.home__cta:hover { transform: translateY(-2px); }
+
+/* One line, from 1400px up.
+   The sentence is 130 characters. Measured against the panel it needs roughly
+   0.65 x the viewport width to sit on one line, and the panel only offers that
+   from ~1400px: at 1100 it would have to drop to ~11px to fit, which is not a
+   readable lede, it is a compliance trick. So it wraps below the threshold
+   rather than shrinking into unreadability. Shorten the copy to ~80 characters
+   and this can be one line at every width. */
+.home__lede {
+  margin-top: clamp(12px, 1.8vh, 22px);
+  /* a reading measure, not the container: ~70 characters, balanced lines */
+  max-width: 70ch;
+  font-size: clamp(14px, 1.05vw, 22px);
+  line-height: 1.6;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* The marquee still carries the horizontal inset it needed as a full-bleed
+   band on the old long page. Home already supplies that padding, so drop it
+   and let the strip line up with the workflow window below it. */
+.home .tools-marquee { margin: 0; border-radius: 14px; border: 1px solid var(--line-strong); }
+/* Smaller on Home: the strip is a band under the head, not a section. */
+.home .tools-marquee__track { gap: 44px; padding: 14px 28px; }
+.home .tools-marquee__item { gap: 10px; padding-right: 44px; font-size: 13.5px; }
+.home .tools-marquee__item::after { height: 16px; }
+.home .tools-marquee__icon, .home .tools-marquee__img { width: 20px; height: 20px; }
+/* Phones: the 44px gaps left two logos on screen. Pack the strip. */
+@media (max-width: 640px) {
+  .home .tools-marquee__track { gap: 22px; padding: 10px 14px; }
+  .home .tools-marquee__item { gap: 8px; padding-right: 22px; font-size: 12px; }
+  .home .tools-marquee__icon, .home .tools-marquee__img { width: 18px; height: 18px; }
+  .home__glass { padding: 12px; border-radius: var(--radius-card); gap: 12px; }
+  .home__tools { gap: 8px; }
+}
+
+/* ---------- Glass panel ----------
+   One frosted plate carries the tools band and the bento down to the bottom
+   of the viewport, so the head floats on the contour page and everything
+   below it sits on a single surface.
+   No backdrop-filter, on purpose: the shader animates behind the plate, so a
+   blur here is recomputed over the whole plate every frame. That was the lag
+   on 2026-09-13 - even on a strong GPU at 165Hz, where the perf gate in
+   lib/perf.ts never trips. The plate is painted near-opaque instead. */
+.home__glass {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vh, 26px);
+  min-height: 0;
+  min-width: 0;
+  padding: clamp(14px, 2vh, 24px) clamp(14px, 1.4vw, 24px);
+  border-radius: calc(var(--radius-card) + 6px);
+  /* White on the left, cooling to a soft blue on the right - one sweep, so
+     the panel reads as a single sheet, not a tinted box. */
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 38%),
+    linear-gradient(100deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 255, 255, 0.95) 45%,
+      rgba(238, 236, 255, 0.95) 80%,
+      rgba(227, 229, 236, 0.96) 100%);
+  box-shadow:
+    inset 0 0 0 1px var(--line),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 24px 60px -36px rgba(18, 20, 28, 0.16);
+}
+[data-theme='dark'] .home__glass {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 38%),
+    linear-gradient(100deg,
+      rgba(21, 24, 33, 0.96) 0%,
+      rgba(21, 24, 33, 0.94) 42%,
+      rgba(28, 25, 56, 0.94) 76%,
+      rgba(35, 30, 75, 0.93) 100%);
+  box-shadow:
+    inset 0 0 0 1px var(--line),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 30px 70px -40px rgba(0, 0, 0, 0.8);
+}
+@media (min-width: 1100px) {
+  .home__glass--showcase { height: 100%; display: grid; grid-template-rows: minmax(0, 1fr); }
+}
+
+/* ---------- Tools band ----------
+   The label is a title block on the left with the strip running beside it,
+   split by a hairline. A centred eyebrow floating above the strip read as a
+   caption; this reads as the band's name. */
+.home__glass--tools { padding: clamp(10px, 1.4vh, 16px) clamp(12px, 1.2vw, 20px); }
+.home__tools {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.home__tools-head { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.home__tools-eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--orange-ink);
+}
+.home__tools-label {
+  font-size: clamp(15px, 1.15vw, 20px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--navy);
+  white-space: nowrap;
+}
+@media (min-width: 1100px) {
+  .home__tools {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(14px, 1.4vw, 24px);
+  }
+  .home__tools-head {
+    padding-right: clamp(14px, 1.4vw, 24px);
+    border-right: 1px solid var(--line-strong);
+  }
+}
+
+/* ---------- Showcase band ----------
+   `min-height: 0` is what lets the 1fr row actually shrink; without it the
+   grid floors at the reel's intrinsic height and the panel scrolls. */
+.home__showcase {
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+  gap: clamp(16px, 2vw, 32px);
+}
+
+.home__showcase > .bento { min-height: 0; }
+@media (min-width: 1100px) {
+  .home__showcase > .bento { height: 100%; }
+}
+
+/* ---------- Autopilot in compact mode ----------
+   The section chrome is Home's job here: no header, no section padding, and
+   the fixed 1000x388 design canvas is transform-scaled into the box rather
+   than given a horizontal scrollbar. Autopilot writes --flow-scale from a
+   ResizeObserver; its cable measuring divides that scale back out. */
+.autopilot--compact {
+  padding: 0;
+  gap: 0;
+  width: 100%;
+  min-height: 0;
+}
+.autopilot--compact .autopilot__window {
+  max-width: none;
+  width: 100%;
+  /* `flex: 1` is load-bearing: without it the window sits at its content
+     height, the board collapses to nothing, and the flow - which is absolutely
+     positioned inside an overflow-hidden box - is clipped out of existence. */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.autopilot--compact .autopilot__canvas {
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: clamp(8px, 1.4vh, 20px);
+  padding: clamp(12px, 2vh, 26px) clamp(14px, 2vw, 28px);
+}
+.autopilot--compact .autopilot__caption {
+  font-size: clamp(13px, 1.1vw, 16px);
+  max-width: none;
+}
+.autopilot--compact .autopilot__board {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+.autopilot--compact .autopilot__fit {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.autopilot--compact .autopilot__flow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%) scale(var(--flow-scale, 1));
+  transform-origin: 50% 50%;
+}
+.autopilot--compact .autopilot__tools {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* Below the shell breakpoint the page scrolls again: a 1000px canvas cannot
+   be usefully squeezed onto a phone, so compact reverts to the board's own
+   horizontal scroll and a natural height. */
+@media (max-width: 1099px) {
+  .autopilot--compact .autopilot__board { overflow-x: auto; }
+  .autopilot--compact .autopilot__fit { height: auto; }
+  .autopilot--compact .autopilot__flow {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+  }
+  .home__headline { flex-direction: column; }
+
+  /* The floating pill is fixed at the top of the document down here, so the
+     headline has to start below it or the first line reads through the navy. */
+  .home { padding-top: 104px; }
+}
+
+/* ========================================================
+   HOME V2 - RESTRUCTURED 7-SECTION BEGINNER FREELANCER HIERARCHY
+   ======================================================== */
+
+/* ---------- Hero enhancements ---------- */
+.home__hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 860px;
+}
+.home__role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  width: fit-content;
+  box-shadow: 0 1px 2px rgba(6, 12, 26, 0.04);
+}
+.home__role-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+.home__line--sub {
+  font-size: 0.82em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.home__hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: clamp(14px, 2vh, 22px);
+}
+.home__cta--primary {
+  background: var(--navy);
+  color: var(--cream);
+}
+.home__cta--secondary {
+  background: var(--paper);
+  color: var(--navy);
+  border: 1px solid var(--line-strong);
+}
+.home__cta--secondary svg {
+  color: var(--orange-ink);
+}
+.home__cta--secondary:hover {
+  border-color: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* ---------- Glass Sections ---------- */
+.home__glass--section {
+  padding: clamp(20px, 3vh, 32px) clamp(18px, 2vw, 32px);
+  gap: clamp(18px, 2.5vh, 28px);
+}
+.home__sec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: clamp(12px, 1.8vh, 18px);
+  border-bottom: 1px solid var(--line);
+}
+.home__sec-titleblock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.home__sec-eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--orange-ink);
+}
+.home__sec-title {
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.home__sec-desc {
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 65ch;
+  margin: 0;
+}
+.home__sec-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange-ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.home__sec-action:hover {
+  transform: translateX(3px);
+}
+
+/* ---------- 3. Featured Projects Grid ---------- */
+.home__projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+}
+.home__project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 2px rgba(6, 12, 26, 0.04), 0 16px 36px -24px rgba(6, 12, 26, 0.35);
+  transition: transform var(--dur-med) var(--ease-spring), border-color var(--dur-fast), box-shadow var(--dur-med);
+}
+.home__project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+  box-shadow: 0 1px 2px rgba(6, 12, 26, 0.05), 0 24px 48px -20px rgba(6, 12, 26, 0.5);
+}
+.home__project-visual {
+  position: relative;
+  height: 180px;
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.home__project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.home__project-card:hover .home__project-visual img {
+  transform: scale(1.03);
+}
+.home__project-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 12, 26, 0.78);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.home__project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: clamp(14px, 1.6vw, 20px);
+  flex: 1 1 auto;
+}
+.home__project-step {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--orange-ink);
+}
+.home__project-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+}
+.home__project-note {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  flex: 1 1 auto;
+  margin: 0;
+}
+.home__project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.home__project-tags span {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--line);
+  color: var(--ink);
+}
+
+/* ---------- 3. Client Websites & Funnels Grid ---------- */
+.home__sites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+}
+@media (min-width: 900px) {
+  .home__sites-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1360px) {
+  .home__sites-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.home__site-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 1px 2px rgba(6, 12, 26, 0.04), 0 16px 36px -24px rgba(6, 12, 26, 0.35);
+  transition: transform var(--dur-med) var(--ease-spring), border-color var(--dur-fast), box-shadow var(--dur-med);
+}
+.home__site-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 1px 2px rgba(6, 12, 26, 0.05), 0 24px 48px -20px rgba(6, 12, 26, 0.5);
+}
+.home__site-visual {
+  position: relative;
+  height: 195px;
+  background: #0f172a;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+}
+.home__site-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.home__site-card:hover .home__site-visual img {
+  transform: scale(1.04);
+}
+.home__site-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 12, 26, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.home__site-overlay-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 12, 26, 0.45);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  transition: opacity var(--dur-fast);
+}
+.home__site-visual:hover .home__site-overlay-hint {
+  opacity: 1;
+}
+.home__site-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: clamp(14px, 1.6vw, 20px);
+  flex: 1 1 auto;
+}
+.home__site-industry {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.home__site-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0;
+}
+.home__site-desc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  flex: 1 1 auto;
+  margin: 0;
+}
+.home__site-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.home__site-tags span {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--line);
+  color: var(--ink);
+}
+.home__site-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.home__site-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  cursor: pointer;
+}
+.home__site-btn--live {
+  background: var(--navy);
+  color: #ffffff !important;
+  flex: 1 1 auto;
+}
+.home__site-btn--live:hover {
+  background: var(--accent);
+  color: #ffffff !important;
+}
+.home__site-btn--inspect {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.home__site-btn--inspect:hover {
+  background: var(--line);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- 4. Workflow Demos Grid ---------- */
+.home__demos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(12px, 1.6vw, 18px);
+}
+.home__demo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(14px, 1.6vw, 20px);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 1px 2px rgba(6, 12, 26, 0.04);
+  transition: transform var(--dur-med) var(--ease-spring), border-color var(--dur-fast);
+}
+.home__demo-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange);
+}
+.home__demo-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home__demo-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(91, 79, 224, 0.12);
+  color: var(--orange-ink);
+}
+.home__demo-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.home__demo-title {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+}
+.home__demo-flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--line);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.home__flow-node {
+  background: var(--paper);
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.home__flow-arr {
+  color: var(--orange-ink);
+  font-weight: 700;
+}
+.home__demo-body {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- 5. Services Grid ---------- */
+.home__services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(12px, 1.4vw, 16px);
+}
+.home__service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(14px, 1.6vw, 20px);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  transition: transform var(--dur-med) var(--ease-spring), border-color var(--dur-fast);
+}
+.home__service-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange);
+}
+.home__service-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--grad);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px -6px rgba(91, 79, 224, 0.55);
+}
+.home__service-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.home__service-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.home__service-desc {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- 6. About & Credentials Consolidated ---------- */
+.home__about-box {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .home__about-box {
+    grid-template-columns: 1fr;
+  }
+}
+.home__about-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.home__about-lead {
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.5;
+  color: var(--navy);
+  margin: 0;
+}
+.home__about-para {
+  font-size: clamp(12.5px, 0.9vw, 14px);
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+.home__about-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.home__spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.home__spec-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--orange-ink);
+}
+.home__spec-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.home__about-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.home__cred-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  text-decoration: none;
+  transition: transform var(--dur-med) var(--ease-spring), border-color var(--dur-fast);
+}
+.home__cred-badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange);
+}
+.home__cred-badge img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.home__cred-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+}
+.home__cred-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.home__cred-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+.home__cred-arrow {
+  color: var(--orange-ink);
+}
+.home__about-photo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+}
+.home__about-photo img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.home__photo-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.home__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+}
+
+/* ---------- 7. Contact Glass Section ---------- */
+.home__glass--contact {
+  padding: clamp(22px, 3.5vh, 36px) clamp(20px, 2.5vw, 36px);
+}
+.home__contact-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.home__contact-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 62ch;
+}
+.home__contact-eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--orange-ink);
+}
+.home__contact-title {
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0;
+}
+.home__contact-desc {
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+.home__contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.home__contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--dur-fast);
+}
+.home__contact-email:hover {
+  color: var(--orange-ink);
+}
+

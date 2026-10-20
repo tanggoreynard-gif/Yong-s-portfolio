@@ -1,0 +1,132 @@
+:root {
+  /* ============================================
+     COLOR PALETTE
+     ============================================ */
+  --bg:           #F2F3F7;                                  /* Page background (light gray) */
+  --card:         #FFFFFF;                                  /* Card/surface background */
+  --border:       #E3E5EC;                                  /* Hairline borders */
+  --ink:          #12141C;                                  /* Primary text (near-black) */
+  --ink-soft:     #3F4451;                                  /* Secondary headings/text */
+  --muted:        #666B78;                                  /* Muted/caption text */
+  --accent:       #5B4FE0;                                  /* Primary accent (indigo/violet) */
+  --accent2:      #0FB6D6;                                  /* Secondary accent (cyan) */
+  --accent-soft:  #EEECFF;                                  /* Light accent tint (selection, hover fills) */
+  --grad:         linear-gradient(90deg, #5B4FE0, #0FB6D6); /* Indigo->cyan gradient used on accents/badges */
+
+  /* Semantic Aliases to preserve system architecture */
+  --navy:         var(--ink);          /* #12141C */
+  --navy-ink:     var(--ink);          /* #12141C */
+  --cream:        var(--bg);           /* #F2F3F7 */
+  --white:        var(--card);         /* #FFFFFF */
+  --paper:        var(--card);         /* #FFFFFF */
+  --orange:       var(--accent);       /* #5B4FE0 */
+  --orange-hover: #4A3ED1;             /* deeper indigo on hover */
+  --orange-ink:   var(--accent);       /* #5B4FE0 */
+  --divider:      var(--border);       /* #E3E5EC */
+  --line:         var(--border);       /* #E3E5EC */
+  --line-strong:  rgba(63, 68, 81, 0.22);
+  --tint:         var(--accent-soft);  /* #EEECFF */
+  --tint-strong:  rgba(91, 79, 224, 0.14);
+  --glass:        rgba(255, 255, 255, 0.85);
+  --plate:        var(--bg);           /* #F2F3F7 */
+  --plate-ink:    var(--ink);          /* #12141C */
+  --panel-dark:   #0E1017;
+  --verified:     var(--accent2);      /* #0FB6D6 */
+
+  --success:      #2E9E6B;             /* form status ok */
+  --error:        #D9544F;             /* form status error */
+
+  /* Brands section */
+  --brands-chip-bg:     var(--card);
+  --brands-chip-border: var(--border);
+
+  /* Type */
+  --font-display: 'Poppins', system-ui, -apple-system, sans-serif;
+  --fs-display: clamp(64px, 9vw, 128px);
+  --fs-h2: clamp(32px, 4vw, 56px);
+  --fs-h3: clamp(22px, 2vw, 28px);
+  --fs-body: 15px;
+  --fs-eyebrow: 12px;
+  --fs-nav: 15px;
+  --lh-tight: 0.95;
+  --lh-heading: 1.25;
+  --lh-body: 1.65;
+  --ls-display: -0.03em;
+  --ls-eyebrow: 0.18em;
+
+  /* Layout */
+  --container-x: clamp(24px, 6vw, 96px);
+  --section-pad-y: clamp(110px, 13vh, 170px);
+  --radius-card: 24px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* Shadows */
+  --shadow-soft: 0 20px 60px -20px rgba(18, 20, 28, 0.12);
+  --shadow-card: 0 40px 120px -30px rgba(18, 20, 28, 0.16);
+  --shadow-btn: 0 8px 24px -8px rgba(91, 79, 224, 0.35);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur-med: 320ms;
+  --dur-slow: 600ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   SHELL + THEME (rail redesign)
+   ============================================ */
+:root {
+  --rail-w: 0px;
+  --panel-x: clamp(20px, 4vw, 64px);
+}
+
+@media (min-width: 1100px) {
+  :root { --rail-w: 312px; }
+}
+
+/* ---------- Dark theme ---------- */
+[data-theme='dark'] {
+  --bg:           #0E1017;
+  --card:         #151821;
+  --border:       rgba(227, 229, 236, 0.12);
+  --ink:          #F2F3F7;
+  --ink-soft:     #C5C9D6;
+  --muted:        #8E94A5;
+  --accent:       #7469F5;
+  --accent2:      #22D3EE;
+  --accent-soft:  rgba(91, 79, 224, 0.20);
+  --grad:         linear-gradient(90deg, #7469F5, #22D3EE);
+
+  --cream:        var(--bg);
+  --paper:        var(--card);
+  --white:        var(--card);
+  --navy:         var(--ink);
+  --navy-ink:     #090B10;
+  --divider:      var(--border);
+  --line:         var(--border);
+  --line-strong:  rgba(255, 255, 255, 0.18);
+  --tint:         var(--accent-soft);
+  --tint-strong:  rgba(116, 105, 245, 0.25);
+  --glass:        rgba(21, 24, 33, 0.82);
+  --orange:       var(--accent);
+  --orange-hover: #8C83FA;
+  --orange-ink:   var(--accent);
+  --panel-dark:   #090B10;
+  --verified:     var(--accent2);
+  --brands-chip-bg: var(--card);
+  --brands-chip-border: var(--border);
+
+  --shadow-soft:  0 20px 60px -20px rgba(0, 0, 0, 0.75);
+  --shadow-card:  0 40px 120px -30px rgba(0, 0, 0, 0.85);
+  --shadow-btn:   0 8px 24px -8px rgba(0, 0, 0, 0.7);
+}

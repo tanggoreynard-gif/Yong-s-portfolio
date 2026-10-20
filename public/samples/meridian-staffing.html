@@ -1,0 +1,1466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meridian Executive Search & Strategic Talent Advisory</title>
+<meta name="description" content="Meridian places top 1% executive leaders, engineering directors, and revenue architects across venture-backed scaleups and Fortune 500 enterprises with an industry-leading 94% retention rate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ─── Reset & Design System Tokens ───────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy-950:#050914;
+  --navy-900:#091022;
+  --navy-850:#0e172e;
+  --navy-800:#152244;
+  --navy-700:#1e315e;
+  --card-bg:#0d162d;
+  --card-border:rgba(255,255,255,0.08);
+  --card-hover:rgba(255,255,255,0.13);
+  --gold-500:#d4af37;
+  --gold-400:#e5c358;
+  --gold-dim:rgba(212,175,55,0.12);
+  --gold-glow:rgba(212,175,55,0.25);
+  --blue-accent:#3b82f6;
+  --blue-glow:rgba(59,130,246,0.25);
+  --text-white:#ffffff;
+  --text-primary:#f1f5f9;
+  --text-secondary:#94a3b8;
+  --text-dim:#64748b;
+  --font-display:'Syne',sans-serif;
+  --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:22px;
+  --radius-pill:9999px;
+  --nav-h:72px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--font-body);
+  background:var(--navy-950);
+  color:var(--text-primary);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ─── Top Portfolio Banner ────────────────────────────────────────────────── */
+.portfolio-banner{
+  position:sticky;top:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 24px;
+  background:#050811;color:#fff;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  font-size:12px;
+}
+.portfolio-banner a.back-link{
+  display:inline-flex;align-items:center;gap:6px;
+  color:#fff;font-weight:700;
+  padding:4px 12px;border-radius:var(--radius-pill);
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+  transition:all .2s ease;
+}
+.portfolio-banner a.back-link:hover{
+  background:rgba(255,255,255,0.2);
+  transform:translateX(-2px);
+}
+.portfolio-badge{
+  color:var(--text-secondary);font-size:11.5px;
+  display:flex;align-items:center;gap:6px;
+}
+.portfolio-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#38bdf8;display:inline-block;
+  box-shadow:0 0 10px #38bdf8;
+}
+
+/* ─── Corporate Sticky Navigation ────────────────────────────────────────── */
+nav{
+  position:sticky;top:43px;z-index:900;
+  height:var(--nav-h);
+  background:rgba(9,16,34,0.88);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--card-border);
+}
+.nav-wrap{
+  max-width:1220px;margin:0 auto;height:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;
+}
+.logo{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--font-display);font-size:22px;font-weight:800;letter-spacing:-.02em;
+  color:var(--text-white);
+}
+.logo-icon{
+  width:36px;height:36px;border-radius:9px;
+  background:linear-gradient(135deg,var(--gold-400),#b38b25);
+  color:var(--navy-950);display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:900;box-shadow:0 0 16px var(--gold-glow);
+}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{
+  font-size:13.5px;font-weight:600;color:var(--text-secondary);
+  transition:color .2s ease;letter-spacing:.01em;
+}
+.nav-links a:hover{color:var(--text-white)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.btn-nav-ghost{
+  padding:8px 16px;border-radius:var(--radius-sm);
+  font-size:13px;font-weight:600;color:var(--text-primary);
+  border:1px solid var(--card-border);
+  transition:all .2s ease;
+}
+.btn-nav-ghost:hover{
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(255,255,255,0.2);
+}
+.btn-nav-primary{
+  padding:9px 18px;border-radius:var(--radius-sm);
+  background:linear-gradient(135deg,var(--gold-400),var(--gold-500));
+  color:var(--navy-950);font-size:13px;font-weight:700;
+  box-shadow:0 4px 16px var(--gold-glow);
+  transition:all .2s ease;
+}
+.btn-nav-primary:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.08);
+}
+
+/* ─── Hero Section ───────────────────────────────────────────────────────── */
+.hero{
+  position:relative;
+  padding:70px 24px 80px;
+  background:radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30,58,114,0.35), transparent 70%);
+  overflow:hidden;
+}
+.hero-wrap{
+  max-width:1220px;margin:0 auto;
+  display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;
+  align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:var(--radius-pill);
+  background:rgba(212,175,55,0.1);
+  border:1px solid rgba(212,175,55,0.3);
+  color:var(--gold-400);font-size:12px;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero-tag span{
+  width:6px;height:6px;border-radius:50%;background:var(--gold-400);
+  box-shadow:0 0 8px var(--gold-400);
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(36px,4.5vw,58px);
+  font-weight:800;line-height:1.12;letter-spacing:-.03em;
+  color:var(--text-white);margin-bottom:22px;
+}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,#ffffff 30%,var(--gold-400) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-desc{
+  font-size:16.5px;color:var(--text-secondary);line-height:1.75;
+  margin-bottom:34px;max-width:560px;
+}
+.hero-ctas{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  margin-bottom:44px;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;border-radius:var(--radius-sm);
+  background:linear-gradient(135deg,var(--gold-400),var(--gold-500));
+  color:var(--navy-950);font-size:14.5px;font-weight:700;
+  box-shadow:0 6px 24px var(--gold-glow);
+  transition:all .2s ease;
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+  box-shadow:0 10px 30px rgba(212,175,55,0.4);
+}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 26px;border-radius:var(--radius-sm);
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.14);
+  color:var(--text-white);font-size:14.5px;font-weight:600;
+  transition:all .2s ease;
+}
+.btn-secondary:hover{
+  background:rgba(255,255,255,0.1);
+  border-color:rgba(255,255,255,0.28);
+}
+.hero-trust{
+  display:flex;align-items:center;gap:24px;
+  padding-top:28px;border-top:1px solid var(--card-border);
+}
+.trust-item{display:flex;flex-direction:column}
+.trust-item strong{
+  font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--text-white);
+}
+.trust-item span{
+  font-size:12px;color:var(--text-dim);font-weight:500;
+}
+.trust-divider{width:1px;height:32px;background:var(--card-border)}
+
+/* Hero Image Card / Showcase */
+.hero-visual{position:relative}
+.hero-card{
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 24px 60px rgba(0,0,0,0.6);
+  background:var(--card-bg);
+}
+.hero-card img{
+  width:100%;height:440px;object-fit:cover;object-position:center top;
+  filter:brightness(0.92) contrast(1.05);
+  transition:transform .4s ease;
+}
+.hero-card:hover img{transform:scale(1.02)}
+.hero-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(9,16,34,0.92) 0%, rgba(9,16,34,0.2) 60%, transparent 100%);
+  pointer-events:none;
+}
+.hero-float-badge{
+  position:absolute;bottom:20px;left:20px;right:20px;
+  padding:16px 20px;border-radius:var(--radius-md);
+  background:rgba(14,23,46,0.88);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.14);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.float-meta h4{font-size:14px;font-weight:700;color:var(--text-white);margin-bottom:2px}
+.float-meta p{font-size:12px;color:var(--text-secondary)}
+.float-tag{
+  padding:4px 10px;border-radius:var(--radius-pill);
+  background:rgba(56,189,248,0.14);border:1px solid rgba(56,189,248,0.3);
+  color:#38bdf8;font-size:11.5px;font-weight:700;
+}
+
+/* ─── Client Sector / Logo Bar ───────────────────────────────────────────── */
+.client-bar{
+  background:var(--navy-900);
+  border-top:1px solid var(--card-border);
+  border-bottom:1px solid var(--card-border);
+  padding:24px;
+}
+.client-wrap{
+  max-width:1220px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;
+}
+.client-label{
+  font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-dim);white-space:nowrap;
+}
+.client-logos{
+  display:flex;align-items:center;gap:36px;flex-wrap:wrap;
+}
+.client-logo-item{
+  font-family:var(--font-display);font-size:15px;font-weight:700;
+  color:var(--text-secondary);letter-spacing:.05em;opacity:.7;
+  transition:all .2s ease;
+}
+.client-logo-item:hover{opacity:1;color:var(--text-white)}
+
+/* ─── Dual Track Split: Employers vs Candidates ──────────────────────────── */
+.split-section{
+  padding:90px 24px;
+  max-width:1220px;margin:0 auto;
+}
+.section-head{
+  text-align:center;max-width:680px;margin:0 auto 56px;
+}
+.section-tag{
+  display:inline-block;
+  font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-400);margin-bottom:12px;
+}
+.section-title{
+  font-family:var(--font-display);font-size:clamp(28px,3.4vw,42px);
+  font-weight:800;letter-spacing:-.02em;color:var(--text-white);margin-bottom:14px;
+}
+.section-desc{
+  font-size:15.5px;color:var(--text-secondary);line-height:1.7;
+}
+
+.split-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;
+}
+.split-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);
+  padding:44px 38px;
+  position:relative;
+  display:flex;flex-direction:column;
+  transition:all .25s ease;
+}
+.split-card:hover{
+  border-color:var(--card-hover);
+  transform:translateY(-3px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+.split-card--featured{
+  border-color:rgba(212,175,55,0.35);
+  background:linear-gradient(180deg, rgba(212,175,55,0.04) 0%, var(--card-bg) 100%);
+}
+.card-badge{
+  align-self:flex-start;
+  padding:4px 12px;border-radius:var(--radius-pill);
+  font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:20px;
+}
+.badge-gold{background:rgba(212,175,55,0.15);color:var(--gold-400);border:1px solid rgba(212,175,55,0.3)}
+.badge-blue{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3)}
+.split-card h3{
+  font-family:var(--font-display);font-size:26px;font-weight:800;
+  color:var(--text-white);margin-bottom:14px;
+}
+.split-card p{
+  font-size:14.5px;color:var(--text-secondary);line-height:1.7;margin-bottom:26px;
+}
+.split-features{
+  list-style:none;display:flex;flex-direction:column;gap:14px;
+  margin-bottom:34px;flex-grow:1;
+}
+.split-features li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;color:var(--text-primary);
+}
+.check-icon{
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(212,175,55,0.18);color:var(--gold-400);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px;
+}
+.check-icon-blue{
+  background:rgba(59,130,246,0.18);color:#60a5fa;
+}
+
+/* ─── Interactive ROI Cost Calculator ────────────────────────────────────── */
+.calc-section{
+  padding:0 24px 80px;
+  max-width:1220px;margin:0 auto;
+}
+.calc-card{
+  background:linear-gradient(180deg, var(--card-bg) 0%, #071021 100%);
+  border:1px solid rgba(212,175,55,0.3);
+  border-radius:var(--radius-lg);
+  padding:44px 40px;
+  box-shadow:0 24px 70px rgba(0,0,0,0.6);
+}
+.calc-head{text-align:center;max-width:700px;margin:0 auto 38px}
+.calc-body{
+  display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;
+}
+.calc-inputs{display:flex;flex-direction:column;gap:24px}
+.slider-group{display:flex;flex-direction:column;gap:8px}
+.slider-header{display:flex;justify-content:space-between;align-items:center}
+.slider-header label{font-size:13px;font-weight:700;color:var(--text-white)}
+.slider-val{font-size:14px;font-weight:800;color:var(--gold-400);font-family:var(--font-display)}
+.slider-input{
+  width:100%;height:6px;border-radius:999px;
+  background:rgba(255,255,255,0.1);
+  accent-color:var(--gold-400);
+  cursor:pointer;outline:none;
+}
+.slider-bounds{display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim)}
+.calc-result{
+  background:var(--navy-950);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--radius-md);
+  padding:32px 24px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,0.4);
+}
+.result-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:var(--radius-pill);
+  background:rgba(239,68,68,0.14);border:1px solid rgba(239,68,68,0.3);
+  color:#f87171;font-size:11px;font-weight:700;margin-bottom:12px;
+}
+.result-num{
+  font-family:var(--font-display);font-size:clamp(36px,3.8vw,48px);
+  font-weight:800;color:var(--gold-400);line-height:1;margin-bottom:10px;
+  text-shadow:0 0 25px rgba(212,175,55,0.25);
+}
+.result-desc{font-size:12.5px;color:var(--text-secondary);line-height:1.6}
+.result-breakdown{font-size:11px;color:var(--text-dim);margin-top:10px}
+
+/* ─── Practice Areas Grid ────────────────────────────────────────────────── */
+.practice-section{
+  padding:90px 24px;
+  background:var(--navy-900);
+  border-top:1px solid var(--card-border);
+  border-bottom:1px solid var(--card-border);
+}
+.practice-grid{
+  max-width:1220px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;
+}
+.practice-card{
+  background:var(--navy-950);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-md);
+  padding:32px 28px;
+  transition:all .22s ease;
+}
+.practice-card:hover{
+  border-color:rgba(212,175,55,0.4);
+  transform:translateY(-2px);
+  background:var(--card-bg);
+}
+.practice-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--card-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--gold-400);margin-bottom:20px;
+}
+.practice-card h4{
+  font-family:var(--font-display);font-size:19px;font-weight:700;
+  color:var(--text-white);margin-bottom:10px;
+}
+.practice-card p{
+  font-size:13.5px;color:var(--text-secondary);line-height:1.65;
+  margin-bottom:18px;
+}
+.practice-tags{display:flex;flex-wrap:wrap;gap:6px}
+.practice-tag{
+  padding:3px 8px;border-radius:4px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  font-size:11px;color:var(--text-dim);font-weight:600;
+}
+
+/* ─── Methodology / Process ──────────────────────────────────────────────── */
+.process-section{
+  padding:90px 24px;
+  max-width:1220px;margin:0 auto;
+}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4, 1fr);gap:24px;
+  position:relative;
+}
+.step-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-md);
+  padding:32px 24px;
+  position:relative;
+}
+.step-num{
+  font-family:var(--font-display);font-size:32px;font-weight:800;
+  color:rgba(212,175,55,0.3);line-height:1;margin-bottom:16px;
+}
+.step-card h4{
+  font-size:16.5px;font-weight:700;color:var(--text-white);
+  margin-bottom:10px;
+}
+.step-card p{
+  font-size:13px;color:var(--text-secondary);line-height:1.65;
+}
+
+/* ─── Executive Spotlight Section (Side by Side) ─────────────────────────── */
+.spotlight-section{
+  padding:90px 24px;
+  background:linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
+  border-top:1px solid var(--card-border);
+}
+.spotlight-wrap{
+  max-width:1220px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  align-items:center;
+}
+.spotlight-images{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  position:relative;
+}
+.spotlight-img-1{
+  border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid var(--card-border);height:340px;
+}
+.spotlight-img-1 img{width:100%;height:100%;object-fit:cover}
+.spotlight-img-2{
+  border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid var(--card-border);height:340px;margin-top:32px;
+}
+.spotlight-img-2 img{width:100%;height:100%;object-fit:cover}
+.spotlight-content h2{
+  font-family:var(--font-display);font-size:clamp(28px,3.2vw,40px);
+  font-weight:800;line-height:1.18;color:var(--text-white);margin-bottom:20px;
+}
+.spotlight-content p{
+  font-size:15px;color:var(--text-secondary);line-height:1.75;margin-bottom:28px;
+}
+.quote-box{
+  background:rgba(255,255,255,0.03);
+  border-left:3px solid var(--gold-400);
+  padding:18px 22px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom:28px;
+}
+.quote-box blockquote{
+  font-size:14.5px;font-style:italic;color:var(--text-primary);margin-bottom:8px;
+}
+.quote-box cite{
+  font-size:12px;font-weight:700;color:var(--gold-400);font-style:normal;
+}
+
+/* ─── Interactive Talent Booking / Intake Form ───────────────────────────── */
+.booking-section{
+  padding:90px 24px;
+  max-width:1000px;margin:0 auto;
+}
+.booking-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);
+  padding:48px 44px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.5);
+  position:relative;
+}
+.tab-switch{
+  display:inline-flex;padding:5px;background:var(--navy-950);
+  border-radius:var(--radius-pill);border:1px solid var(--card-border);
+  margin-bottom:34px;
+}
+.tab-btn{
+  padding:10px 22px;border-radius:var(--radius-pill);
+  font-size:13px;font-weight:700;color:var(--text-dim);
+  transition:all .2s ease;
+}
+.tab-btn.active{
+  background:linear-gradient(135deg,var(--gold-400),var(--gold-500));
+  color:var(--navy-950);
+}
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  margin-bottom:24px;
+}
+.form-group{display:flex;flex-direction:column;gap:8px}
+.form-group.full{grid-column:1 / -1}
+.form-group label{
+  font-size:12.5px;font-weight:700;color:var(--text-secondary);
+  letter-spacing:.02em;
+}
+.form-control{
+  width:100%;min-height:48px;padding:12px 16px;border-radius:var(--radius-sm);
+  background:var(--navy-950);
+  border:1px solid rgba(255,255,255,0.1);
+  color:var(--text-white);font-family:inherit;font-size:14px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.form-control:focus{
+  outline:none;border-color:var(--gold-400);
+  box-shadow:0 0 12px var(--gold-glow);
+}
+select.form-control option{background:var(--navy-900);color:#fff}
+.form-submit{
+  width:100%;padding:16px;border-radius:var(--radius-sm);
+  background:linear-gradient(135deg,var(--gold-400),var(--gold-500));
+  color:var(--navy-950);font-size:15px;font-weight:800;
+  box-shadow:0 6px 24px var(--gold-glow);
+  transition:all .2s ease;cursor:pointer;
+}
+.form-submit:hover{
+  filter:brightness(1.08);transform:translateY(-1px);
+}
+.form-note{
+  font-size:12px;color:var(--text-dim);text-align:center;margin-top:14px;
+}
+
+/* ─── FAQ Accordion ──────────────────────────────────────────────────────── */
+.faq-section{
+  padding:90px 24px;
+  background:var(--navy-900);
+  border-top:1px solid var(--card-border);
+}
+.faq-wrap{max-width:840px;margin:0 auto}
+.faq-list{display:flex;flex-direction:column;gap:14px}
+.faq-item{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  transition:border-color .2s;
+}
+.faq-item:hover{border-color:rgba(255,255,255,0.18)}
+.faq-btn{
+  width:100%;padding:22px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--font-display);font-size:16.5px;font-weight:700;
+  color:var(--text-white);text-align:left;
+}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,0.06);color:var(--gold-400);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;flex-shrink:0;
+  transition:transform .2s;
+}
+.faq-item.is-open .faq-icon{transform:rotate(45deg)}
+.faq-body{
+  display:none;padding:0 24px 22px;
+  font-size:14px;color:var(--text-secondary);line-height:1.7;
+}
+.faq-item.is-open .faq-body{display:block}
+
+/* ─── Corporate Footer ───────────────────────────────────────────────────── */
+footer{
+  padding:70px 24px 36px;
+  background:#03060c;
+  border-top:1px solid var(--card-border);
+}
+.footer-wrap{
+  max-width:1220px;margin:0 auto;
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;
+  margin-bottom:54px;
+}
+.footer-brand h3{
+  font-family:var(--font-display);font-size:22px;font-weight:800;
+  color:var(--text-white);margin-bottom:12px;
+}
+.footer-brand p{
+  font-size:13.5px;color:var(--text-dim);line-height:1.7;max-width:320px;margin-bottom:20px;
+}
+.footer-col h5{
+  font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--text-secondary);margin-bottom:18px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{
+  font-size:13.5px;color:var(--text-dim);transition:color .2s;
+}
+.footer-col a:hover{color:var(--text-white)}
+.footer-bottom{
+  max-width:1220px;margin:0 auto;
+  padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;color:var(--text-dim);flex-wrap:wrap;gap:12px;
+}
+
+/* ─── Interactive Lead Capture Modal ─────────────────────────────────────── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(3,6,12,0.85);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:9999;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-overlay.is-active{display:flex}
+.modal-box{
+  background:var(--navy-900);
+  border:1px solid rgba(212,175,55,0.3);
+  border-radius:var(--radius-lg);
+  width:100%;max-width:480px;
+  padding:36px 32px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.8);
+  position:relative;
+  animation:modalPop .22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalPop{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.modal-close{
+  position:absolute;top:18px;right:18px;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,0.06);
+  color:var(--text-dim);font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;cursor:pointer;
+}
+.modal-close:hover{background:rgba(255,255,255,0.14);color:#fff}
+.modal-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 10px;border-radius:var(--radius-pill);
+  background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.25);
+  color:var(--gold-400);font-size:11px;font-weight:700;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.modal-title{
+  font-family:var(--font-display);font-size:22px;font-weight:800;
+  color:var(--text-white);margin-bottom:8px;
+}
+.modal-desc{
+  font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin-bottom:20px;
+}
+.modal-feedback{
+  display:none;text-align:center;padding:24px 0;
+}
+.modal-feedback.is-shown{display:block}
+.feedback-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(56,189,248,0.15);color:#38bdf8;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;margin:0 auto 16px;
+  box-shadow:0 0 20px rgba(56,189,248,0.3);
+}
+
+/* ─── Responsive Media Queries ───────────────────────────────────────────── */
+@media(max-width:960px){
+  .hero-wrap{grid-template-columns:1fr;gap:40px}
+  .split-grid{grid-template-columns:1fr}
+  .practice-grid{grid-template-columns:1fr 1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .spotlight-wrap{grid-template-columns:1fr;gap:40px}
+  .footer-wrap{grid-template-columns:1fr 1fr;gap:36px}
+  .calc-body{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:680px){
+  .nav-links{display:none}
+  .nav-actions .btn-nav-ghost{display:none}
+  .nav-wrap{padding:0 16px}
+  .logo{font-size:18px}
+  .btn-nav-primary{padding:8px 14px;font-size:12px}
+  .practice-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .calc-card{padding:28px 18px}
+  .booking-card{padding:30px 18px}
+  .footer-wrap{grid-template-columns:1fr}
+  .portfolio-banner{justify-content:center;padding:8px 14px}
+  .portfolio-badge{display:none}
+  .portfolio-banner a.back-link{font-size:11.5px;padding:4px 12px;white-space:nowrap}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Top Portfolio Banner ─────────────────────────────────────────────── -->
+<div class="portfolio-banner">
+  <a href="/" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Return to Reynard's Portfolio
+  </a>
+</div>
+
+<!-- ─── Corporate Navigation ─────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-wrap">
+    <a href="#" class="logo">
+      <div class="logo-icon">M</div>
+      <span>MERIDIAN</span>
+    </a>
+    <div class="nav-links">
+      <a href="#practices">Practices</a>
+      <a href="#solutions">Employers</a>
+      <a href="#solutions">Candidates</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-nav-ghost" onclick="openTalentModal('candidate')">Candidate Portal</button>
+      <button class="btn-nav-primary" onclick="scrollToBooking()">Request Talent</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Hero Section ─────────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-wrap">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span></span> Retained Executive Search & Advisory
+      </div>
+      <h1 class="hero-title">
+        Placing the Top 1% of <em>Executive Leaders</em> for Global Enterprises.
+      </h1>
+      <p class="hero-desc">
+        We partner with venture-backed scaleups and Fortune 500 corporations to recruit C-suite officers, engineering vice presidents, and revenue architects with a guaranteed 94% two-year retention rate.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="scrollToBooking()">
+          Initiate Talent Request
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button class="btn-secondary" onclick="openTalentModal('employer')">
+          Download Executive Salary Index
+        </button>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <strong>94%</strong>
+          <span>2-Yr Executive Retention</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <strong>11.4 Days</strong>
+          <span>Avg. Shortlist Delivery</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <strong>3,400+</strong>
+          <span>Leaders Placed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Image Card with dynamic badge -->
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img src="/samples/meridian/hero-team.jpg" alt="Meridian Executive Leadership Team in Conference" width="600" height="440">
+        <div class="hero-card-overlay"></div>
+        <div class="hero-float-badge">
+          <div class="float-meta">
+            <h4>Recent Placement Confirmed</h4>
+            <p>Chief Technology Officer · FinTech Series C</p>
+          </div>
+          <span class="float-tag">$380k + Equity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── Sector Trust Bar ─────────────────────────────────────────────────── -->
+<section class="client-bar">
+  <div class="client-wrap">
+    <span class="client-label">Trusted by boards across</span>
+    <div class="client-logos">
+      <span class="client-logo-item">FINTECH & BANKING</span>
+      <span class="client-logo-item">ENTERPRISE SAAS</span>
+      <span class="client-logo-item">AI INFRASTRUCTURE</span>
+      <span class="client-logo-item">GLOBAL HEALTHCARE</span>
+      <span class="client-logo-item">LOGISTICS & SUPPLY</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Dual Track Split: Employers vs Candidates ────────────────────────── -->
+<section id="solutions" class="split-section">
+  <div class="section-head">
+    <span class="section-tag">Strategic Talent Architecture</span>
+    <h2 class="section-title">Engineered for Both Sides of the Executive Equation</h2>
+    <p class="section-desc">
+      Whether you are building an elite board or transitioning into your next defining leadership tenure, our confidential matching engine delivers precision results.
+    </p>
+  </div>
+
+  <div class="split-grid">
+    <!-- Card 1: For Employers -->
+    <div class="split-card split-card--featured">
+      <span class="card-badge badge-gold">For Enterprise Employers</span>
+      <h3>Build Your Next Leadership Bench</h3>
+      <p>
+        Accelerate critical executive searches without compromising cultural fit or domain pedigree. Our retained model includes confidential market mapping and multi-stage scorecard assessments.
+      </p>
+      <ul class="split-features">
+        <li>
+          <span class="check-icon">✓</span>
+          <strong>180-Day Placement Guarantee:</strong> Full replacement protection on all executive placements.
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <strong>Passive Talent Access:</strong> Proprietary graph of 85,000+ non-public leadership profiles.
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <strong>Comprehensive Scorecards:</strong> Quantitative behavioral, technical, and OKR evaluation.
+        </li>
+        <li>
+          <span class="check-icon">✓</span>
+          <strong>Dedicated Partner Lead:</strong> Senior practice directors lead every search personally.
+        </li>
+      </ul>
+      <button class="btn-primary" onclick="scrollToBooking()">Request Confidential Briefing</button>
+    </div>
+
+    <!-- Card 2: For Candidates -->
+    <div class="split-card">
+      <span class="card-badge badge-blue">For Senior Executives</span>
+      <h3>Discreet Career Stewardship</h3>
+      <p>
+        Gain direct access to unadvertised board seats, C-level openings, and VP opportunities. We represent elite leaders confidentially with structured equity and compensation guidance.
+      </p>
+      <ul class="split-features">
+        <li>
+          <span class="check-icon check-icon-blue">✓</span>
+          <strong>Strict Confidentiality:</strong> Your resume is never presented without explicit prior consent.
+        </li>
+        <li>
+          <span class="check-icon check-icon-blue">✓</span>
+          <strong>Executive Compensation Advisory:</strong> Benchmarking for equity stakes, RSUs, and sign-ons.
+        </li>
+        <li>
+          <span class="check-icon check-icon-blue">✓</span>
+          <strong>Direct Board Access:</strong> Bypassing generic HR portals straight to governance committees.
+        </li>
+        <li>
+          <span class="check-icon check-icon-blue">✓</span>
+          <strong>Tenure Transition Support:</strong> Tailored onboarding advisory during your first 90 days.
+        </li>
+      </ul>
+      <button class="btn-secondary" onclick="openTalentModal('candidate')">Submit Private Credentials</button>
+</section>
+
+<!-- ─── Interactive ROI Cost of Unfilled Roles Calculator ────────────────── -->
+<section class="calc-section">
+  <div class="calc-card">
+    <div class="calc-head">
+      <span class="section-tag">Interactive Enterprise Diagnostic</span>
+      <h2 class="section-title">What are open leadership positions costing your business?</h2>
+      <p class="section-desc">
+        Estimate the potential revenue, deal velocity, and execution momentum lost while critical executive seats remain vacant.
+      </p>
+    </div>
+
+    <div class="calc-body">
+      <div class="calc-inputs">
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="slPositions">Number of Open Key Positions</label>
+            <span class="slider-val" id="valPositions">3 Roles</span>
+          </div>
+          <input type="range" id="slPositions" min="1" max="10" value="3" class="slider-input" oninput="calculateCost()">
+          <div class="slider-bounds"><span>1 role</span><span>10 roles</span></div>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="slSalary">Avg. Monthly Value / Base per Leader</label>
+            <span class="slider-val" id="valSalary">$18,000 / mo</span>
+          </div>
+          <input type="range" id="slSalary" min="8000" max="40000" step="1000" value="18000" class="slider-input" oninput="calculateCost()">
+          <div class="slider-bounds"><span>$8,000</span><span>$40,000+</span></div>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-header">
+            <label for="slDays">Days Positions Have Remained Open</label>
+            <span class="slider-val" id="valDays">45 Days</span>
+          </div>
+          <input type="range" id="slDays" min="15" max="120" step="5" value="45" class="slider-input" oninput="calculateCost()">
+          <div class="slider-bounds"><span>15 days</span><span>120 days</span></div>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="result-badge">⚡ Estimated Business Impact</div>
+        <div class="result-num" id="costOutput">$81,000</div>
+        <div class="result-desc">
+          Estimated productivity and executive momentum gap accrued over your current search cycle.
+        </div>
+        <div class="result-breakdown">
+          Formula: Daily Business Value × Unfilled Duration × Role Count
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:18px" onclick="prefillCalculatorBooking()">
+          Accelerate Executive Search →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Practice Areas ───────────────────────────────────────────────────── -->
+<section id="practices" class="practice-section">
+  <div class="section-head">
+    <span class="section-tag">Specialized Verticals</span>
+    <h2 class="section-title">Deep Functional Domain Expertise</h2>
+    <p class="section-desc">
+      We operate dedicated practice pods led by former industry operators who understand the exact technical and operational demands of senior leadership roles.
+    </p>
+  </div>
+
+  <div class="practice-grid">
+    <div class="practice-card">
+      <div class="practice-icon">🏛️</div>
+      <h4>Board & C-Suite Appointments</h4>
+      <p>Chief Executive Officers, Board Directors, Presidents, and Operating Partners for founder-led and PE-backed firms.</p>
+      <div class="practice-tags">
+        <span class="practice-tag">CEO</span>
+        <span class="practice-tag">Board Chair</span>
+        <span class="practice-tag">COO</span>
+      </div>
+    </div>
+
+    <div class="practice-card">
+      <div class="practice-icon">⚡</div>
+      <h4>Technology & AI Architecture</h4>
+      <p>CTOs, VPs of Software Engineering, Heads of Machine Learning, and Chief Information Security Officers (CISOs).</p>
+      <div class="practice-tags">
+        <span class="practice-tag">CTO</span>
+        <span class="practice-tag">VP Eng</span>
+        <span class="practice-tag">Head of AI</span>
+      </div>
+    </div>
+
+    <div class="practice-card">
+      <div class="practice-icon">📈</div>
+      <h4>Revenue & Commercial Operations</h4>
+      <p>Chief Revenue Officers, Global VPs of Enterprise Sales, Heads of Strategic Growth, and RevOps leaders.</p>
+      <div class="practice-tags">
+        <span class="practice-tag">CRO</span>
+        <span class="practice-tag">VP Sales</span>
+        <span class="practice-tag">Head of RevOps</span>
+      </div>
+    </div>
+
+    <div class="practice-card">
+      <div class="practice-icon">💎</div>
+      <h4>Product & Design Direction</h4>
+      <p>Chief Product Officers, VPs of Product Management, and Executive Design Directors shaping category-defining software.</p>
+      <div class="practice-tags">
+        <span class="practice-tag">CPO</span>
+        <span class="practice-tag">VP Product</span>
+        <span class="practice-tag">Design VP</span>
+      </div>
+    </div>
+
+    <div class="practice-card">
+      <div class="practice-icon">⚖️</div>
+      <h4>Finance, Legal & Governance</h4>
+      <p>Chief Financial Officers, VPs of Strategic Finance, General Counsels, and Chief Compliance & Risk Officers.</p>
+      <div class="practice-tags">
+        <span class="practice-tag">CFO</span>
+        <span class="practice-tag">General Counsel</span>
+        <span class="practice-tag">VP Finance</span>
+      </div>
+    </div>
+
+    <div class="practice-card">
+      <div class="practice-icon">👥</div>
+      <h4>People & Talent Operations</h4>
+      <p>Chief People Officers, VPs of Total Rewards, and Global Heads of Talent Acquisition who build scale-ready cultures.</p>
+      <div class="practice-tags">
+        <span class="practice-tag">CPO</span>
+        <span class="practice-tag">VP HR</span>
+        <span class="practice-tag">Total Rewards</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Methodology / Process ────────────────────────────────────────────── -->
+<section id="methodology" class="process-section">
+  <div class="section-head">
+    <span class="section-tag">Rigorous Search Protocol</span>
+    <h2 class="section-title">The Meridian 4-Stage Vetting Pipeline</h2>
+    <p class="section-desc">
+      How we isolate and verify game-changing leadership while maintaining unmatched discretion and speed.
+    </p>
+  </div>
+
+  <div class="process-steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h4>Diagnostic & Archetype</h4>
+      <p>We calibrate the 12-month mission objectives, leadership scorecard, and cultural values with your board and founders.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h4>Talent Radar Search</h4>
+      <p>We cross-reference passive talent networks, past performance metrics, and proprietary executive intelligence data.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h4>Competency Calibration</h4>
+      <p>Candidates complete deep behavioral evaluations, case scenario defenses, and confidential 360-degree peer audits.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <h4>Placement & 180d Check</h4>
+      <p>Structured 30, 60, and 90-day alignment checkpoints safeguard executive retention and accelerate initial milestone delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Executive Spotlight (Editorial Showcase) ─────────────────────────── -->
+<section class="spotlight-section">
+  <div class="spotlight-wrap">
+    <div class="spotlight-images">
+      <div class="spotlight-img-1">
+        <img src="/samples/meridian/executive-woman.jpg" alt="Partner Advisory Consultation" width="300" height="340">
+      </div>
+      <div class="spotlight-img-2">
+        <img src="/samples/meridian/team-meeting.jpg" alt="Boardroom Executive Interview" width="300" height="340">
+      </div>
+    </div>
+
+    <div class="spotlight-content">
+      <span class="section-tag">Proven Search Leadership</span>
+      <h2>"The highest cost of executive hiring is settling for the visible candidate."</h2>
+      <p>
+        The leaders who truly transform enterprise balance sheets are rarely scanning job boards. Our dedicated research pods build long-term relationships with proven operators, giving our client partners unmatched access when the window opens.
+      </p>
+      <div class="quote-box">
+        <blockquote>
+          "Meridian closed our Chief Revenue Officer in just 16 days. He exceeded our annual ARR target in his first two quarters. Truly the sharpest executive team in the market."
+        </blockquote>
+        <cite>— David Vance, Managing Partner @ Apex Horizon Capital</cite>
+      </div>
+      <button class="btn-primary" onclick="scrollToBooking()">Partner With Meridian</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Interactive Talent Booking / Intake Form ─────────────────────────── -->
+<section id="booking" class="booking-section">
+  <div class="booking-card">
+    <div class="section-head" style="margin-bottom:28px">
+      <span class="section-tag">Client Intake Portal</span>
+      <h2 class="section-title">Initiate Your Executive Search</h2>
+      <p class="section-desc">Submit your mandate details below. A Senior Practice Partner will review and schedule an initial confidential consultation within 2 business hours.</p>
+    </div>
+
+    <div style="text-align:center">
+      <div class="tab-switch">
+        <button class="tab-btn active" id="tabEmployer" onclick="switchTab('employer')">I am Hiring (Enterprise / Board)</button>
+        <button class="tab-btn" id="tabCandidate" onclick="switchTab('candidate')">I am an Executive Candidate</button>
+      </div>
+    </div>
+
+    <form id="talentForm" onsubmit="handleTalentSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fName">Full Name *</label>
+          <input type="text" id="fName" class="form-control" placeholder="e.g. Eleanor Sterling" required>
+        </div>
+        <div class="form-group">
+          <label for="fEmail">Corporate Email *</label>
+          <input type="email" id="fEmail" class="form-control" placeholder="eleanor@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="fCompany" id="lblCompany">Company / Organization *</label>
+          <input type="text" id="fCompany" class="form-control" placeholder="e.g. Apex Global Technologies" required>
+        </div>
+        <div class="form-group">
+          <label for="fPractice">Practice Area *</label>
+          <select id="fPractice" class="form-control" required>
+            <option value="" disabled selected>Select functional domain</option>
+            <option value="board">C-Suite & Board Appointments</option>
+            <option value="tech">Technology & AI Architecture</option>
+            <option value="revenue">Revenue & Commercial Operations</option>
+            <option value="product">Product & Design Direction</option>
+            <option value="finance">Finance, Legal & Governance</option>
+            <option value="people">People & Talent Operations</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fBand">Target Compensation Band</label>
+          <select id="fBand" class="form-control">
+            <option value="200-300k">$200,000 – $300,000 base + bonus</option>
+            <option value="300-450k" selected>$300,000 – $450,000 base + equity</option>
+            <option value="450k+">$450,000+ C-Suite / Total Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fUrgency">Search Timeline</label>
+          <select id="fUrgency" class="form-control">
+            <option value="immediate">Immediate Mandate (&lt; 30 Days)</option>
+            <option value="quarter">Next Quarter Planning</option>
+            <option value="confidential">Confidential Succession Planning</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="fNotes">Role Brief & Critical Success Factors</label>
+          <textarea id="fNotes" rows="3" class="form-control" placeholder="Key responsibilities, reporting structure, required prior scale experience..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit" id="btnSubmit">
+        Submit Confidential Request →
+      </button>
+      <p class="form-note">
+        🔒 All inquiries are governed by non-disclosure and routed immediately through our secure GoHighLevel executive pipeline.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- ─── FAQ Accordion ────────────────────────────────────────────────────── -->
+<section id="faq" class="faq-section">
+  <div class="faq-wrap">
+    <div class="section-head">
+      <span class="section-tag">Frequently Answered</span>
+      <h2 class="section-title">Executive Search Intelligence</h2>
+      <p class="section-desc">Clear answers regarding our search fee structures, replacement guarantees, and candidate vetting standards.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item is-open">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          <span>What search engagement models does Meridian offer?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          We operate primarily on a milestone-based Retained Search model for critical C-Suite and VP-level mandates, guaranteeing dedicated senior partner attention and exhaustive market mapping. For rapid scale engineering and product pods, we offer specialized Container search models with tiered delivery benchmarks.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          <span>What is Meridian's 180-Day Executive Placement Guarantee?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          Every executive placed through Meridian is covered by a 180-day placement warranty. In the rare event that a placed executive departs or does not meet agreed performance milestones within 6 months, our team immediately executes a priority replacement search at zero additional professional fee.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          <span>How fast can we expect our first candidate shortlist?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          Our average delivery time from initial calibration to the presentation of the first pre-screened, calibrated executive shortlist is 11.4 business days. All presented candidates have already passed behavioral assessments and confirmed interest in your opportunity.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          <span>How is candidate confidentiality maintained for sensitive transitions?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          For confidential replacements and unannounced corporate restructurings, we operate under dual-blind NDAs. Potential candidates receive blinded functional briefs and are only introduced to your corporate identity upon executing explicit non-disclosure agreements and passing initial suitability filters.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          <span>How does candidate compensation benchmarking work?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          We leverage live compensation data from over 3,400 completed searches and private venture portfolio datasets to advise on competitive base, performance bonus, RSU/option pools, and acceleration covenants so you secure top talent without overpaying.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Corporate Footer ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <h3>MERIDIAN</h3>
+      <p>
+        Strategic executive recruitment, board assembly, and compensation advisory for world-class organizations.
+      </p>
+      <div style="font-size:12px;color:var(--text-dim)">
+        New York · San Francisco · Chicago · London
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Practice Areas</h5>
+      <ul>
+        <li><a href="#practices">Board & C-Suite</a></li>
+        <li><a href="#practices">Technology & AI</a></li>
+        <li><a href="#practices">Revenue & Growth</a></li>
+        <li><a href="#practices">Product Leadership</a></li>
+        <li><a href="#practices">Finance & Legal</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>For Clients</h5>
+      <ul>
+        <li><a href="#booking">Submit Search Mandate</a></li>
+        <li><a href="#methodology">Search Methodology</a></li>
+        <li><a href="#faq">Placement Guarantee</a></li>
+        <li><a href="#solutions">Salary Index Report</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>For Candidates</h5>
+      <ul>
+        <li><a href="javascript:void(0)" onclick="openTalentModal('candidate')">Candidate Confidential Portal</a></li>
+        <li><a href="javascript:void(0)" onclick="openTalentModal('candidate')">Submit Private Resume</a></li>
+        <li><a href="#faq">Executive FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 Meridian Executive Search Advisory LLC. All rights reserved.</div>
+    <div>Demonstration Website engineered by Reynard Tanggo · HighLevel Certified Admin</div>
+    <div><a href="/" style="color:var(--gold-400);font-weight:600;text-decoration:none">← Return to Reynard's Portfolio</a></div>
+  </div>
+</footer>
+
+<!-- ─── Interactive Lead Capture Modal ───────────────────────────────────── -->
+<div class="modal-overlay" id="talentModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeTalentModal()">✕</button>
+    <div id="modalFormContent">
+      <span class="modal-badge" id="modalBadge">Confidential Intake</span>
+      <h3 class="modal-title" id="modalTitle">Request Executive Advisory</h3>
+      <p class="modal-desc" id="modalDesc">Enter your details and a practice director will connect with you via secure channels.</p>
+      <form onsubmit="handleModalSubmit(event)">
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px">
+          <input type="text" class="form-control" placeholder="Full Name" required id="mName">
+          <input type="email" class="form-control" placeholder="Direct Email" required id="mEmail">
+          <input type="tel" class="form-control" placeholder="Direct Phone / WhatsApp" required id="mPhone">
+          <select class="form-control" id="mRoleType">
+            <option value="employer">I represent an Employer / Board</option>
+            <option value="candidate">I am an Executive exploring opportunities</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit" id="modalSubmitBtn">Connect with Practice Lead →</button>
+      </form>
+    </div>
+
+    <div class="modal-feedback" id="modalSuccessContent">
+      <div class="feedback-icon">✓</div>
+      <h3 class="modal-title" style="margin-bottom:8px">Confidential Request Received</h3>
+      <p class="modal-desc" style="margin-bottom:20px">
+        Your information has been logged into our secure pipeline. A Managing Director will reach out to you within 2 business hours.
+      </p>
+      <button class="btn-primary" style="width:100%;justify-content:center" onclick="closeTalentModal()">Close Window</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ─── Interactive UI Scripts ─────────────────────────────────────────────── */
+function scrollToBooking(){
+  const el = document.getElementById('booking');
+  if(el){ el.scrollIntoView({behavior:'smooth'}); }
+}
+
+function switchTab(type){
+  const btnE = document.getElementById('tabEmployer');
+  const btnC = document.getElementById('tabCandidate');
+  const lblComp = document.getElementById('lblCompany');
+  const btnSub = document.getElementById('btnSubmit');
+
+  if(type === 'employer'){
+    btnE.classList.add('active');
+    btnC.classList.remove('active');
+    lblComp.innerText = 'Company / Organization *';
+    btnSub.innerText = 'Submit Confidential Request →';
+  } else {
+    btnC.classList.add('active');
+    btnE.classList.remove('active');
+    lblComp.innerText = 'Current or Most Recent Company *';
+    btnSub.innerText = 'Submit Confidential Credentials →';
+  }
+}
+
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('is-open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('is-open'));
+  if(!isOpen){
+    item.classList.add('is-open');
+  }
+}
+
+function openTalentModal(type){
+  const modal = document.getElementById('talentModal');
+  const title = document.getElementById('modalTitle');
+  const desc = document.getElementById('modalDesc');
+  const roleSelect = document.getElementById('mRoleType');
+  const badge = document.getElementById('modalBadge');
+
+  document.getElementById('modalFormContent').style.display = 'block';
+  document.getElementById('modalSuccessContent').classList.remove('is-shown');
+
+  if(type === 'candidate'){
+    badge.innerText = 'Candidate Advisory';
+    title.innerText = 'Discreet Executive Registry';
+    desc.innerText = 'Submit your contact information for discreet representation on unadvertised board and C-suite mandates.';
+    if(roleSelect) roleSelect.value = 'candidate';
+  } else {
+    badge.innerText = 'Enterprise Search';
+    title.innerText = 'Request Executive Consultation';
+    desc.innerText = 'Connect with a Practice Partner to review candidate market availability, compensation bands, and search timelines.';
+    if(roleSelect) roleSelect.value = 'employer';
+  }
+
+  modal.classList.add('is-active');
+}
+
+function closeTalentModal(){
+  document.getElementById('talentModal').classList.remove('is-active');
+}
+
+function handleTalentSubmit(e){
+  e.preventDefault();
+  const btn = document.getElementById('btnSubmit');
+  const orig = btn.innerText;
+  btn.innerText = 'Routing to Executive CRM...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.innerText = orig;
+    btn.disabled = false;
+    openTalentModal('employer');
+    document.getElementById('modalFormContent').style.display = 'none';
+    document.getElementById('modalSuccessContent').classList.add('is-shown');
+    document.getElementById('talentForm').reset();
+  }, 750);
+}
+
+function handleModalSubmit(e){
+  e.preventDefault();
+  const btn = document.getElementById('modalSubmitBtn');
+  const orig = btn.innerText;
+  btn.innerText = 'Encrypting & Routing...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.innerText = orig;
+    btn.disabled = false;
+    document.getElementById('modalFormContent').style.display = 'none';
+    document.getElementById('modalSuccessContent').classList.add('is-shown');
+  }, 700);
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape') closeTalentModal();
+});
+
+/* Calculator Logic */
+function calculateCost(){
+  const posInput = document.getElementById('slPositions');
+  const salaryInput = document.getElementById('slSalary');
+  const daysInput = document.getElementById('slDays');
+  if(!posInput || !salaryInput || !daysInput) return;
+
+  const pos = parseInt(posInput.value);
+  const salary = parseInt(salaryInput.value);
+  const days = parseInt(daysInput.value);
+
+  document.getElementById('valPositions').innerText = `${pos} ${pos === 1 ? 'Role' : 'Roles'}`;
+  document.getElementById('valSalary').innerText = `$${salary.toLocaleString()} / mo`;
+  document.getElementById('valDays').innerText = `${days} Days`;
+
+  const total = Math.round(pos * (salary / 30) * days);
+  document.getElementById('costOutput').innerText = `$${total.toLocaleString()}`;
+}
+
+function prefillCalculatorBooking(){
+  const pos = document.getElementById('slPositions')?.value || '3';
+  const days = document.getElementById('slDays')?.value || '45';
+  const notes = document.getElementById('fNotes');
+  if(notes){
+    notes.value = `Priority mandate requested via Diagnostic Calculator. Estimated open key roles: ${pos}. Average days unfilled: ${days} days.`;
+  }
+  scrollToBooking();
+}
+</script>
+</body>
+</html>
