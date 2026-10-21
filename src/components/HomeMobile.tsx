@@ -23,7 +23,7 @@ export function HomeProfile() {
         </span>
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '11px', color: 'var(--muted)', marginTop: '2px' }}>
           <img src="/hla_badge.png" alt="HLA Certified Builder" width={13} height={13} style={{ objectFit: 'contain' }} />
-          <span>HLA Course Graduate</span>
+          <span>HLA Automation Builder</span>
         </span>
       </div>
       <QuickMenu className="hprofile__menu" />

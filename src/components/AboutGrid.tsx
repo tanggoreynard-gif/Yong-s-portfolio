@@ -127,7 +127,7 @@ export default function AboutGrid() {
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">HighLevel Accelerator (HLA)</span>
-                <span className="agrid__cell-meta">Course Graduate · Automation Builder</span>
+                <span className="agrid__cell-meta">HLA Automation Builder · Course</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={14} weight="bold" aria-hidden="true" />
             </a>

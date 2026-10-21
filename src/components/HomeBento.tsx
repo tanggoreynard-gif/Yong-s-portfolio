@@ -131,13 +131,13 @@ export default function HomeBento() {
 
       {/* Credentials: the badge that matters, on its plate. */}
       <Link to="/about" className="bento__card bento__card--creds">
-        <CardHead Icon={Medal} title="Credentials" desc="HighLevel Certified Admin · HLA Course Graduate" />
+        <CardHead Icon={Medal} title="Credentials" desc="HighLevel Certified Admin · HLA Automation Builder" />
         <div className="bento__media bento__badge" aria-hidden="true">
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center', justifyContent: 'center' }}>
             <span className="bento__badge-ring" title="HighLevel Certified Admin">
               <img src="/certified-admin-badge.png" alt="HighLevel Certified Admin Badge" width={56} height={56} style={{ objectFit: 'contain' }} />
             </span>
-            <span className="bento__badge-ring" title="HighLevel Accelerator (HLA Course Graduate)">
+            <span className="bento__badge-ring" title="HighLevel Accelerator (HLA Automation Builder)">
               <img src="/hla_badge.png" alt="HLA Certified Builder Badge" width={56} height={56} style={{ objectFit: 'contain' }} />
             </span>
           </div>

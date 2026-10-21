@@ -54,7 +54,7 @@ export const profile: Profile = {
   adminNumber: 'HLA-Verified',
   role: 'GoHighLevel CRM Specialist & Administrative Virtual Assistant',
   avatarSrc: '/avatar.jpg',
-  verifiedLabel: 'HighLevel Certified Admin · HLA Course Graduate',
+  verifiedLabel: 'HighLevel Certified Admin · HLA Automation Builder',
   email: 'tanggoreynard@gmail.com',
   location: 'Philippines (GMT+8) · Available for U.S. Time Zones',
   // Pick any icon from https://phosphoricons.com and import it above.

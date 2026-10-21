@@ -603,7 +603,7 @@ export default function Home() {
               <img src="/hla_badge.png" alt="HLA Certified Builder Badge" width={48} height={48} style={{ objectFit: 'contain' }} />
               <div className="home__cred-text">
                 <span className="home__cred-title">HighLevel Accelerator (HLA)</span>
-                <span className="home__cred-meta">Course Graduate · Automation Builder</span>
+                <span className="home__cred-meta">HLA Automation Builder · Course</span>
               </div>
               <ArrowUpRight size={16} weight="bold" className="home__cred-arrow" aria-hidden="true" />
             </a>

@@ -68,15 +68,15 @@ export default function Rail() {
           <span className="rail__badge-title">HighLevel Certified Admin</span>
         </div>
 
-        <div className="rail__sub-badge" title="HighLevel Accelerator (HLA Course Graduate)">
+        <div className="rail__sub-badge" title="HighLevel Accelerator (HLA Automation Builder)">
           <img
             src="/hla_badge.png"
-            alt="HLA Course Graduate Badge"
+            alt="HLA Automation Builder Badge"
             className="rail__sub-badge-img"
             width={16}
             height={16}
           />
-          <span>HLA Course Graduate</span>
+          <span>HLA Automation Builder</span>
         </div>
 
         <div className="rail__actions">
