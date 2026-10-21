@@ -14,7 +14,7 @@ import { profile } from '@/data/profile'
  * With the variable unset the mail client path below is used instead.
  */
 
-export const ENDPOINT: string = import.meta.env.VITE_CONTACT_ENDPOINT ?? ''
+export const ENDPOINT: string = import.meta.env.VITE_CONTACT_ENDPOINT || 'https://formspree.io/f/mbgdvwlr'
 export const RECIPIENT = profile.email
 
 export const MAX_NAME = 80
