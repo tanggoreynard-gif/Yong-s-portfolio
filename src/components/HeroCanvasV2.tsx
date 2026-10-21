@@ -362,24 +362,16 @@ export default function HeroCanvasV2() {
         }
       }
 
-      // Continuous slow movement (Phase 3)
-      const slowActive = introTime >= 1.55
-      const slowTime = slowActive ? introTime - 1.55 : 0.0
-      const slowRamp = Math.min(1.0, slowTime / 0.8)
+      // Phase 3: Completely Static after the lock (zero idle sway or drift)
+      const isSettled = introTime >= 1.50
 
       // Physical simulation of chain strands
       for (let sIdx = 0; sIdx < strands.length; sIdx++) {
         const strand = strands[sIdx]
 
-        // Fast entry displacement
+        // Fast entry displacement (reaches 0 at 1.10s)
         const curOffsetX = strand.entryOffsetX * fastFactor
         const curOffsetY = strand.entryOffsetY * fastFactor
-
-        // Continuous slow pendular sway
-        const slowPhase = slowTime * 0.45 + sIdx * 1.1
-        const swayX = slowActive ? Math.sin(slowPhase) * 0.20 * slowRamp : 0.0
-        const swayY = slowActive ? Math.cos(slowPhase * 0.8) * 0.16 * slowRamp : 0.0
-        const swayZ = slowActive ? Math.sin(slowPhase * 0.6) * 0.22 * slowRamp : 0.0
 
         // Parallax depth shift on scroll
         const parallaxY = scrollRatio * (strand.zDepth * 1.6 + 0.8)
@@ -387,9 +379,9 @@ export default function HeroCanvasV2() {
         for (let cpIdx = 0; cpIdx < strand.controlPoints.length; cpIdx++) {
           const cp = strand.controlPoints[cpIdx]
 
-          const targetX = cp.rest.x + curOffsetX + swayX
-          const targetY = cp.rest.y + curOffsetY + swayY - parallaxY
-          const targetZ = cp.rest.z + swayZ
+          const targetX = cp.rest.x + curOffsetX
+          const targetY = cp.rest.y + curOffsetY - parallaxY
+          const targetZ = cp.rest.z
 
           const dispX = targetX - cp.pos.x
           const dispY = targetY - cp.pos.y
@@ -426,6 +418,14 @@ export default function HeroCanvasV2() {
           cp.pos.x += cp.vel.x * dt
           cp.pos.y += cp.vel.y * dt
           cp.pos.z += cp.vel.z * dt
+
+          // Lock completely static once settled with zero residual drift
+          if (isSettled && fPluckX === 0 && fPluckY === 0 && (Math.abs(cp.vel.x) + Math.abs(cp.vel.y) + Math.abs(cp.vel.z) < 0.2)) {
+            cp.pos.x = targetX
+            cp.pos.y = targetY
+            cp.pos.z = targetZ
+            cp.vel.set(0, 0, 0)
+          }
         }
 
         strand.spline.updateArcLengths()
