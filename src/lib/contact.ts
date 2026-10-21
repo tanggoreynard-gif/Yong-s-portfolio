@@ -64,7 +64,7 @@ export async function submitLead(lead: Lead): Promise<SubmitResult> {
   if (ENDPOINT) {
     const res = await fetch(ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify(lead),
     })
     if (!res.ok) {
