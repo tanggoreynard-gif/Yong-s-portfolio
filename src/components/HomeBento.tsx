@@ -100,7 +100,7 @@ export default function HomeBento() {
 
       {/* About: a fanned stack of photos. */}
       <Link to="/about" className="bento__card bento__card--about">
-        <CardHead Icon={User} title="About" desc="Certified HLA Automation Builder & Admin VA with engineering precision." />
+        <CardHead Icon={User} title="About" desc="HighLevel Certified Admin & Automation Specialist with engineering precision." />
         <div className="bento__media bento__fan" aria-hidden="true">
           {PHOTOS.map((src, i) => (
             <span key={src} className="bento__photo" style={{ ['--i' as string]: i }}>
@@ -131,13 +131,13 @@ export default function HomeBento() {
 
       {/* Credentials: the badge that matters, on its plate. */}
       <Link to="/about" className="bento__card bento__card--creds">
-        <CardHead Icon={Medal} title="Credentials" desc="HighLevel Certified Admin · HLA Certified Builder" />
+        <CardHead Icon={Medal} title="Credentials" desc="HighLevel Certified Admin · HLA Course Graduate" />
         <div className="bento__media bento__badge" aria-hidden="true">
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center', justifyContent: 'center' }}>
             <span className="bento__badge-ring" title="HighLevel Certified Admin">
               <img src="/certified-admin-badge.png" alt="HighLevel Certified Admin Badge" width={56} height={56} style={{ objectFit: 'contain' }} />
             </span>
-            <span className="bento__badge-ring" title="HLA Certified Builder">
+            <span className="bento__badge-ring" title="HighLevel Accelerator (HLA Course Graduate)">
               <img src="/hla_badge.png" alt="HLA Certified Builder Badge" width={56} height={56} style={{ objectFit: 'contain' }} />
             </span>
           </div>

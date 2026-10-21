@@ -54,12 +54,12 @@ export const profile: Profile = {
   adminNumber: 'HLA-Verified',
   role: 'GoHighLevel CRM Specialist & Administrative Virtual Assistant',
   avatarSrc: '/avatar.jpg',
-  verifiedLabel: 'HighLevel Certified Admin & HLA Certified Builder',
+  verifiedLabel: 'HighLevel Certified Admin · HLA Course Graduate',
   email: 'tanggoreynard@gmail.com',
   location: 'Philippines (GMT+8) · Available for U.S. Time Zones',
   // Pick any icon from https://phosphoricons.com and import it above.
   stats: [
-    { value: 'HLA Cert', label: 'Automation Builder', Icon: SealCheck },
+    { value: 'Certified Admin', label: 'Official HighLevel', Icon: SealCheck },
     { value: 'GHL & Admin', label: 'CRM Specialist', Icon: Briefcase },
     { value: 'GMT+8 / US', label: 'Global Coverage', Icon: Clock },
   ],

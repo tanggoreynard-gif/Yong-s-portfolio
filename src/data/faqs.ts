@@ -17,7 +17,7 @@ export const FAQS: QA[] = [
   },
   {
     q: 'Are you certified in GoHighLevel?',
-    a: 'Yes, I am an HLA Certified Automation Builder through HL Accelerator, trained in end-to-end CRM pipelines, custom values, triggers, and client onboarding workflows.',
+    a: 'Yes! I am an official HighLevel Certified Administrator, certified directly by HighLevel for platform architecture, sub-account setup, and agency operations. Additionally, I am a graduate of the intensive HighLevel Accelerator (HLA) course, with specialized training in end-to-end CRM pipelines, custom values, triggers, and client onboarding workflows.',
   },
   {
     q: 'How do you handle CRM data quality?',

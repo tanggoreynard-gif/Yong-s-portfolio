@@ -46,7 +46,7 @@ export default function Home() {
             </h1>
 
             <p className="home__lede">
-              Hi, I’m <strong>{profile.name}</strong>. Certified HLA Automation Builder and Licensed Biosystems Engineer. I configure clean GoHighLevel pipelines, automated lead follow-ups, and organized backend administrative systems with engineering precision.
+              Hi, I’m <strong>{profile.name}</strong>. HighLevel Certified Administrator and Licensed Biosystems Engineer. I configure clean GoHighLevel pipelines, automated lead follow-ups, and organized backend administrative systems with engineering precision.
             </p>
 
             <div className="home__hero-actions">
@@ -562,7 +562,7 @@ export default function Home() {
               My engineering background taught me rigorous attention to detail, process documentation, and data integrity. I apply that same methodical standard when configuring GoHighLevel pipelines, automated lead workflows, and administrative SOPs.
             </p>
             <p className="home__about-para">
-              I completed specialized training and earned my <strong>HLA Automation Builder certification</strong> through the <strong>HighLevel Accelerator</strong>, focusing on sales pipelines, custom values, trigger automations, and client onboarding workflows.
+              I am an official <strong>HighLevel Certified Administrator</strong>, holding verified accreditation directly from HighLevel. In addition, I graduated from the intensive <strong>HighLevel Accelerator (HLA) course</strong>, mastering advanced sales pipelines, custom values, trigger automations, and client onboarding workflows.
             </p>
 
             <div className="home__about-specs">
@@ -588,7 +588,7 @@ export default function Home() {
               <img src="/certified-admin-badge.png" alt="HighLevel Certified Admin Badge" width={48} height={56} style={{ objectFit: 'contain' }} />
               <div className="home__cred-text">
                 <span className="home__cred-title">HighLevel Certified Admin</span>
-                <span className="home__cred-meta">HighLevel Verified</span>
+                <span className="home__cred-meta">Official Platform Certification</span>
               </div>
               <ArrowUpRight size={16} weight="bold" className="home__cred-arrow" aria-hidden="true" />
             </a>
@@ -602,8 +602,8 @@ export default function Home() {
             >
               <img src="/hla_badge.png" alt="HLA Certified Builder Badge" width={48} height={48} style={{ objectFit: 'contain' }} />
               <div className="home__cred-text">
-                <span className="home__cred-title">HLA Certified Builder</span>
-                <span className="home__cred-meta">Automation Builder · Certified by HL Accelerator</span>
+                <span className="home__cred-title">HighLevel Accelerator (HLA)</span>
+                <span className="home__cred-meta">Course Graduate · Automation Builder</span>
               </div>
               <ArrowUpRight size={16} weight="bold" className="home__cred-arrow" aria-hidden="true" />
             </a>

@@ -58,7 +58,7 @@ export default function AboutGrid() {
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
         <p className="pgrid__lede">
-          Certified GoHighLevel Automation Builder and detail-driven Administrative Virtual Assistant.
+          HighLevel Certified Administrator and detail-driven CRM & Administrative Specialist.
         </p>
       </header>
 
@@ -70,7 +70,7 @@ export default function AboutGrid() {
           </p>
 
           <p className="agrid__note">
-            <strong>Certified HLA Automation Builder</strong> with a background in engineering (Licensed Biosystems Engineer).
+            <strong>HighLevel Certified Administrator</strong> with a background in engineering (Licensed Biosystems Engineer) and graduate of the intensive <strong>HighLevel Accelerator (HLA) course</strong>.
             I combine rigorous process discipline with hands-on CRM expertise in GoHighLevel, Google Workspace, and AI platforms to deliver clean databases, instant lead responses, and dependable remote operations.
           </p>
 
@@ -110,7 +110,7 @@ export default function AboutGrid() {
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">HighLevel Certified Admin</span>
-                <span className="agrid__cell-meta">HighLevel Verified</span>
+                <span className="agrid__cell-meta">Official Platform Certification</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={14} weight="bold" aria-hidden="true" />
             </a>
@@ -126,8 +126,8 @@ export default function AboutGrid() {
                 <img src="/hla_badge.png" alt="HLA Certified Builder Badge" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">HLA Certified Builder</span>
-                <span className="agrid__cell-meta">Automation Builder · HL Accelerator</span>
+                <span className="agrid__cell-title">HighLevel Accelerator (HLA)</span>
+                <span className="agrid__cell-meta">Course Graduate · Automation Builder</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={14} weight="bold" aria-hidden="true" />
             </a>
