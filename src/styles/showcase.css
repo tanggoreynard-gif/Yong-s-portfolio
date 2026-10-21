@@ -89,32 +89,42 @@
    is in the middle, the way in on the right. The page head already carries an
    h1, so this title steps down rather than competing with it. */
 .ktools .flagship__header {
-  display: grid;
-  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
-  grid-template-areas:
-    "eyebrow desc cta"
-    "title   desc cta";
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
   align-self: stretch;
-  column-gap: clamp(24px, 3vw, 56px);
-  row-gap: 4px;
-  padding-bottom: clamp(18px, 2.4vw, 28px);
+  padding-bottom: clamp(20px, 2.5vw, 32px);
   border-bottom: 1px solid var(--line);
 }
-.ktools .flagship__eyebrow { grid-area: eyebrow; align-self: end; }
+.ktools .flagship__eyebrow {
+  align-self: flex-start;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--orange-ink);
+  font-weight: 600;
+}
 .ktools .flagship__title {
-  grid-area: title;
-  align-self: start;
-  font-size: clamp(26px, 2.6vw, 40px);
-  white-space: nowrap;
+  align-self: flex-start;
+  font-size: clamp(28px, 3vw, 44px);
+  white-space: normal;
+  line-height: 1.15;
+  margin: 0;
+  max-width: 28ch;
 }
 .ktools .flagship__desc {
-  grid-area: desc;
-  max-width: none;
-  font-size: clamp(12.5px, 0.9vw, 14.5px);
-  border-left: 0;
+  max-width: 72ch;
+  font-size: clamp(13.5px, 0.95vw, 15px);
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
 }
-.ktools .flagship__cta { grid-area: cta; margin-top: 0; white-space: nowrap; }
+.ktools .flagship__cta {
+  align-self: flex-start;
+  margin-top: 4px;
+  white-space: nowrap;
+}
 
 /* The mock now gets the whole sheet. Its 16/10 aspect would make it ~880px
    tall at this width and push everything else off the fold, so height leads
