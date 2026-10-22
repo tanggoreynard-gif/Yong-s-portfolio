@@ -314,7 +314,7 @@ const LUMINA_PROOFS: ProofItem[] = [
   {
     title: 'Lumina Dental Studio — Practice Experience & Patient Concierge',
     badge: 'Live Website',
-    src: '/samples/thumbs/lumina-dental.jpeg',
+    src: '/samples/thumbs/lumina-dental.png',
     fullSrc: '/samples/lumina-dental-full.png',
     href: '/lumina-dental',
     alt: 'Lumina Dental Studio luxury practice website screenshot',
@@ -387,7 +387,7 @@ const FITCO_PROOFS: ProofItem[] = [
   {
     title: 'FitCo Athletics — High-Performance Fitness Coaching Funnel',
     badge: 'Live Website & Funnel',
-    src: '/samples/thumbs/fitco-coaching.jpeg',
+    src: '/samples/thumbs/fitco-coaching.png',
     fullSrc: '/samples/fitco-coaching-full.png',
     href: '/fitco-coaching',
     alt: 'FitCo High-Performance Coaching live website',
@@ -460,7 +460,7 @@ const HAVEN_PROOFS: ProofItem[] = [
   {
     title: 'Serene Haven — Senior Living & Assisted Care Community',
     badge: 'Live Website & Funnel',
-    src: '/samples/thumbs/haven-senior-care.jpeg',
+    src: '/samples/thumbs/haven-senior-care.png',
     fullSrc: '/samples/haven-senior-care-full.png',
     href: '/haven-senior-care',
     alt: 'Serene Haven Senior Care live website',
@@ -533,7 +533,7 @@ const MERIDIAN_PROOFS: ProofItem[] = [
   {
     title: 'Meridian Executive Recruitment & Staffing Platform',
     badge: 'Live Website & Funnel',
-    src: '/samples/thumbs/meridian-staffing.jpeg',
+    src: '/samples/thumbs/meridian-staffing.png',
     fullSrc: '/samples/meridian-staffing-full.png',
     href: '/meridian-staffing',
     alt: 'Meridian Executive Staffing full website screenshot',
