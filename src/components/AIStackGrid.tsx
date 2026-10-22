@@ -23,7 +23,6 @@ const T = {
   slack: { name: 'Slack', src: '/icons/slack.svg' },
   postgres: { name: 'Postgres + pgvector', src: '/icons/ai/postgresql.svg' },
   sqlite: { name: 'SQLite FTS5', src: '/icons/ai/sqlite.svg' },
-  nous: { name: 'Nous Hermes', src: '/icons/ai/hermes.svg' },
   docker: { name: 'Docker', src: '/icons/ai/docker.svg' },
   ghl: { name: 'GoHighLevel', src: '/icons/gohighlevel.png' },
 } satisfies Record<string, Tool>
@@ -40,8 +39,6 @@ const TOOLS: Record<string, Tool[]> = {
   'project-g': [T.claude, T.ghl],
   'project-h': [T.claude, T.elevenlabs],
   'project-i': [T.claude],
-  'project-j': [T.nous, T.telegram, T.docker],
-  'project-k': [T.nous, T.telegram],
 }
 
 /** The harnesses everything above is built with. */
@@ -65,7 +62,7 @@ function groups(root: StackNode): Group[] {
 }
 
 function Card({ n }: { n: StackNode }) {
-  const tools = TOOLS[n.id] ?? []
+  const tools = (n.logos && n.logos.length > 0) ? n.logos : (TOOLS[n.id] ?? [])
   return (
     <li className="aig__card">
       <div className="aig__marks" aria-label={`Built with ${tools.map((t) => t.name).join(', ')}`}>
@@ -102,7 +99,7 @@ export default function AIStackGrid() {
     <div className="aig">
       <header className="aig__head">
         <div className="aig__head-text">
-          <span className="aig__eyebrow">Placeholder category</span>
+          <span className="aig__eyebrow">Operations & AI Systems</span>
           <h3 className="aig__title">{aiStack.what}</h3>
         </div>
         <div className="aig__harness" aria-label="Built with">
