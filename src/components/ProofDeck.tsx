@@ -21,14 +21,6 @@ export function ProofCard({
   item: ProofItem
   onZoom: (item: ProofItem) => void
 }) {
-  const handleAction = () => {
-    if (item.href) {
-      window.open(item.href, '_blank', 'noopener,noreferrer')
-    } else {
-      onZoom(item)
-    }
-  }
-
   return (
     <article className="proof-card">
       <div className="proof-card__bar">
@@ -48,16 +40,16 @@ export function ProofCard({
 
       <figure
         className="proof-card__figure"
-        onClick={handleAction}
+        onClick={() => onZoom(item)}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault()
-            handleAction()
+            onZoom(item)
           }
         }}
-        aria-label={item.href ? `Open ${item.title} live website` : `Inspect ${item.title} in high resolution`}
+        aria-label={`Inspect ${item.title} in full resolution`}
       >
         <img
           className="proof-card__img"
@@ -67,19 +59,25 @@ export function ProofCard({
           decoding="async"
         />
         <div className="proof-card__overlay" aria-hidden="true">
-          <span className="proof-card__zoom-btn">
-            {item.href ? (
-              <>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <span className="proof-card__zoom-btn" onClick={(e) => { e.stopPropagation(); onZoom(item); }}>
+              <MagnifyingGlassPlus size={15} weight="bold" />
+              Inspect Full-Page (High-Res)
+            </span>
+            {item.href && (
+              <span
+                className="proof-card__zoom-btn"
+                style={{ background: '#5B4FE0', borderColor: 'rgba(255,255,255,0.3)' }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(item.href, '_blank', 'noopener,noreferrer');
+                }}
+              >
                 <ArrowSquareOut size={15} weight="bold" />
-                Open Live Website ↗
-              </>
-            ) : (
-              <>
-                <MagnifyingGlassPlus size={14} weight="bold" />
-                Inspect High-Res
-              </>
+                Open Live Site ↗
+              </span>
             )}
-          </span>
+          </div>
         </div>
       </figure>
 
