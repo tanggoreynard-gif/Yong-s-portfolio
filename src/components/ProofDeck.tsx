@@ -153,44 +153,101 @@ export function ProofLightbox({
       className="proof-modal"
       role="dialog"
       aria-modal="true"
-      aria-label={`${active.title} full resolution view`}
+      aria-label={`${active.title} live experience`}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
     >
-      <div className="proof-modal__window">
+      <div className="proof-modal__window" style={{ maxWidth: 'min(1280px, 96vw)', height: '94vh', maxHeight: '94vh' }}>
         <div className="proof-modal__bar">
           <div className="proof-card__dots" aria-hidden="true">
             <span />
             <span />
             <span />
           </div>
-          <span className="proof-modal__title">{active.title}</span>
-          <button
-            ref={closeRef}
-            type="button"
-            className="proof-modal__close"
-            onClick={onClose}
-            aria-label="Close high-res view"
-          >
-            <X size={16} weight="bold" />
-          </button>
+          <span className="proof-modal__title">
+            <strong>{active.title}</strong>
+          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            {active.href && (
+              <a
+                href={active.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="proof-modal__open-btn"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '6px 14px',
+                  borderRadius: '999px',
+                  background: 'var(--accent, #5B4FE0)',
+                  color: '#FFFFFF',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  textDecoration: 'none',
+                  boxShadow: '0 2px 8px rgba(91, 79, 224, 0.3)',
+                }}
+              >
+                <ArrowSquareOut size={14} weight="bold" />
+                Open Live Site in New Tab ↗
+              </a>
+            )}
+            <button
+              ref={closeRef}
+              type="button"
+              className="proof-modal__close"
+              onClick={onClose}
+              aria-label="Close interactive view"
+            >
+              <X size={16} weight="bold" />
+            </button>
+          </div>
         </div>
 
-        <div className="proof-modal__stage">
-          <img
-            className={`proof-modal__full-img${active.wide ? ' proof-modal__full-img--wide' : ''}`}
-            src={active.fullSrc || active.src}
-            alt={active.alt}
-          />
+        <div className="proof-modal__stage" style={{ padding: 0, height: 'calc(94vh - 105px)', maxHeight: 'none', background: '#FFFFFF', overflow: 'hidden' }}>
+          {active.href ? (
+            <iframe
+              src={active.href}
+              title={active.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                display: 'block',
+                background: '#FFFFFF',
+              }}
+              loading="eager"
+            />
+          ) : (
+            <div style={{ overflowY: 'auto', width: '100%', height: '100%', padding: '24px', display: 'flex', justifyContent: 'center' }}>
+              <img
+                className={`proof-modal__full-img${active.wide ? ' proof-modal__full-img--wide' : ''}`}
+                src={active.fullSrc || active.src}
+                alt={active.alt}
+              />
+            </div>
+          )}
         </div>
 
         <div className="proof-modal__footer">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <CheckCircle size={15} weight="fill" color="#0FB6D6" />
-            <span>Verified Production Proof · GoHighLevel Architecture</span>
+            <span>Interactive Live Website Sandbox · Fully Navigable</span>
           </div>
-          <span>Press ESC or click outside to close</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            {active.href && (
+              <a
+                href={active.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'var(--accent, #5B4FE0)', fontWeight: 600, textDecoration: 'underline' }}
+              >
+                Launch {active.href} in new tab ↗
+              </a>
+            )}
+            <span>Press ESC or click outside to close</span>
+          </div>
         </div>
       </div>
     </div>,

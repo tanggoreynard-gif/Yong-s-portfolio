@@ -310,7 +310,7 @@
 .proof-modal__title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--ink);
+  color: #12141C !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
