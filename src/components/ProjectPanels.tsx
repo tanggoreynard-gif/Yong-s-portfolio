@@ -336,7 +336,7 @@ export function LuminaPanel() {
             Live Client Website
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
-            <h2 className="proof-deck__title" style={{ margin: 0 }}>Lumina Dental Studio</h2>
+            <h2 className="proof-deck__title" style={{ margin: 0 }}>Lumina Dental Studio — Austin, TX</h2>
             <a
               href="/lumina-dental"
               target="_blank"
@@ -348,7 +348,7 @@ export function LuminaPanel() {
             </a>
           </div>
           <p className="proof-deck__desc">
-            A bespoke 10-section luxury dental website and patient booking concierge engineered with clean aesthetics, treatment breakdown, patient testimonials, and appointment scheduling.
+            Bespoke cosmetic & gentle general dentistry sanctuary in Austin, TX with Dr. Olivia Bennett, DDS. Complete with treatment breakdown (Invisalign, Veneers, Implants), anxiety-free care roadmap, patient reviews, and an interactive booking concierge.
           </p>
         </header>
 
@@ -409,7 +409,7 @@ export function FitCoPanel() {
             Live Client Website
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
-            <h2 className="proof-deck__title" style={{ margin: 0 }}>FitCo High-Performance Coaching</h2>
+            <h2 className="proof-deck__title" style={{ margin: 0 }}>Forge Fitness Co. — Elite Athletic Conditioning</h2>
             <a
               href="/fitco-coaching"
               target="_blank"
@@ -421,7 +421,7 @@ export function FitCoPanel() {
             </a>
           </div>
           <p className="proof-deck__desc">
-            Complete 11-section high-converting fitness coaching funnel with trainer credentials, client transformation proof, custom training packages, and an integrated consultation booking form.
+            High-converting fitness funnel built around Head Coach Alex Carter. Features 4 training tiers (1-on-1 Personal Training, Small Group, Online, Nutrition Coaching), real transformation metrics, interactive assessment, and strategy session booking.
           </p>
         </header>
 
@@ -464,7 +464,7 @@ const HAVEN_PROOFS: ProofItem[] = [
     fullSrc: '/samples/haven-senior-care-full.png',
     href: '/haven-senior-care',
     alt: 'Serene Haven Senior Care live website',
-    desc: 'Compassionate senior living and assisted living community website featuring care level breakdowns, family testimonials, memory care details, and a tour scheduling booking flow.',
+    desc: 'Compassionate Scottsdale, AZ eldercare platform detailing 6 specialized care tiers (Companion, Personal, Memory/Dementia, Respite, Post-Hospital, 24-Hour Care), certified caregiver matching, family video testimonials, and an automated care consultation scheduler.',
     tags: ['Senior Living', 'Healthcare Website', 'Tour Booking', 'Family Roadmap'],
     wide: true,
   },
@@ -482,7 +482,7 @@ export function HavenPanel() {
             Live Client Funnel
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
-            <h2 className="proof-deck__title" style={{ margin: 0 }}>Serene Haven Senior Living</h2>
+            <h2 className="proof-deck__title" style={{ margin: 0 }}>Serene Haven Care — In-Home & Assisted Living</h2>
             <a
               href="/haven-senior-care"
               target="_blank"
@@ -555,7 +555,7 @@ export function MeridianPanel() {
             Live Client Funnel
           </span>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '4px' }}>
-            <h2 className="proof-deck__title" style={{ margin: 0 }}>Meridian Executive Staffing</h2>
+            <h2 className="proof-deck__title" style={{ margin: 0 }}>Meridian Executive Search & Strategic Talent Advisory</h2>
             <a
               href="/meridian-staffing"
               target="_blank"
@@ -567,7 +567,7 @@ export function MeridianPanel() {
             </a>
           </div>
           <p className="proof-deck__desc">
-            High-impact corporate recruiting agency platform with candidate submission pipelines, client talent request portal, vetted candidate stages, and automated employer onboarding.
+            Tier-1 corporate executive recruiting portal with dual workflows: enterprise talent requisition ordering for C-suite/VP roles, confidential candidate resume drop pipelines, and a transparent 4-stage executive vetting framework.
           </p>
         </header>
 
