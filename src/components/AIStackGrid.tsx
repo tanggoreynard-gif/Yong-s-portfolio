@@ -46,10 +46,10 @@ const TOOLS: Record<string, Tool[]> = {
 
 /** The harnesses everything above is built with. */
 const HARNESS: Tool[] = [
+  { name: 'Antigravity IDE', src: '/icons/ai/antigravity.svg' },
+  { name: 'Google AI Pro', src: '/icons/ai/google-ai.svg' },
   { name: 'Claude Code', src: '/icons/claude-code-logo.png' },
   { name: 'Codex', src: '/icons/ai/codex.svg' },
-  { name: 'Cursor', src: '/icons/ai/cursor.svg' },
-  { name: 'Hermes', src: '/icons/ai/hermes.svg' },
 ]
 
 type Group = { title: string; what: string; systems: StackNode[] }
