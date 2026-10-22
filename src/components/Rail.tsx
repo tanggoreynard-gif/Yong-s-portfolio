@@ -57,7 +57,14 @@ export default function Rail() {
           <SealCheck size={19} weight="fill" aria-label={profile.verifiedLabel} />
         </h2>
 
-        <div className="rail__badge-pill" title="HighLevel Certified Admin">
+        <a
+          href="https://directory.gohighlevel.com/philippines/general-santos-city-dadiangas/certified-admins/reynard-tanggo"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rail__badge-pill"
+          title="HighLevel Certified Admin - Official Directory Profile"
+          style={{ textDecoration: 'none', color: 'inherit' }}
+        >
           <img
             src="/certified-admin-badge.png"
             alt="HighLevel Certified Admin Badge"
@@ -66,7 +73,7 @@ export default function Rail() {
             height={28}
           />
           <span className="rail__badge-title">HighLevel Certified Admin</span>
-        </div>
+        </a>
 
         <div className="rail__sub-badge" title="HighLevel Accelerator (HLA Automation Builder)">
           <img

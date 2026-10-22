@@ -100,10 +100,10 @@ export default function AboutGrid() {
           <div className="agrid__bar">
             <a
               className="agrid__cell"
-              href="https://www.highlevel.com"
+              href="https://directory.gohighlevel.com/philippines/general-santos-city-dadiangas/certified-admins/reynard-tanggo"
               target="_blank"
               rel="noopener noreferrer"
-              title="HighLevel Certified Admin"
+              title="HighLevel Certified Admin - Official Directory Profile"
             >
               <span className="agrid__cell-mark agrid__cell-mark--badge">
                 <img src="/certified-admin-badge.png" alt="HighLevel Certified Admin Badge" loading="lazy" decoding="async" />

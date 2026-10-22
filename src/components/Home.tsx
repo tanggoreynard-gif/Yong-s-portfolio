@@ -580,10 +580,10 @@ export default function Home() {
           <div className="home__about-card">
             <a
               className="home__cred-badge"
-              href="https://www.highlevel.com"
+              href="https://directory.gohighlevel.com/philippines/general-santos-city-dadiangas/certified-admins/reynard-tanggo"
               target="_blank"
               rel="noopener noreferrer"
-              title="HighLevel Certified Admin"
+              title="HighLevel Certified Admin - Official Directory Profile"
             >
               <img src="/certified-admin-badge.png" alt="HighLevel Certified Admin Badge" width={48} height={56} style={{ objectFit: 'contain' }} />
               <div className="home__cred-text">

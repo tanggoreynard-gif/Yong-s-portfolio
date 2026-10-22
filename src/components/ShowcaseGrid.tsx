@@ -29,10 +29,10 @@ export default function ShowcaseGrid() {
             <span className="ktools__vote-dot" aria-hidden="true" />
             Certified Admin
           </p>
-          <div className="ktools__vote-frame ktools__vote-card">
+          <a href="https://directory.gohighlevel.com/philippines/general-santos-city-dadiangas/certified-admins/reynard-tanggo" target="_blank" rel="noopener noreferrer" className="ktools__vote-frame ktools__vote-card" title="HighLevel Certified Admin - Official Directory Profile">
             <img src="/certified-admin-badge.png" alt="HighLevel Certified Admin Badge" width="40" height="46" style={{ objectFit: 'contain' }} />
             <span className="ktools__vote-text">Verified Admin</span>
-          </div>
+          </a>
         </div>
       </header>
 
