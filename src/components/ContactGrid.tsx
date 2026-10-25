@@ -27,7 +27,7 @@ const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
 
 export default function ContactGrid() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const initialTab = searchParams.get('tab') === 'message' ? 'message' : 'calendar'
+  const initialTab = searchParams.get('tab') === 'calendar' ? 'calendar' : 'message'
   const [view, setView] = useState<'calendar' | 'message'>(initialTab)
 
   const [status, setStatus] = useState<Status>({ kind: 'idle' })
@@ -142,19 +142,6 @@ export default function ContactGrid() {
               <button
                 type="button"
                 role="tab"
-                aria-selected={view === 'calendar'}
-                className={`cgrid__tab-btn ${view === 'calendar' ? 'is-active' : ''}`}
-                onClick={() => {
-                  setView('calendar')
-                  setSearchParams({ tab: 'calendar' })
-                }}
-              >
-                <CalendarCheck size={16} weight={view === 'calendar' ? 'fill' : 'bold'} aria-hidden="true" />
-                <span>Book Discovery Call</span>
-              </button>
-              <button
-                type="button"
-                role="tab"
                 aria-selected={view === 'message'}
                 className={`cgrid__tab-btn ${view === 'message' ? 'is-active' : ''}`}
                 onClick={() => {
@@ -164,6 +151,19 @@ export default function ContactGrid() {
               >
                 <PaperPlaneTilt size={16} weight={view === 'message' ? 'fill' : 'bold'} aria-hidden="true" />
                 <span>Send a Note</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={view === 'calendar'}
+                className={`cgrid__tab-btn ${view === 'calendar' ? 'is-active' : ''}`}
+                onClick={() => {
+                  setView('calendar')
+                  setSearchParams({ tab: 'calendar' })
+                }}
+              >
+                <CalendarCheck size={16} weight={view === 'calendar' ? 'fill' : 'bold'} aria-hidden="true" />
+                <span>Book Discovery Call</span>
               </button>
             </div>
             <div className="cgrid__tab-meta">
