@@ -1,38 +1,52 @@
-import { useState, type FormEvent } from 'react'
-import { PaperPlaneTilt, CheckCircle, WarningCircle, EnvelopeSimple, ArrowUpRight, CaretDown } from '@/components/slab'
+import { useState, useEffect, type FormEvent } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import {
+  PaperPlaneTilt,
+  CheckCircle,
+  WarningCircle,
+  EnvelopeSimple,
+  ArrowUpRight,
+  CaretDown,
+  CalendarCheck,
+  Clock,
+  ShieldCheck,
+} from '@/components/slab'
 import { FAQS } from '@/data/faqs'
 import { profile } from '@/data/profile'
 import { readLead, submitLead, SubmitError, MAX_NAME, MAX_EMAIL, MAX_MESSAGE, type SubmitResult } from '@/lib/contact'
 
 /**
- * ContactGrid - the Contact view as a fixed viewport.
- *
- * One glass sheet, two columns: the questions people ask before they write
- * on the left, on a dark plate (one open at a time, the list scrolls), and
- * the form itself on the right. Sized to the panel, so
- * nothing here scrolls; the message box takes whatever height is left.
- *
- * Submission goes through lib/contact.ts, which is the one place a form
- * backend gets wired. Until it is, the same call opens the visitor's mail
- * client with the message laid out, and the success copy says so.
+ * ContactGrid - the Contact view featuring live GoHighLevel Calendar booking
+ * and direct email inquiry form.
  */
 
 type Status = { kind: 'idle' } | { kind: 'sending' } | { kind: 'error'; note: string } | { kind: 'sent'; via: SubmitResult['via'] }
 
-/* The plane takes this long to leave the button. The sent state waits for it
-   even when the submit itself is instant, so the send is something you see
-   happen rather than a panel that blinks. */
 const FLIGHT_MS = 650
-
 const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
 
 export default function ContactGrid() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const initialTab = searchParams.get('tab') === 'message' ? 'message' : 'calendar'
+  const [view, setView] = useState<'calendar' | 'message'>(initialTab)
+
   const [status, setStatus] = useState<Status>({ kind: 'idle' })
-  // Bumped on every failed submit so the shake replays even if the same
-  // error is already showing.
   const [shake, setShake] = useState(0)
-  // One question open at a time so the plate never grows past the form.
   const [openFaq, setOpenFaq] = useState<number | null>(0)
+
+  // Ensure GHL form embed auto-resizer script is loaded for the calendar
+  useEffect(() => {
+    if (view === 'calendar') {
+      const existing = document.querySelector('script[src="https://go.rdtops.online/js/form_embed.js"]')
+      if (!existing) {
+        const script = document.createElement('script')
+        script.src = 'https://go.rdtops.online/js/form_embed.js'
+        script.type = 'text/javascript'
+        script.async = true
+        document.body.appendChild(script)
+      }
+    }
+  }, [view])
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -58,24 +72,24 @@ export default function ContactGrid() {
   return (
     <section className="pgrid cgrid" aria-labelledby="contact-title">
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">Contact</span>
+        <span className="pgrid__eyebrow">Contact & Scheduling</span>
         <h1 className="pgrid__title" id="contact-title">
           Let’s streamline your CRM & administrative workflow.
         </h1>
         <p className="pgrid__lede">
-          Have an upcoming GoHighLevel pipeline, automation build, or need dedicated administrative support? Send a note below.
+          Book a 30-minute discovery call directly on my HighLevel calendar below, or send a quick note to get started.
         </p>
       </header>
 
       <div className="home__glass cgrid__glass">
-        {/* Left: the dark plate. What happens after you press send. */}
+        {/* Left: the dark plate. FAQs, Email, and Socials */}
         <aside className="cgrid__aside" aria-labelledby="contact-faq">
           <div className="cgrid__aside-head">
             <span className="cgrid__eyebrow">FAQs</span>
             <h2 className="cgrid__aside-title" id="contact-faq">
               Quick answers.
               <br />
-              <span>Still have one? Write below.</span>
+              <span>Still have one? Book or write.</span>
             </h2>
           </div>
 
@@ -120,87 +134,170 @@ export default function ContactGrid() {
           </div>
         </aside>
 
-        {/* Right: the form. */}
+        {/* Right: The interactive HighLevel Calendar & Contact Panel */}
         <div className="cgrid__panel">
-          {status.kind === 'sent' ? (
-            <div className="cgrid__done" role="status">
-              <span className="cgrid__done-mark" aria-hidden="true">
-                <CheckCircle size={30} weight="fill" />
-              </span>
-              <h2 className="cgrid__done-title">
-                {status.via === 'webhook' ? 'Got it.' : 'Your mail app has it.'}
-              </h2>
-              <p className="cgrid__done-body">
-                {status.via === 'webhook'
-                  ? 'It is in my inbox and on my phone. You will hear back within one business day.'
-                  : 'The message is laid out and addressed. Press send there and you will hear back within one business day.'}
-              </p>
-              <button type="button" className="cgrid__again" onClick={() => setStatus({ kind: 'idle' })}>
-                Write another
+          {/* Top Switcher Tabs */}
+          <div className="cgrid__tabs-header">
+            <div className="cgrid__tabs" role="tablist" aria-label="Contact options">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={view === 'calendar'}
+                className={`cgrid__tab-btn ${view === 'calendar' ? 'is-active' : ''}`}
+                onClick={() => {
+                  setView('calendar')
+                  setSearchParams({ tab: 'calendar' })
+                }}
+              >
+                <CalendarCheck size={16} weight={view === 'calendar' ? 'fill' : 'bold'} aria-hidden="true" />
+                <span>Book Discovery Call</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={view === 'message'}
+                className={`cgrid__tab-btn ${view === 'message' ? 'is-active' : ''}`}
+                onClick={() => {
+                  setView('message')
+                  setSearchParams({ tab: 'message' })
+                }}
+              >
+                <PaperPlaneTilt size={16} weight={view === 'message' ? 'fill' : 'bold'} aria-hidden="true" />
+                <span>Send a Note</span>
               </button>
             </div>
-          ) : (
-            <form className={`cgrid__form${busy ? ' is-sending' : ''}`} onSubmit={onSubmit} noValidate>
-              {/* Honeypot. Hidden from people and assistive tech; a script that
-                  fills every field trips it and the backend can drop the
-                  post. autoComplete off so a browser never fills it either. */}
-              <input
-                type="text"
-                name="website"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                className="cgrid__trap"
-              />
-              <div className="cgrid__row">
-                <label className="cgrid__field">
-                  <span className="cgrid__label">First name</span>
-                  <input type="text" name="firstName" autoComplete="given-name" required maxLength={MAX_NAME} placeholder="First name" />
-                </label>
-                <label className="cgrid__field">
-                  <span className="cgrid__label">Last name</span>
-                  <input type="text" name="lastName" autoComplete="family-name" required maxLength={MAX_NAME} placeholder="Last name" />
-                </label>
+            <div className="cgrid__tab-meta">
+              {view === 'calendar' ? (
+                <span className="cgrid__live-indicator">
+                  <span className="cgrid__live-dot" aria-hidden="true" />
+                  Live GHL Booking
+                </span>
+              ) : (
+                <span className="cgrid__live-indicator">
+                  <Clock size={13} weight="bold" aria-hidden="true" />
+                  Replies in &lt; 24h
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* View 1: GoHighLevel Embedded Calendar */}
+          {view === 'calendar' && (
+            <div className="cgrid__calendar-card">
+              <div className="cgrid__calendar-intro">
+                <div>
+                  <h3 className="cgrid__cal-title">Schedule a 30-Min Discovery & Workflow Call</h3>
+                  <p className="cgrid__cal-desc">
+                    Pick a convenient time below to discuss your GoHighLevel CRM setup, automated workflows, or administrative support needs.
+                  </p>
+                </div>
+                <div className="cgrid__cal-perks">
+                  <span className="cgrid__cal-pill">
+                    <Clock size={12} weight="fill" aria-hidden="true" /> 30 Minutes
+                  </span>
+                  <span className="cgrid__cal-pill">
+                    <ShieldCheck size={12} weight="fill" aria-hidden="true" /> Zero Obligation
+                  </span>
+                  <span className="cgrid__cal-pill">
+                    <CheckCircle size={12} weight="fill" aria-hidden="true" /> Google Meet / Zoom
+                  </span>
+                </div>
               </div>
 
-              <label className="cgrid__field">
-                <span className="cgrid__label">Email</span>
-                <input type="email" name="email" autoComplete="email" required maxLength={MAX_EMAIL} placeholder="you@yourbusiness.com" />
-              </label>
-
-              <label className="cgrid__field cgrid__field--grow">
-                <span className="cgrid__label">Tell me more about your business</span>
-                <textarea
-                  name="message"
-                  required
-                  maxLength={MAX_MESSAGE}
-                  placeholder="What do you need help with? What are you working with today?"
+              <div className="cgrid__calendar-frame-wrap">
+                <iframe
+                  src="https://go.rdtops.online/widget/booking/f9JUfjP5sB4JwXvsZKFU"
+                  allow="payment"
+                  style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '680px' }}
+                  scrolling="no"
+                  id="f9JUfjP5sB4JwXvsZKFU_1792925195076"
+                  title="GoHighLevel Appointment Booking Calendar"
                 />
-              </label>
-
-              <div className="cgrid__actions">
-                <button
-                  key={shake}
-                  type="submit"
-                  className={`cgrid__submit${busy ? ' is-sending' : ''}${status.kind === 'error' ? ' is-shaking' : ''}`}
-                  disabled={busy}
-                >
-                  <span className="cgrid__submit-plane" aria-hidden="true">
-                    <PaperPlaneTilt size={17} weight="fill" />
-                  </span>
-                  <span className="cgrid__submit-label">{busy ? 'Sending' : 'Send message'}</span>
-                  <ArrowUpRight className="cgrid__submit-arrow" size={15} weight="bold" aria-hidden="true" />
-                </button>
-                {status.kind === 'error' ? (
-                  <span className="cgrid__status" role="alert">
-                    <WarningCircle size={16} weight="fill" aria-hidden="true" />
-                    {status.note}
-                  </span>
-                ) : (
-                  <span className="cgrid__hint">Short reassurance line, e.g. your reply time.</span>
-                )}
               </div>
-            </form>
+            </div>
+          )}
+
+          {/* View 2: Direct Note / Form */}
+          {view === 'message' && (
+            <>
+              {status.kind === 'sent' ? (
+                <div className="cgrid__done" role="status">
+                  <span className="cgrid__done-mark" aria-hidden="true">
+                    <CheckCircle size={30} weight="fill" />
+                  </span>
+                  <h2 className="cgrid__done-title">
+                    {status.via === 'webhook' ? 'Got it.' : 'Your mail app has it.'}
+                  </h2>
+                  <p className="cgrid__done-body">
+                    {status.via === 'webhook'
+                      ? 'It is in my inbox and on my phone. You will hear back within one business day.'
+                      : 'The message is laid out and addressed. Press send there and you will hear back within one business day.'}
+                  </p>
+                  <button type="button" className="cgrid__again" onClick={() => setStatus({ kind: 'idle' })}>
+                    Write another
+                  </button>
+                </div>
+              ) : (
+                <form className={`cgrid__form${busy ? ' is-sending' : ''}`} onSubmit={onSubmit} noValidate>
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="cgrid__trap"
+                  />
+                  <div className="cgrid__row">
+                    <label className="cgrid__field">
+                      <span className="cgrid__label">First name</span>
+                      <input type="text" name="firstName" autoComplete="given-name" required maxLength={MAX_NAME} placeholder="First name" />
+                    </label>
+                    <label className="cgrid__field">
+                      <span className="cgrid__label">Last name</span>
+                      <input type="text" name="lastName" autoComplete="family-name" required maxLength={MAX_NAME} placeholder="Last name" />
+                    </label>
+                  </div>
+
+                  <label className="cgrid__field">
+                    <span className="cgrid__label">Email</span>
+                    <input type="email" name="email" autoComplete="email" required maxLength={MAX_EMAIL} placeholder="you@yourbusiness.com" />
+                  </label>
+
+                  <label className="cgrid__field cgrid__field--grow">
+                    <span className="cgrid__label">Tell me more about your business</span>
+                    <textarea
+                      name="message"
+                      required
+                      maxLength={MAX_MESSAGE}
+                      placeholder="What do you need help with? What are you working with today?"
+                    />
+                  </label>
+
+                  <div className="cgrid__actions">
+                    <button
+                      key={shake}
+                      type="submit"
+                      className={`cgrid__submit${busy ? ' is-sending' : ''}${status.kind === 'error' ? ' is-shaking' : ''}`}
+                      disabled={busy}
+                    >
+                      <span className="cgrid__submit-plane" aria-hidden="true">
+                        <PaperPlaneTilt size={17} weight="fill" />
+                      </span>
+                      <span className="cgrid__submit-label">{busy ? 'Sending' : 'Send message'}</span>
+                      <ArrowUpRight className="cgrid__submit-arrow" size={15} weight="bold" aria-hidden="true" />
+                    </button>
+                    {status.kind === 'error' ? (
+                      <span className="cgrid__status" role="alert">
+                        <WarningCircle size={16} weight="fill" aria-hidden="true" />
+                        {status.note}
+                      </span>
+                    ) : (
+                      <span className="cgrid__hint">Guaranteed response within 24 hours.</span>
+                    )}
+                  </div>
+                </form>
+              )}
+            </>
           )}
         </div>
       </div>

@@ -167,6 +167,7 @@
 /* ---------- Right: the form ---------- */
 .cgrid__panel {
   display: flex;
+  flex-direction: column;
   min-height: 0;
   min-width: 0;
   border-radius: 20px;
@@ -176,6 +177,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
     0 1px 2px rgba(6, 12, 26, 0.04),
     0 24px 50px -36px rgba(6, 12, 26, 0.45);
+  overflow: hidden;
 }
 .cgrid__form {
   display: flex;
@@ -414,4 +416,151 @@
   .cgrid__social img { width: 18px; height: 18px; }
   .cgrid__label, .cgrid__step-index { font-size: 12px; }
   .cgrid__hint { font-size: 12.5px; }
+}
+
+/* ---------- Panel & Tabs Layout ---------- */
+.cgrid__tabs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px clamp(16px, 1.6vw, 24px);
+  border-bottom: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  flex: 0 0 auto;
+}
+
+.cgrid__tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background: var(--cream);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+}
+
+.cgrid__tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: clamp(12px, 0.8vw, 13px);
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 180ms var(--ease-out);
+}
+
+.cgrid__tab-btn:hover {
+  color: var(--navy);
+}
+
+.cgrid__tab-btn.is-active {
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: 0 2px 6px -1px rgba(6, 12, 26, 0.08), 0 1px 2px rgba(6, 12, 26, 0.04);
+}
+
+.cgrid__tab-meta {
+  display: flex;
+  align-items: center;
+}
+
+.cgrid__live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.cgrid__live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ---------- Calendar Card ---------- */
+.cgrid__calendar-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.cgrid__calendar-intro {
+  padding: 16px clamp(18px, 1.6vw, 24px) 14px;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, transparent 100%);
+}
+
+.cgrid__cal-title {
+  margin: 0;
+  font-size: clamp(16px, 1.1vw, 19px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.015em;
+}
+
+.cgrid__cal-desc {
+  margin: 4px 0 0;
+  font-size: clamp(12.5px, 0.85vw, 14px);
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.cgrid__cal-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cgrid__cal-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(91, 79, 224, 0.08);
+  color: var(--accent);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.cgrid__calendar-frame-wrap {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 680px;
+  padding: 4px;
+  position: relative;
+  background: var(--white);
+}
+
+.cgrid__calendar-frame-wrap iframe {
+  width: 100%;
+  border: none;
+  overflow: hidden;
+  display: block;
 }
