@@ -20,12 +20,12 @@ type Project = {
   cat: Cat
 }
 
-type Cat = 'sites' | 'crm' | 'work' | 'ops'
+type Cat = 'crm' | 'work' | 'sites' | 'ops'
 const FILTERS: { key: Cat | 'all'; label: string }[] = [
   { key: 'all', label: 'All' },
-  { key: 'sites', label: 'Websites & Funnels' },
   { key: 'crm', label: 'CRM & Templates' },
   { key: 'work', label: 'Workflows' },
+  { key: 'sites', label: 'Websites & Funnels' },
   { key: 'ops', label: 'Admin Ops' },
 ]
 

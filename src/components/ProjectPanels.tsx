@@ -7,6 +7,7 @@ import { AppsSection } from './Projects'
 import { useFunnelModal } from './FunnelModal'
 import { websiteFunnel } from '@/data/funnels'
 import { ProofCard, ProofLightbox, type ProofItem } from './ProofDeck'
+import ProcessMapExplorer from './ProcessMapExplorer'
 
 const FunnelBarrel = lazy(() => import('./FunnelBarrel'))
 
@@ -104,6 +105,8 @@ export function PlanPanel() {
             <span className="proof-deck__stat-lbl">Native Setup</span>
           </li>
         </ul>
+
+        <ProcessMapExplorer />
 
         <div className="proof-deck__cards">
           {ARCH_PROOFS.map((proof) => (

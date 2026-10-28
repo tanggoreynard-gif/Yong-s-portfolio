@@ -50,18 +50,18 @@ export const mobileApps: MobileApp[] = [
     badge: 'Workflow Prototype',
   },
   {
-    name: 'Full-Funnel Sales Process Map & Architecture',
-    tagline: 'Logic flowchart mapping lead intake through discovery and onboarding.',
-    description: 'Detailed process architecture diagram connecting webhooks, conditional branches, calendar scheduling rules, and 12 custom CRM fields.',
+    name: 'Dual-Pipeline Sales & Onboarding Process Architecture',
+    tagline: 'Interactive logic flowchart mapping 14 stages across lead intake, sales closing, and client onboarding.',
+    description: 'Production architecture diagram connecting webhooks, idempotent opportunity lookups, conditional decision branches, automated calendar rules, and 12 custom CRM fields.',
     imageSrc: '/proof/sales-process-map.png',
     imagePosition: 'center 25%',
     accentColor: '#16A34A',
     stats: [
-      { value: 'End-to-End', label: 'Process Map' },
-      { value: '12 Fields', label: 'Data Model' },
-      { value: 'GHL', label: 'Architecture' },
+      { value: '14 Stages', label: 'Dual Pipelines' },
+      { value: 'Idempotent', label: 'Opp Lookup' },
+      { value: 'Interactive', label: 'Flow Explorer' },
     ],
-    badge: 'Architecture Blueprint',
+    badge: 'Interactive Blueprint',
   },
 ]
 

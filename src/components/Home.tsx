@@ -79,7 +79,91 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          3. CLIENT WEBSITES & CONVERSION FUNNELS
+          3. FEATURED PROJECTS
+          ======================================================== */}
+      <section className="home__glass home__glass--section" aria-labelledby="featured-projects-title" data-reveal>
+        <div className="home__sec-head">
+          <div className="home__sec-titleblock">
+            <span className="home__sec-eyebrow">Production Builds & Templates</span>
+            <h2 className="home__sec-title" id="featured-projects-title">Featured Projects</h2>
+            <p className="home__sec-desc">
+              Practical GoHighLevel systems pre-configured with real pipeline stages, automated triggers, and lead tracking — ready for client demonstration and onboarding.
+            </p>
+          </div>
+          <Link to="/projects" className="home__sec-action">
+            <span>View All Projects</span>
+            <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
+          </Link>
+        </div>
+
+        <div className="home__projects-grid">
+          {/* Project 1 */}
+          <Link to="/projects" className="home__project-card">
+            <div className="home__project-visual">
+              <img src="/proof/crm-opportunities-pipeline.png" alt="8-Stage Sales Pipeline Template" loading="lazy" />
+              <span className="home__project-badge">CRM Template</span>
+            </div>
+            <div className="home__project-body">
+              <span className="home__project-step">01 · Pipeline Architecture</span>
+              <h3 className="home__project-name">8-Stage Sales Pipeline Template</h3>
+              <p className="home__project-note">
+                Visual Kanban opportunity board with standardized deal stages, custom fields, and automated stage migration triggers.
+              </p>
+              <div className="home__project-tags">
+                <span>GoHighLevel</span>
+                <span>Kanban Board</span>
+                <span>Custom Fields</span>
+                <span>Stage Sync</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Project 2 */}
+          <Link to="/projects" className="home__project-card">
+            <div className="home__project-visual">
+              <img src="/proof/live-client-conversation.png" alt="Lead Nurture & Client Messaging System" loading="lazy" />
+              <span className="home__project-badge">Messaging System</span>
+            </div>
+            <div className="home__project-body">
+              <span className="home__project-step">02 · Automated Messaging</span>
+              <h3 className="home__project-name">Lead Nurture & Client Messaging</h3>
+              <p className="home__project-note">
+                Sub-60-second missed-call text-back workflows, automated appointment confirmations, and multi-channel SMS follow-up sequences.
+              </p>
+              <div className="home__project-tags">
+                <span>Missed-Call Text</span>
+                <span>SMS Triggers</span>
+                <span>Lead Follow-Up</span>
+                <span>Reminders</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Project 3 */}
+          <Link to="/projects" className="home__project-card">
+            <div className="home__project-visual">
+              <img src="/proof/ghl-workflows-directory.png" alt="Pre-Built Workflows & SOP Directory" loading="lazy" />
+              <span className="home__project-badge">Systems & SOPs</span>
+            </div>
+            <div className="home__project-body">
+              <span className="home__project-step">03 · Operations & SOPs</span>
+              <h3 className="home__project-name">Pre-Built Workflows & SOP Directory</h3>
+              <p className="home__project-note">
+                Documented trigger matrices and standard operating procedures for new lead routing, reminders, and stage updates.
+              </p>
+              <div className="home__project-tags">
+                <span>Workflow Directory</span>
+                <span>SOP Tracking</span>
+                <span>Lead Routing</span>
+                <span>Data Hygiene</span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* ========================================================
+          4. CLIENT WEBSITES & CONVERSION FUNNELS
           ======================================================== */}
       <section className="home__glass home__glass--section" aria-labelledby="client-websites-title" data-reveal>
         <div className="home__sec-head">
@@ -276,91 +360,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          4. FEATURED PROJECTS
-          ======================================================== */}
-      <section className="home__glass home__glass--section" aria-labelledby="featured-projects-title" data-reveal>
-        <div className="home__sec-head">
-          <div className="home__sec-titleblock">
-            <span className="home__sec-eyebrow">Production Builds & Templates</span>
-            <h2 className="home__sec-title" id="featured-projects-title">Featured Projects</h2>
-            <p className="home__sec-desc">
-              Practical GoHighLevel systems pre-configured with real pipeline stages, automated triggers, and lead tracking — ready for client demonstration and onboarding.
-            </p>
-          </div>
-          <Link to="/projects" className="home__sec-action">
-            <span>View All Projects</span>
-            <ArrowUpRight size={15} weight="bold" aria-hidden="true" />
-          </Link>
-        </div>
-
-        <div className="home__projects-grid">
-          {/* Project 1 */}
-          <Link to="/projects" className="home__project-card">
-            <div className="home__project-visual">
-              <img src="/proof/crm-opportunities-pipeline.png" alt="8-Stage Sales Pipeline Template" loading="lazy" />
-              <span className="home__project-badge">CRM Template</span>
-            </div>
-            <div className="home__project-body">
-              <span className="home__project-step">01 · Pipeline Architecture</span>
-              <h3 className="home__project-name">8-Stage Sales Pipeline Template</h3>
-              <p className="home__project-note">
-                Visual Kanban opportunity board with standardized deal stages, custom fields, and automated stage migration triggers.
-              </p>
-              <div className="home__project-tags">
-                <span>GoHighLevel</span>
-                <span>Kanban Board</span>
-                <span>Custom Fields</span>
-                <span>Stage Sync</span>
-              </div>
-            </div>
-          </Link>
-
-          {/* Project 2 */}
-          <Link to="/projects" className="home__project-card">
-            <div className="home__project-visual">
-              <img src="/proof/live-client-conversation.png" alt="Lead Nurture & Client Messaging System" loading="lazy" />
-              <span className="home__project-badge">Messaging System</span>
-            </div>
-            <div className="home__project-body">
-              <span className="home__project-step">02 · Automated Messaging</span>
-              <h3 className="home__project-name">Lead Nurture & Client Messaging</h3>
-              <p className="home__project-note">
-                Sub-60-second missed-call text-back workflows, automated appointment confirmations, and multi-channel SMS follow-up sequences.
-              </p>
-              <div className="home__project-tags">
-                <span>Missed-Call Text</span>
-                <span>SMS Triggers</span>
-                <span>Lead Follow-Up</span>
-                <span>Reminders</span>
-              </div>
-            </div>
-          </Link>
-
-          {/* Project 3 */}
-          <Link to="/projects" className="home__project-card">
-            <div className="home__project-visual">
-              <img src="/proof/ghl-workflows-directory.png" alt="Pre-Built Workflows & SOP Directory" loading="lazy" />
-              <span className="home__project-badge">Systems & SOPs</span>
-            </div>
-            <div className="home__project-body">
-              <span className="home__project-step">03 · Operations & SOPs</span>
-              <h3 className="home__project-name">Pre-Built Workflows & SOP Directory</h3>
-              <p className="home__project-note">
-                Documented trigger matrices and standard operating procedures for new lead routing, reminders, and stage updates.
-              </p>
-              <div className="home__project-tags">
-                <span>Workflow Directory</span>
-                <span>SOP Tracking</span>
-                <span>Lead Routing</span>
-                <span>Data Hygiene</span>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* ========================================================
-          4. WORKFLOW DEMOS (Clearly labeled as Demo Builds / Sample Work)
+          5. WORKFLOW DEMOS (Clearly labeled as Demo Builds / Sample Work)
           ======================================================== */}
       <section className="home__glass home__glass--section" aria-labelledby="workflow-demos-title" data-reveal>
         <div className="home__sec-head">

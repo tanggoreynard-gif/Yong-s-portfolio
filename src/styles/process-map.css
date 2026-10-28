@@ -1,0 +1,746 @@
+/* ==========================================================================
+   PROCESS MAP EXPLORER STYLING
+   High-Fidelity CRM Architecture & Automation Engine
+   ========================================================================== */
+
+.pme {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #090c15;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: clamp(16px, 2.5vw, 28px);
+  color: #f1f5f9;
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+/* ---------- Header & Toolbar ---------- */
+.pme__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pme__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pme__title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pme__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(74, 144, 217, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(74, 144, 217, 0.3);
+}
+
+.pme__title {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.pme__desc {
+  margin: 0;
+  font-size: 13.5px;
+  color: #94a3b8;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+.pme__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Tabs */
+.pme__tabs {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.pme__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.pme__tab:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pme__tab--active {
+  background: #1e293b;
+  color: #38bdf8 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Tool Buttons */
+.pme__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #cbd5e1;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.pme__btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.pme__btn--accent {
+  background: rgba(91, 79, 224, 0.2);
+  border-color: rgba(91, 79, 224, 0.4);
+  color: #c4b5fd;
+}
+
+.pme__btn--accent:hover {
+  background: rgba(91, 79, 224, 0.32);
+  color: #ffffff;
+}
+
+/* Quick Nav Stage Pills */
+.pme__stage-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.pme__stage-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pme__stage-pill:hover,
+.pme__stage-pill--active {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.pme__stage-pill-num {
+  font-weight: 700;
+  font-size: 10.5px;
+  opacity: 0.75;
+}
+
+/* ---------- Zoom & Canvas Area ---------- */
+.pme__viewport {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #06080f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  min-height: 580px;
+}
+
+.pme__viewport::-webkit-scrollbar {
+  height: 8px;
+}
+
+.pme__viewport::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.pme__canvas {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  min-width: max-content;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+  transform-origin: top left;
+}
+
+/* ---------- Stage Column ---------- */
+.pme__col {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+  gap: 12px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pme__col:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.pme__col-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.pme__col-stage-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pme__col-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  text-align: right;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Connector Lines */
+.pme__flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  height: 14px;
+  margin: -4px 0;
+}
+
+/* ---------- Node Cards ---------- */
+
+/* 1. Trigger Node */
+.pme__node-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: #1e3a5f;
+  border: 1.5px solid #4a90d9;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(74, 144, 217, 0.25);
+  transition: all 0.18s ease;
+}
+
+.pme__node-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(74, 144, 217, 0.45);
+  background: #254b7a;
+}
+
+/* 2. Opp Stage Node */
+.pme__node-stage {
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #001f3f;
+  border: 1px solid rgba(74, 144, 217, 0.4);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.pme__node-stage:hover {
+  background: #002d5c;
+  transform: translateY(-2px);
+  border-color: #60a5fa;
+}
+
+/* 3. Opp Handler Box (Find -> Found/Not Found) */
+.pme__opp-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.pme__opp-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 6px;
+  background: #0b132b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pme__opp-check:hover {
+  background: #111e42;
+  color: #ffffff;
+}
+
+.pme__opp-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.pme__opp-path {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pme__opp-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.pme__opp-tag--found {
+  color: #38bdf8;
+}
+
+.pme__opp-tag--not-found {
+  color: #a78bfa;
+}
+
+.pme__opp-node {
+  padding: 6px 4px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.25;
+}
+
+.pme__opp-node--update {
+  background: #0c4a6e;
+  color: #e0f2fe;
+  border: 1px solid #0284c7;
+}
+
+.pme__opp-node--update:hover {
+  background: #0369a1;
+}
+
+.pme__opp-node--create {
+  background: #2e1065;
+  color: #ede9fe;
+  border: 1px solid #7c3aed;
+}
+
+.pme__opp-node--create:hover {
+  background: #3b0764;
+}
+
+/* 4. Action Steps Stack */
+.pme__actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pme__node-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #e2e8f0;
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pme__node-action:hover {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(2px);
+}
+
+.pme__node-action-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pme__action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+.pme__node-timing {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* 5. Manual Action (Hold Call) */
+.pme__node-manual {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: #d35400;
+  border: 1.5px solid #e67e22;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(230, 126, 34, 0.3);
+  transition: all 0.18s ease;
+}
+
+.pme__node-manual:hover {
+  transform: translateY(-2px);
+  background: #e67e22;
+  box-shadow: 0 0 18px rgba(230, 126, 34, 0.5);
+}
+
+/* 6. Decision Diamond / Box */
+.pme__decision-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.pme__decision-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 6px;
+  background: #312e81;
+  border: 1px solid #6366f1;
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pme__decision-branches {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pme__branch {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 2px solid;
+}
+
+.pme__branch--yes {
+  border-color: #22c55e;
+}
+
+.pme__branch--no {
+  border-color: #ef4444;
+}
+
+.pme__branch-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pme__branch--yes .pme__branch-label {
+  color: #4ade80;
+}
+
+.pme__branch--no .pme__branch-label {
+  color: #f87171;
+}
+
+/* 7. Terminal / End Node */
+.pme__node-end {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: #14532d;
+  border: 1.5px solid #22c55e;
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.25);
+  transition: all 0.18s ease;
+  line-height: 1.3;
+}
+
+.pme__node-end:hover {
+  transform: translateY(-2px);
+  background: #166534;
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.45);
+}
+
+/* ---------- Inspector Modal / Drawer ---------- */
+.pme__modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+  animation: pmeFadeIn 0.2s ease-out;
+}
+
+.pme__modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9);
+  color: #e2e8f0;
+}
+
+.pme__modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #94a3b8;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pme__modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.pme__modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pme__modal-id {
+  font-family: monospace;
+  font-size: 12px;
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.pme__modal-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pme__modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.pme__modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pme__modal-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.pme__modal-val {
+  font-size: 13px;
+  color: #f1f5f9;
+}
+
+/* ---------- Mermaid Code View ---------- */
+.pme__code-box {
+  position: relative;
+  width: 100%;
+  background: #04060a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  max-height: 580px;
+  overflow-y: auto;
+}
+
+.pme__code-pre {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #38bdf8;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Copy notification toast */
+.pme__toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #14532d;
+  color: #4ade80;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+@keyframes pmeFadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pme {
+    padding: 14px;
+  }
+  .pme__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pme__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

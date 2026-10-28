@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Process Map & Automation Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06080f;
+      --card: #0f172a;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 24px;
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .header {
+      max-width: 1400px;
+      margin: 0 auto 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    h1 {
+      margin: 8px 0 4px;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      color: #ffffff;
+    }
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 750px;
+      line-height: 1.5;
+    }
+    .links {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-primary {
+      background: #5b4fe0;
+      border-color: #7469f5;
+    }
+    .btn-primary:hover {
+      background: #4a3ed1;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      overflow-x: auto;
+    }
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      min-width: 1000px;
+    }
+  </style>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#090c15',
+        primaryColor: '#001f3f',
+        primaryTextColor: '#ffffff',
+        primaryBorderColor: '#4a90d9',
+        lineColor: '#60a5fa',
+        secondaryColor: '#1e3a5f',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <span class="badge">GoHighLevel Enterprise Blueprint</span>
+      <h1>Dual-Pipeline Sales & Onboarding Process Map</h1>
+      <p>14 automated production stages mapping inbound lead intake through multi-channel nurture, calendar reminders, contract signing, and ongoing coaching retention.</p>
+    </div>
+    <div class="links">
+      <a href="/projects" class="btn btn-primary">Open Portfolio Projects</a>
+      <button class="btn" onclick="navigator.clipboard.writeText(document.getElementById('raw-mermaid').textContent).then(() => alert('Mermaid code copied to clipboard!'))">Copy Mermaid Code</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <pre class="mermaid" id="raw-mermaid">
+flowchart TD
+
+classDef oppStage fill:#001f3f,color:#ffffff,stroke:#001f3f,font-weight:bold;
+classDef trigger fill:#4a90d9,color:#ffffff,stroke:#4a90d9,font-weight:bold;
+classDef endNode fill:#2ecc71,color:#ffffff,stroke:#27ae60,font-weight:bold;
+classDef manualAction fill:#e67e22,color:#ffffff,stroke:#d35400,font-weight:bold;
+
+%% =========================
+%% SALES PIPELINE
+%% =========================
+
+subgraph S1["001 - Sales Pipeline"]
+
+TR1(["⚡ Form Submitted"])
+ST1["001 New Lead"]
+FO1["Find Opportunity"]
+UO1["Update Opportunity"]
+CO1["Create Opportunity"]
+A1["Tag Lead Source"]
+A2["Welcome SMS"]
+A3["Welcome Email"]
+A4["Internal Notification"]
+A5["Wait 1 Hour"]
+D1{"Consultation Booked"}
+A6["Reminder SMS"]
+A7["Wait 2 Days"]
+END1(["✔ Consultation Booked → Stage 002"])
+
+TR2(["⚡ Customer Booked Appointment"])
+ST2["002 Consultation Booked"]
+FO2["Find Opportunity"]
+UO2["Update Opportunity"]
+CO2["Create Opportunity"]
+A8["Confirmation SMS"]
+A9["Confirmation Email"]
+A10["Prep Instructions"]
+A11["Wait Until 24 Hours"]
+A12["Reminder SMS"]
+A13["Wait Until 1 Hour"]
+A14["Final Reminder"]
+END2(["✔ Consultation Completed → Stage 003"])
+
+TR3(["⚡ Pipeline Stage Changed"])
+ST3["003 Consultation Completed"]
+FO3["Find Opportunity"]
+UO3["Update Opportunity"]
+CO3["Create Opportunity"]
+A15["Thank You SMS"]
+A16["Resources Email"]
+D2{"Ready To Enroll"}
+END3(["✔ Client Enrolled → Stage 005"])
+END4(["✔ Decision Pending → Stage 004"])
+
+TR4(["⚡ Pipeline Stage Changed"])
+ST4["004 Follow Up"]
+FO4["Find Opportunity"]
+UO4["Update Opportunity"]
+CO4["Create Opportunity"]
+A17["Success Stories"]
+A18["Education Email"]
+A19["Check In SMS"]
+A20["Wait 3 Days"]
+D3{"Enrolled"}
+END5(["✔ Client Enrolled → Stage 005"])
+END6(["✔ Closed Lost → Stage 007"])
+
+TR5(["⚡ Opportunity Status Changed"])
+ST5["005 Client Enrolled"]
+FO5["Find Opportunity"]
+UO5["Update Opportunity"]
+CO5["Create Opportunity"]
+A21["Welcome SMS"]
+A22["Welcome Email"]
+A23["Start Onboarding"]
+END7(["✔ Move to Onboarding Pipeline"])
+
+TR6(["⚡ Opportunity Status Changed"])
+ST6["006 Active Client"]
+FO6["Find Opportunity"]
+UO6["Update Opportunity"]
+CO6["Create Opportunity"]
+A24["Weekly Check In"]
+A25["Progress Reminder"]
+A26["Milestone Message"]
+A27["Review Request"]
+END8(["✔ Coaching Continues"])
+
+TR7(["⚡ Opportunity Status Changed"])
+ST7["007 Closed Lost"]
+FO7["Find Opportunity"]
+UO7["Update Opportunity"]
+CO7["Create Opportunity"]
+A28["Add Lost Tag"]
+A29["Start Reengagement"]
+END9(["✔ Long Term Nurture"])
+
+end
+
+%% =========================
+%% ONBOARDING PIPELINE
+%% =========================
+
+subgraph O1["002 - Client Onboarding"]
+
+TR8(["⚡ Pipeline Stage Changed"])
+ST8["001 New Client"]
+FO8["Find Opportunity"]
+UO8["Update Opportunity"]
+CO8["Create Opportunity"]
+A30["Send Intake Form"]
+END10(["✔ Intake Complete → Stage 002"])
+
+TR9(["⚡ Form Submitted"])
+ST9["002 Intake Complete"]
+FO9["Find Opportunity"]
+UO9["Update Opportunity"]
+CO9["Create Opportunity"]
+A31["Send Agreement"]
+END11(["✔ Agreement Signed → Stage 003"])
+
+TR10(["⚡ Documents Signed"])
+ST10["003 Agreement Signed"]
+FO10["Find Opportunity"]
+UO10["Update Opportunity"]
+CO10["Create Opportunity"]
+A32["Payment Request"]
+END12(["✔ Payment Confirmed → Stage 004"])
+
+TR11(["⚡ Payment Received"])
+ST11["004 Payment Confirmed"]
+FO11["Find Opportunity"]
+UO11["Update Opportunity"]
+CO11["Create Opportunity"]
+A33["Book Onboarding"]
+END13(["✔ Call Booked → Stage 005"])
+
+TR12(["⚡ Customer Booked Appointment"])
+ST12["005 Onboarding Call"]
+FO12["Find Opportunity"]
+UO12["Update Opportunity"]
+CO12["Create Opportunity"]
+A34["Call Reminder"]
+M1["👤 Hold Call"]
+END14(["✔ Setup Complete → Stage 006"])
+
+TR13(["⚡ Pipeline Stage Changed"])
+ST13["006 Program Setup"]
+FO13["Find Opportunity"]
+UO13["Update Opportunity"]
+CO13["Create Opportunity"]
+A35["Deliver Program"]
+A36["Grant Resources"]
+END15(["✔ Active Coaching"])
+
+TR14(["⚡ Pipeline Stage Changed"])
+ST14["007 Active Coaching"]
+FO14["Find Opportunity"]
+UO14["Update Opportunity"]
+CO14["Create Opportunity"]
+A37["Weekly Accountability"]
+A38["Monthly Review"]
+A39["Progress Survey"]
+A40["Renewal Reminder"]
+END16(["✔ Coaching Ongoing"])
+
+end
+
+%% Sales edges
+TR1-->ST1
+ST1-->FO1
+FO1-->|Opp Found|UO1
+FO1-->|Not Found|CO1
+UO1-->A1-->A2-->A3-->A4-->A5-->D1
+CO1-->A1
+D1-->|Yes|END1
+D1-->|No|A6-->A7-->END1
+
+TR2-->ST2-->FO2
+FO2-->|Opp Found|UO2
+FO2-->|Not Found|CO2
+UO2-->A8-->A9-->A10-->A11-->A12-->A13-->A14-->END2
+CO2-->A8
+
+TR3-->ST3-->FO3
+FO3-->|Opp Found|UO3
+FO3-->|Not Found|CO3
+UO3-->A15-->A16-->D2
+CO3-->A15
+D2-->|Yes|END3
+D2-->|No|END4
+
+TR4-->ST4-->FO4
+FO4-->|Opp Found|UO4
+FO4-->|Not Found|CO4
+UO4-->A17-->A18-->A19-->A20-->D3
+CO4-->A17
+D3-->|Yes|END5
+D3-->|No|END6
+
+TR5-->ST5-->FO5
+FO5-->|Opp Found|UO5
+FO5-->|Not Found|CO5
+UO5-->A21-->A22-->A23-->END7
+CO5-->A21
+
+TR6-->ST6-->FO6
+FO6-->|Opp Found|UO6
+FO6-->|Not Found|CO6
+UO6-->A24-->A25-->A26-->A27-->END8
+CO6-->A24
+
+TR7-->ST7-->FO7
+FO7-->|Opp Found|UO7
+FO7-->|Not Found|CO7
+UO7-->A28-->A29-->END9
+CO7-->A28
+
+%% Onboarding edges
+TR8-->ST8-->FO8
+FO8-->|Opp Found|UO8
+FO8-->|Not Found|CO8
+UO8-->A30-->END10
+CO8-->A30
+
+TR9-->ST9-->FO9
+FO9-->|Opp Found|UO9
+FO9-->|Not Found|CO9
+UO9-->A31-->END11
+CO9-->A31
+
+TR10-->ST10-->FO10
+FO10-->|Opp Found|UO10
+FO10-->|Not Found|CO10
+UO10-->A32-->END12
+CO10-->A32
+
+TR11-->ST11-->FO11
+FO11-->|Opp Found|UO11
+FO11-->|Not Found|CO11
+UO11-->A33-->END13
+CO11-->A33
+
+TR12-->ST12-->FO12
+FO12-->|Opp Found|UO12
+FO12-->|Not Found|CO12
+UO12-->A34-->M1-->END14
+CO12-->A34
+
+TR13-->ST13-->FO13
+FO13-->|Opp Found|UO13
+FO13-->|Not Found|CO13
+UO13-->A35-->A36-->END15
+CO13-->A35
+
+TR14-->ST14-->FO14
+FO14-->|Opp Found|UO14
+FO14-->|Not Found|CO14
+UO14-->A37-->A38-->A39-->A40-->END16
+CO14-->A37
+
+%% Classes
+class TR1,TR2,TR3,TR4,TR5,TR6,TR7,TR8,TR9,TR10,TR11,TR12,TR13,TR14 trigger;
+class ST1,ST2,ST3,ST4,ST5,ST6,ST7,ST8,ST9,ST10,ST11,ST12,ST13,ST14 oppStage;
+class END1,END2,END3,END4,END5,END6,END7,END8,END9,END10,END11,END12,END13,END14,END15,END16 endNode;
+class M1 manualAction;
+    </pre>
+  </div>
+</body>
+</html>
