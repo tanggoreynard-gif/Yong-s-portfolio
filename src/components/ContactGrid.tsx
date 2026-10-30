@@ -34,17 +34,34 @@ export default function ContactGrid() {
   const [shake, setShake] = useState(0)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
-  // Ensure GHL form embed auto-resizer script is loaded for the calendar
+  // Ensure GHL form embed auto-resizer script is loaded and listen for dynamic height events
   useEffect(() => {
     if (view === 'calendar') {
-      const existing = document.querySelector('script[src="https://go.rdtops.online/js/form_embed.js"]')
+      const existing = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')
       if (!existing) {
         const script = document.createElement('script')
-        script.src = 'https://go.rdtops.online/js/form_embed.js'
+        script.src = 'https://link.msgsndr.com/js/form_embed.js'
         script.type = 'text/javascript'
         script.async = true
         document.body.appendChild(script)
       }
+
+      const onMessage = (e: MessageEvent) => {
+        try {
+          const data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data
+          if (data && (data.action === 'resize' || data.height || data.frameHeight)) {
+            const h = Number(data.height || data.frameHeight)
+            if (h && h > 400) {
+              const frame = document.getElementById('f9JUfjP5sB4JwXvsZKFU_1792925195076') as HTMLIFrameElement | null
+              if (frame) frame.style.minHeight = `${Math.max(h + 40, 940)}px`
+            }
+          }
+        } catch {
+          // Ignore unrelated cross-origin messages
+        }
+      }
+      window.addEventListener('message', onMessage)
+      return () => window.removeEventListener('message', onMessage)
     }
   }, [view])
 
@@ -208,8 +225,8 @@ export default function ContactGrid() {
                 <iframe
                   src="https://go.rdtops.online/widget/booking/f9JUfjP5sB4JwXvsZKFU"
                   allow="payment"
-                  style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '680px' }}
-                  scrolling="no"
+                  style={{ width: '100%', border: 'none', minHeight: '940px', height: '100%' }}
+                  scrolling="auto"
                   id="f9JUfjP5sB4JwXvsZKFU_1792925195076"
                   title="GoHighLevel Appointment Booking Calendar"
                 />

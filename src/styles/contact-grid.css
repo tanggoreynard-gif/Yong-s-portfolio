@@ -552,16 +552,17 @@
 .cgrid__calendar-frame-wrap {
   flex: 1 1 auto;
   width: 100%;
-  min-height: 680px;
+  min-height: 940px;
   padding: 4px;
   position: relative;
   background: var(--white);
+  overflow-y: auto;
 }
 
 .cgrid__calendar-frame-wrap iframe {
   width: 100%;
   border: none;
-  overflow: hidden;
+  min-height: 940px;
   display: block;
 }
 
