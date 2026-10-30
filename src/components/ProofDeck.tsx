@@ -220,11 +220,12 @@ export function ProofLightbox({
               loading="eager"
             />
           ) : (
-            <div style={{ overflowY: 'auto', width: '100%', height: '100%', padding: '24px', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ overflowY: 'auto', width: '100%', height: '100%', padding: '24px 16px', display: 'flex', justifyContent: 'center', alignItems: 'flex-start' }}>
               <img
                 className={`proof-modal__full-img${active.wide ? ' proof-modal__full-img--wide' : ''}`}
                 src={active.fullSrc || active.src}
                 alt={active.alt}
+                style={{ width: 'auto', maxWidth: '100%', height: 'auto', display: 'block', margin: '0 auto' }}
               />
             </div>
           )}
