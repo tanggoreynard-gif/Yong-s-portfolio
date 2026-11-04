@@ -75,6 +75,13 @@ const SAMPLES: Sample[] = [
     desc: 'Automated invoice delivery sequence with conditional logic checking payment status across 2-day, 5-day, 7-day, and 10-day reminder intervals.',
     nodes: 'Pipeline Stage Changed · Send Invoice · 2d / 5d / 7d / 10d Payment Sequences',
   },
+  {
+    file: '08-missed-call-text-back.png',
+    label: '008_Missed Call Text Back (MCTB)',
+    stage: 'Speed-to-Lead & Recovery',
+    desc: 'Triggered by inbound missed, busy, or voicemail calls. Applies a natural delay, fires an automated conversational SMS, tags the contact, and dispatches an instant mobile notification to the team.',
+    nodes: 'Call Details (Missed/Busy) · Humanized Delay · Instant SMS · Tag Missed-Call · Team Notification',
+  },
 ]
 
 const srcOf = (s: Sample) => `/proof/${encodeURIComponent(s.file)}`
@@ -118,7 +125,7 @@ export default function WorkflowSamples() {
           Full-Funnel Sales & Client Lifecycle Automation
         </h2>
         <p className="wfs__desc">
-          Live automation architecture configured inside GoHighLevel: lead capture, discovery call reminders, cancellation fail-safes, proposal follow-ups, and invoice delivery. Click any workflow card to inspect the full branching diagram.
+          Live automation architecture configured inside GoHighLevel: lead capture, speed-to-lead missed-call text-back, discovery call reminders, cancellation fail-safes, proposal follow-ups, and invoice delivery. Click any workflow card to inspect the full branching diagram.
         </p>
       </header>
 

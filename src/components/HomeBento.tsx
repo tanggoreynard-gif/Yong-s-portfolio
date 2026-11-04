@@ -29,6 +29,7 @@ const GHL_SHOTS = [
   '/proof/ghl-workflows-directory.png',
   '/proof/01-new-lead-stage.png',
   '/proof/02-call-booked-stage.png',
+  '/proof/08-missed-call-text-back.png',
 ]
 
 const OFFERS = [

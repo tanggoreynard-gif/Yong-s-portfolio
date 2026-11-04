@@ -43,6 +43,7 @@ const WF_SHOTS = [
   '/proof/03-cancellation-alert.png',
   '/proof/04-proposal-sent.png',
   '/proof/05-invoice-sent.png',
+  '/proof/08-missed-call-text-back.png',
 ]
 
 const GHL_SHOTS = [
