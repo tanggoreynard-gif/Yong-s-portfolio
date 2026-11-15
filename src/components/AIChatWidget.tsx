@@ -82,6 +82,13 @@ export default function AIChatWidget() {
   const generateAIResponse = (userQuery: string): { text: string; action?: Message['action'] } => {
     const q = userQuery.toLowerCase().trim()
 
+    // 0. Quick greetings / Casual check-in
+    if (q === 'hi' || q === 'hello' || q === 'hey' || q === 'yo' || q === 'sup' || q.startsWith('good morning') || q.startsWith('good afternoon') || q.startsWith('good evening') || q === 'hey there') {
+      return {
+        text: "Hey! Glad you reached out. What can I help you with today? Feel free to ask about my GoHighLevel workflows, rates, or systems.",
+      }
+    }
+
     // 1. Booking / Calendar / Meeting
     if (q.includes('book') || q.includes('calendar') || q.includes('schedule') || q.includes('call') || q.includes('meet')) {
       return {
@@ -161,8 +168,19 @@ export default function AIChatWidget() {
     setIsTyping(true)
 
     const { text: replyText, action } = generateAIResponse(text)
-    // Realistic human reading & typing delay (1.8s to 2.4s)
-    const typingDelay = Math.min(2500, Math.max(1800, 1400 + replyText.length * 4))
+
+    // Realistic human reading & typing simulation:
+    // 1. Reading time: scales with user's input length (350ms to 1100ms)
+    const readTime = Math.min(1100, Math.max(350, 250 + text.length * 10))
+
+    // 2. Typing time: scales directly with the length of the reply (~13ms per char, min 650ms)
+    const typeTime = Math.max(650, replyText.length * 12.5)
+
+    // 3. Subtle human jitter (+/- 100ms)
+    const jitter = Math.floor(Math.random() * 200) - 100
+
+    // Dynamic delay: short greetings take ~1.2s - 1.6s, medium replies take ~2.2s - 2.8s, long detailed blueprints take ~3.8s - 4.6s
+    const typingDelay = Math.min(4800, Math.max(1100, Math.round(readTime + typeTime + jitter)))
 
     setTimeout(() => {
       const aiMsg: Message = {
