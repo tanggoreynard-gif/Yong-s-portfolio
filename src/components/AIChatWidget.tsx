@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import {
   X,
   PaperPlaneTilt,
-  Sparkle,
   ArrowCounterClockwise,
   CalendarCheck,
 } from '@/components/slab'
@@ -27,15 +26,15 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: 'm1',
     sender: 'ai',
-    text: "Hi there! 👋 I'm Reynard's AI Assistant. Ask me anything about his GoHighLevel systems, CRM workflows, pricing, or book a quick strategy call.",
+    text: "Hey! Glad you're here. Ask me anything about my GoHighLevel workflows, CRM architecture, pricing, or let's book a quick strategy call.",
     time: 'Just now',
   },
 ]
 
 const QUICK_CHIPS = [
   'How does your missed-call workflow work?',
-  'What services do you offer?',
   'What are your rates?',
+  'What services do you offer?',
   'Book a 15-minute call',
   'Tell me about your background',
 ]
@@ -86,7 +85,7 @@ export default function AIChatWidget() {
     // 1. Booking / Calendar / Meeting
     if (q.includes('book') || q.includes('calendar') || q.includes('schedule') || q.includes('call') || q.includes('meet')) {
       return {
-        text: "You can book a 15-minute strategy call directly on Reynard's calendar! We can discuss your sales pipeline, CRM bottlenecks, or audit your existing workflows.",
+        text: "You can grab a 15-minute slot directly on my calendar! We can dive into your sales pipeline, audit your CRM bottlenecks, or discuss your workflows.",
         action: { label: 'Open Booking Calendar ↗', actionType: 'calendar' },
       }
     }
@@ -94,7 +93,7 @@ export default function AIChatWidget() {
     // 2. Missed Call Text Back / Speed-to-lead
     if (q.includes('missed') || q.includes('mctb') || q.includes('speed to lead') || q.includes('text back') || q.includes('008')) {
       return {
-        text: "Reynard's 008_Missed Call Text Back engine triggers immediately on missed or busy incoming calls. It applies a natural 60-second delay so the text feels human (not robotic), sends a conversational SMS, tags the contact ('status: missed-call'), and pings the team via the LeadConnector app.",
+        text: "My 008_Missed Call Text Back engine triggers immediately on missed or busy incoming calls. I apply a natural 60-second delay so the text feels human and unhurried, send a conversational SMS, tag the contact ('status: missed-call'), and alert the team right inside the LeadConnector app.",
         action: { label: 'View Workflow Blueprint ↗', actionType: 'portfolio' },
       }
     }
@@ -102,7 +101,7 @@ export default function AIChatWidget() {
     // 3. Services / What do you do / GHL
     if (q.includes('service') || q.includes('offer') || q.includes('what do you do') || q.includes('help with') || q.includes('skills')) {
       return {
-        text: "Reynard specializes in end-to-end GoHighLevel CRM architecture:\n\n• Speed-to-lead and missed-call text-back\n• 8-stage sales pipelines & custom qualification fields\n• Appointment booking engines with 24h & 20m reminders\n• Client onboarding workflows & contract triggers\n• Data hygiene and Zapier integrations",
+        text: "I specialize in end-to-end GoHighLevel CRM architecture:\n\n• Speed-to-lead & missed-call text-back\n• 8-stage sales pipelines & custom qualification fields\n• Appointment booking engines with 24h & 20m reminders\n• Client onboarding workflows & contract triggers\n• Zapier/webhook integrations & data hygiene",
         action: { label: 'Explore Full Process Map ↗', actionType: 'portfolio' },
       }
     }
@@ -110,7 +109,7 @@ export default function AIChatWidget() {
     // 4. Pricing / Cost / Rates / Salary
     if (q.includes('price') || q.includes('pricing') || q.includes('cost') || q.includes('rate') || q.includes('how much') || q.includes('salary') || q.includes('fee')) {
       return {
-        text: "Reynard's rates are typically $10–$15/hour for part-time operations, $1,200–$1,500/month for dedicated full-time support, or fixed per-project quotes based on the HLA Maria Pricing framework. Would you like to schedule a 15-minute call to get an exact scope?",
+        text: "My rates typically range from $10–$15/hour for part-time operations, $1,200–$1,500/month for dedicated full-time support, or fixed per-project quotes based on the HLA Maria Pricing framework. Would you like to hop on a quick 15-minute call so we can go over what you need?",
         action: { label: 'Book a Quick Strategy Call ↗', actionType: 'calendar' },
       }
     }
@@ -118,14 +117,14 @@ export default function AIChatWidget() {
     // 5. Background / Engineering / Credentials
     if (q.includes('background') || q.includes('who is') || q.includes('certified') || q.includes('engineer') || q.includes('reynard')) {
       return {
-        text: "Reynard Tanggo is a licensed Agricultural and Biosystems Engineer and an official HighLevel Certified Admin (HLA-Verified). His engineering background gives him a disciplined, systematic approach—building workflows with proper fail-safes so systems don't break under real client volume.",
+        text: "I'm a licensed Agricultural and Biosystems Engineer and an official HighLevel Certified Admin (HLA-Verified). My engineering background gives me a disciplined, systematic approach—I build workflows with proper fail-safes so systems don't break under real client volume.",
       }
     }
 
     // 6. Fitness Coaches
     if (q.includes('fitness') || q.includes('gym') || q.includes('coach') || q.includes('trainer')) {
       return {
-        text: "Reynard has custom workflows designed specifically for fitness businesses: capturing inquiries in under 60 seconds, stopping appointment no-shows with staged reminders, and automating weekly check-in forms so coaches reclaim 10–15 hours a week.",
+        text: "I've built turnkey workflows designed specifically for fitness businesses: capturing inquiries in under 60 seconds, stopping appointment no-shows with staged SMS reminders, and automating weekly check-in forms so coaches reclaim 10–15 hours every week.",
         action: { label: 'See FitCo Blueprint ↗', actionType: 'portfolio' },
       }
     }
@@ -134,14 +133,14 @@ export default function AIChatWidget() {
     if (q.includes('contact') || q.includes('email') || q.includes('hire') || q.includes('message') || q.includes('quote')) {
       setLeadMode(true)
       return {
-        text: "I can forward your message directly to Reynard's inbox! Please enter your name, email, and a short note below, or book directly on his calendar.",
+        text: "Drop your name, email, and a quick note below and it will send directly to my inbox, or feel free to book directly on my calendar.",
         action: { label: 'Open Booking Calendar ↗', actionType: 'calendar' },
       }
     }
 
     // Default friendly answer
     return {
-      text: "I'd be happy to help with that! Reynard builds full-funnel GoHighLevel pipelines, automated follow-ups, and calendar booking systems. Would you like to review his live portfolio or book a 15-minute strategy call?",
+      text: "I'd love to help with that! I build full-funnel GoHighLevel pipelines, automated follow-ups, and calendar booking systems. Would you like to review my live portfolio or grab a quick 15-minute strategy call on my calendar?",
       action: { label: 'Book 15-Min Strategy Call ↗', actionType: 'calendar' },
     }
   }
@@ -161,9 +160,11 @@ export default function AIChatWidget() {
     setInput('')
     setIsTyping(true)
 
-    // Simulate realistic AI thought/typing delay
+    const { text: replyText, action } = generateAIResponse(text)
+    // Realistic human reading & typing delay (1.8s to 2.4s)
+    const typingDelay = Math.min(2500, Math.max(1800, 1400 + replyText.length * 4))
+
     setTimeout(() => {
-      const { text: replyText, action } = generateAIResponse(text)
       const aiMsg: Message = {
         id: `ai-${Date.now()}`,
         sender: 'ai',
@@ -173,7 +174,7 @@ export default function AIChatWidget() {
       }
       setIsTyping(false)
       setMessages((prev) => [...prev, aiMsg])
-    }, 650)
+    }, typingDelay)
   }
 
   const handleLeadSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -215,12 +216,12 @@ export default function AIChatWidget() {
   }
 
   return (
-    <aside className="ai-chat" aria-label="AI Chat Assistant">
+    <aside className="ai-chat" aria-label="Chat with Reynard">
       {/* Floating Teaser Tooltip */}
       {showTeaser && !isOpen && (
         <div className="ai-chat__teaser" onClick={() => setIsOpen(true)}>
-          <Sparkle size={15} weight="fill" color="#F59E0B" />
-          <span>Have questions? Chat with AI</span>
+          <span className="ai-chat__teaser-dot" />
+          <span>Have a question? Let's chat</span>
           <button
             type="button"
             className="ai-chat__teaser-close"
@@ -242,18 +243,15 @@ export default function AIChatWidget() {
           className="ai-chat__launcher"
           onClick={() => setIsOpen(true)}
           aria-expanded={isOpen}
-          aria-label="Open Reynard's AI Chat Assistant"
+          aria-label="Open chat with Reynard"
         >
           <div className="ai-chat__avatar-wrap">
             <img src={profile.avatarSrc} alt="Reynard Tanggo" className="ai-chat__avatar" />
             <span className="ai-chat__online-dot" />
           </div>
           <div className="ai-chat__launcher-text">
-            <span className="ai-chat__launcher-title">Chat with AI</span>
-            <span className="ai-chat__launcher-sub">
-              <Sparkle size={11} weight="fill" color="#38BDF8" />
-              Ask about GHL & Systems
-            </span>
+            <span className="ai-chat__launcher-title">Chat with Reynard</span>
+            <span className="ai-chat__launcher-sub">Replies in minutes</span>
           </div>
         </button>
       )}
@@ -269,10 +267,10 @@ export default function AIChatWidget() {
                 <span className="ai-chat__online-dot" />
               </div>
               <div>
-                <h3 className="ai-chat__header-title">Reynard's AI Assistant</h3>
+                <h3 className="ai-chat__header-title">Reynard Tanggo</h3>
                 <span className="ai-chat__header-badge">
-                  <Sparkle size={11} weight="fill" />
-                  HighLevel Certified Admin
+                  <span className="ai-chat__badge-dot" />
+                  HighLevel Certified Admin • Active
                 </span>
               </div>
             </div>
@@ -370,7 +368,7 @@ export default function AIChatWidget() {
               ref={inputRef}
               type="text"
               className="ai-chat__input"
-              placeholder="Ask anything about GHL, pricing, booking..."
+              placeholder="Ask about workflows, pricing, or booking..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {

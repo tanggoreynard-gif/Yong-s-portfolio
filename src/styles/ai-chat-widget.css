@@ -126,6 +126,15 @@
   cursor: pointer;
 }
 
+.ai-chat__teaser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+  flex-shrink: 0;
+}
+
 [data-theme='dark'] .ai-chat__teaser {
   background: #1E293B;
   color: #F8FAFC;
@@ -228,8 +237,17 @@
   color: #38BDF8;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   font-weight: 500;
+}
+
+.ai-chat__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 5px #10B981;
+  flex-shrink: 0;
 }
 
 .ai-chat__header-actions {
