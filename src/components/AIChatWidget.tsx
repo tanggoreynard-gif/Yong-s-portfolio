@@ -26,7 +26,7 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: 'm1',
     sender: 'ai',
-    text: "Hey! Glad you're here. Ask me anything about my GoHighLevel workflows, CRM architecture, pricing, or let's book a quick strategy call.",
+    text: "Hey! It's Rey. Glad you're here! Ask me anything about my GoHighLevel workflows, CRM architecture, pricing, or let's book a quick strategy call.",
     time: 'Just now',
   },
 ]
@@ -234,7 +234,7 @@ export default function AIChatWidget() {
   }
 
   return (
-    <aside className="ai-chat" aria-label="Chat with Reynard">
+    <aside className="ai-chat" aria-label="Hey Its Rey">
       {/* Floating Teaser Tooltip */}
       {showTeaser && !isOpen && (
         <div className="ai-chat__teaser" onClick={() => setIsOpen(true)}>
@@ -261,14 +261,14 @@ export default function AIChatWidget() {
           className="ai-chat__launcher"
           onClick={() => setIsOpen(true)}
           aria-expanded={isOpen}
-          aria-label="Open chat with Reynard"
+          aria-label="Open Hey Its Rey"
         >
           <div className="ai-chat__avatar-wrap">
             <img src={profile.avatarSrc} alt="Reynard Tanggo" className="ai-chat__avatar" />
             <span className="ai-chat__online-dot" />
           </div>
           <div className="ai-chat__launcher-text">
-            <span className="ai-chat__launcher-title">Chat with Reynard</span>
+            <span className="ai-chat__launcher-title">Hey Its Rey</span>
             <span className="ai-chat__launcher-sub">Replies in minutes</span>
           </div>
         </button>
@@ -285,7 +285,7 @@ export default function AIChatWidget() {
                 <span className="ai-chat__online-dot" />
               </div>
               <div>
-                <h3 className="ai-chat__header-title">Reynard Tanggo</h3>
+                <h3 className="ai-chat__header-title">Hey Its Rey</h3>
                 <span className="ai-chat__header-badge">
                   <span className="ai-chat__badge-dot" />
                   HighLevel Certified Admin • Active
