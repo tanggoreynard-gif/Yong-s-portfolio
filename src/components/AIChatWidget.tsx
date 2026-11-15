@@ -85,14 +85,14 @@ export default function AIChatWidget() {
     // 0. Quick greetings / Casual check-in
     if (q === 'hi' || q === 'hello' || q === 'hey' || q === 'yo' || q === 'sup' || q.startsWith('good morning') || q.startsWith('good afternoon') || q.startsWith('good evening') || q === 'hey there') {
       return {
-        text: "Hey! Glad you reached out. What can I help you with today? Feel free to ask about my GoHighLevel workflows, rates, or systems.",
+        text: "Hey! Glad you reached out. How can I help you today with GoHighLevel or automations?",
       }
     }
 
     // 1. Booking / Calendar / Meeting
     if (q.includes('book') || q.includes('calendar') || q.includes('schedule') || q.includes('call') || q.includes('meet')) {
       return {
-        text: "You can grab a 15-minute slot directly on my calendar! We can dive into your sales pipeline, audit your CRM bottlenecks, or discuss your workflows.",
+        text: "You can grab a 15-minute slot directly on my calendar! We can dive into your pipeline and workflows.",
         action: { label: 'Open Booking Calendar ↗', actionType: 'calendar' },
       }
     }
@@ -100,7 +100,7 @@ export default function AIChatWidget() {
     // 2. Missed Call Text Back / Speed-to-lead
     if (q.includes('missed') || q.includes('mctb') || q.includes('speed to lead') || q.includes('text back') || q.includes('008')) {
       return {
-        text: "My 008_Missed Call Text Back engine triggers immediately on missed or busy incoming calls. I apply a natural 60-second delay so the text feels human and unhurried, send a conversational SMS, tag the contact ('status: missed-call'), and alert the team right inside the LeadConnector app.",
+        text: "My 008 missed-call workflow waits 60 seconds, sends a human SMS, tags the contact, and alerts the team on LeadConnector.",
         action: { label: 'View Workflow Blueprint ↗', actionType: 'portfolio' },
       }
     }
@@ -108,7 +108,7 @@ export default function AIChatWidget() {
     // 3. Services / What do you do / GHL
     if (q.includes('service') || q.includes('offer') || q.includes('what do you do') || q.includes('help with') || q.includes('skills')) {
       return {
-        text: "I specialize in end-to-end GoHighLevel CRM architecture:\n\n• Speed-to-lead & missed-call text-back\n• 8-stage sales pipelines & custom qualification fields\n• Appointment booking engines with 24h & 20m reminders\n• Client onboarding workflows & contract triggers\n• Zapier/webhook integrations & data hygiene",
+        text: "I build end-to-end GoHighLevel sales pipelines, speed-to-lead automations, booking engines, client onboarding, and Zapier integrations.",
         action: { label: 'Explore Full Process Map ↗', actionType: 'portfolio' },
       }
     }
@@ -116,7 +116,7 @@ export default function AIChatWidget() {
     // 4. Pricing / Cost / Rates / Salary
     if (q.includes('price') || q.includes('pricing') || q.includes('cost') || q.includes('rate') || q.includes('how much') || q.includes('salary') || q.includes('fee')) {
       return {
-        text: "My rates typically range from $10–$15/hour for part-time operations, $1,200–$1,500/month for dedicated full-time support, or fixed per-project quotes based on the HLA Maria Pricing framework. Would you like to hop on a quick 15-minute call so we can go over what you need?",
+        text: "My rates are $10–$15/hr for part-time, or $1,200–$1,500/mo for full-time dedicated support. Would you like to hop on a quick call?",
         action: { label: 'Book a Quick Strategy Call ↗', actionType: 'calendar' },
       }
     }
@@ -124,14 +124,14 @@ export default function AIChatWidget() {
     // 5. Background / Engineering / Credentials
     if (q.includes('background') || q.includes('who is') || q.includes('certified') || q.includes('engineer') || q.includes('reynard')) {
       return {
-        text: "I'm a licensed Agricultural and Biosystems Engineer and an official HighLevel Certified Admin (HLA-Verified). My engineering background gives me a disciplined, systematic approach—I build workflows with proper fail-safes so systems don't break under real client volume.",
+        text: "I'm a licensed Agricultural & Biosystems Engineer and HighLevel Certified Admin. I build fail-safe CRM systems that don't break under volume.",
       }
     }
 
     // 6. Fitness Coaches
     if (q.includes('fitness') || q.includes('gym') || q.includes('coach') || q.includes('trainer')) {
       return {
-        text: "I've built turnkey workflows designed specifically for fitness businesses: capturing inquiries in under 60 seconds, stopping appointment no-shows with staged SMS reminders, and automating weekly check-in forms so coaches reclaim 10–15 hours every week.",
+        text: "I build turnkey workflows for fitness coaches: sub-60s lead response, no-show reduction reminders, and automated check-in forms that save 10–15 hours weekly.",
         action: { label: 'See FitCo Blueprint ↗', actionType: 'portfolio' },
       }
     }
@@ -140,14 +140,14 @@ export default function AIChatWidget() {
     if (q.includes('contact') || q.includes('email') || q.includes('hire') || q.includes('message') || q.includes('quote')) {
       setLeadMode(true)
       return {
-        text: "Drop your name, email, and a quick note below and it will send directly to my inbox, or feel free to book directly on my calendar.",
+        text: "Drop your name, email, and note below and it will send directly to my inbox, or book on my calendar!",
         action: { label: 'Open Booking Calendar ↗', actionType: 'calendar' },
       }
     }
 
     // Default friendly answer
     return {
-      text: "I'd love to help with that! I build full-funnel GoHighLevel pipelines, automated follow-ups, and calendar booking systems. Would you like to review my live portfolio or grab a quick 15-minute strategy call on my calendar?",
+      text: "I'd love to help with that! I build GoHighLevel automations, pipelines, and booking systems. Want to grab a quick 15-minute call?",
       action: { label: 'Book 15-Min Strategy Call ↗', actionType: 'calendar' },
     }
   }
@@ -169,18 +169,17 @@ export default function AIChatWidget() {
 
     const { text: replyText, action } = generateAIResponse(text)
 
-    // Realistic human reading & typing simulation:
-    // 1. Reading time: scales with user's input length (350ms to 1100ms)
-    const readTime = Math.min(1100, Math.max(350, 250 + text.length * 10))
+    // Calculate words in reply
+    const wordCount = replyText.trim().split(/\s+/).filter(Boolean).length
 
-    // 2. Typing time: scales directly with the length of the reply (~13ms per char, min 650ms)
-    const typeTime = Math.max(650, replyText.length * 12.5)
+    // 60 words per minute standard:
+    // 60 WPM = 60 words / 60,000 ms = 1 word per 1,000 ms (1 second per word)
+    const typingTimeMs = (wordCount / 60) * 60000
 
-    // 3. Subtle human jitter (+/- 100ms)
-    const jitter = Math.floor(Math.random() * 200) - 100
+    // Initial human reading/cognition pause (~350ms to 900ms based on query length)
+    const readTimeMs = Math.min(900, Math.max(350, 200 + text.length * 8))
 
-    // Dynamic delay: short greetings take ~1.2s - 1.6s, medium replies take ~2.2s - 2.8s, long detailed blueprints take ~3.8s - 4.6s
-    const typingDelay = Math.min(4800, Math.max(1100, Math.round(readTime + typeTime + jitter)))
+    const typingDelay = Math.round(readTimeMs + typingTimeMs)
 
     setTimeout(() => {
       const aiMsg: Message = {
@@ -288,7 +287,7 @@ export default function AIChatWidget() {
                 <h3 className="ai-chat__header-title">Hey Its Rey</h3>
                 <span className="ai-chat__header-badge">
                   <span className="ai-chat__badge-dot" />
-                  HighLevel Certified Admin • Active
+                  {isTyping ? 'Typing...' : 'HighLevel Certified Admin • Active'}
                 </span>
               </div>
             </div>
